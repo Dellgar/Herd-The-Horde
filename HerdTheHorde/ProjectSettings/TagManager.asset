@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2164277243
+    locked: 0
+  - name: Sheeps
+    uniqueID: 1562903301
+    locked: 0
+  - name: Foreground
+    uniqueID: 238801651
+    locked: 0
