@@ -24,6 +24,7 @@ public class SheepMovement : MonoBehaviour {
 	void Start ()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        mainCam = Camera.main;
 
 		
 

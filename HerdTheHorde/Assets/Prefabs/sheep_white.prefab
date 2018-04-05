@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4465794742865658}
   - component: {fileID: 212822247032397882}
   - component: {fileID: 114156058088323102}
+  - component: {fileID: 114631021139751676}
   - component: {fileID: 50696547775641938}
   - component: {fileID: 61108551488320452}
   m_Layer: 0
@@ -56,8 +57,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -99,6 +100,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29297f168f2b54b86c1a97cac3a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114631021139751676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416659374722194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e39fc5c0c472141bb878ddcbac36b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  mainCam: {fileID: 0}
+  isMoving: 0
+  moveTime: 0.2
+  waitTime: 0.2
+  viewportPos: {x: 0, y: 0}
 --- !u!212 &212822247032397882
 SpriteRenderer:
   m_ObjectHideFlags: 1
