@@ -13,6 +13,7 @@ public class SheepMovement : MonoBehaviour {
     public float waitTime;
     private float waitCounter;
     private int moveDirection;
+    private SpriteRenderer sheepRenderer;
 
 	[SerializeField]
 	private Vector2 viewportPos;
@@ -25,7 +26,7 @@ public class SheepMovement : MonoBehaviour {
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
-
+        sheepRenderer = GetComponent <SpriteRenderer>();
 		
 
         waitCounter = waitTime;
@@ -51,6 +52,7 @@ public class SheepMovement : MonoBehaviour {
 					break;
 
             case 1: //right
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(moveSpeed, 0);
                     break;
 
@@ -59,7 +61,20 @@ public class SheepMovement : MonoBehaviour {
                     break;
 
             case 3: //left
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(-moveSpeed, 0);
+                    break;
+            case 4: //up right
+                    myRigidbody.velocity = new Vector2(moveSpeed, moveSpeed);
+                    break;
+            case 5: //down left
+                    myRigidbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
+                    break;
+            case 6: // down right
+                    myRigidbody.velocity = new Vector2(moveSpeed, -moveSpeed);
+                    break;
+            case 7: // up left
+                    myRigidbody.velocity = new Vector2(-moveSpeed, moveSpeed);
                     break;
             }
 
@@ -87,7 +102,7 @@ public class SheepMovement : MonoBehaviour {
 		//check if out from screen
 		if (!isInScreen)
 		{
-			if (viewportPos.x > 1f)
+			if (viewportPos.x > 0.8f)
 			{
 				moveDirection = 3;
 			}
@@ -107,7 +122,7 @@ public class SheepMovement : MonoBehaviour {
 		}
 		else
 		{
-			moveDirection = Random.Range(0, 4);
+			moveDirection = Random.Range(0, 8);
 		}
 
 		isMoving = true;
@@ -118,7 +133,7 @@ public class SheepMovement : MonoBehaviour {
 	public void CameraBoundaries()
 	{
 
-		if (viewportPos.x <= 1f && viewportPos.x >= 0f && 
+		if (viewportPos.x <= 0.8f && viewportPos.x >= 0f && 
 			viewportPos.y <= 1f && viewportPos.y >= 0f)
 		{
 			Debug.Log("In Screen");
