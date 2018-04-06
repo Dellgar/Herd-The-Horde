@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Spawning : MonoBehaviour {
 
-    public GameObject[] spawnPrefabs;
-    public GameObject[] spawnPoint;
+    public GameObject[] spawnPrefabs;		//List of prefabs that can be spawned
+    public GameObject[] spawnPoint;			//List of gameobjects storing the spawnpoint coordinate
+	public int spawnPointIndex;				//Randomized value, pointing to what spawnpoint location is used
 
 
 	// Use this for initialization
@@ -19,9 +20,11 @@ public class Spawning : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(spawnPrefabs[Random.Range(0, spawnPrefabs.Length)], 
-                new Vector2(spawnPoint[Random.Range(0, spawnPoint.Length)].transform.position.x, 
-                spawnPoint[Random.Range(0, spawnPoint.Length)].transform.position.y), Quaternion.identity);
+			spawnPointIndex = Random.Range(0, spawnPoint.Length);
+
+			Instantiate(spawnPrefabs[0], 
+                new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
+				spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
         }
 	}
 

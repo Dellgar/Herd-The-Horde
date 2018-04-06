@@ -24,20 +24,24 @@ public class SheepMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		//Accessing to components with variables
         myRigidbody = GetComponent<Rigidbody2D>();
-        mainCam = Camera.main;
-        sheepRenderer = GetComponent <SpriteRenderer>();
-		
-
+		sheepRenderer = GetComponent<SpriteRenderer>();
+		mainCam = Camera.main;
+        
+		//Set counters
         waitCounter = waitTime;
         moveCounter = moveTime;
 
-        ChooseDirection();
+		//Allow sheeps first direction to be:
+		//up right down or right
+		moveDirection = Random.Range(0, 4);
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+		//Store what is the coordinate of sheep in viewport-coordinates
 		viewportPos = mainCam.WorldToViewportPoint(transform.position);
 		CameraBoundaries();
 
@@ -64,15 +68,19 @@ public class SheepMovement : MonoBehaviour {
                     sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(-moveSpeed, 0);
                     break;
+
             case 4: //up right
                     myRigidbody.velocity = new Vector2(moveSpeed, moveSpeed);
                     break;
+
             case 5: //down left
                     myRigidbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
                     break;
+
             case 6: // down right
                     myRigidbody.velocity = new Vector2(moveSpeed, -moveSpeed);
                     break;
+
             case 7: // up left
                     myRigidbody.velocity = new Vector2(-moveSpeed, moveSpeed);
                     break;
@@ -99,27 +107,29 @@ public class SheepMovement : MonoBehaviour {
 
     public void ChooseDirection()
     {
-		//check if out from screen
+		//Check if out from screen bounds that is set in CameraBoundaries(), and if sheep is outside
+		//then force the movedirection to be opposite of that, making the sheeps coming back into the screen
 		if (!isInScreen)
 		{
-			if (viewportPos.x > 0.8f)
+			if (viewportPos.x > 0.9f)
 			{
 				moveDirection = 3;
 			}
-			if (viewportPos.x < 0f)
+			if (viewportPos.x < 0.1f)
 			{
 				moveDirection = 1;
 			}
 
-			if (viewportPos.y > 1f)
+			if (viewportPos.y > 0.9f)
 			{
 				moveDirection = 2;
 			}
-			if (viewportPos.y < 0f)
+			if (viewportPos.y < 0.1f)
 			{
 				moveDirection = 0;
 			}
 		}
+		//If the sheeps are in screen bounds, then randomize movedirection
 		else
 		{
 			moveDirection = Random.Range(0, 8);
@@ -127,21 +137,20 @@ public class SheepMovement : MonoBehaviour {
 
 		isMoving = true;
 		moveCounter = moveTime;
-		
     }
 
+	//Set screen bounds, where if sheeps wander outside they are forced to take movedirection leading them back
 	public void CameraBoundaries()
 	{
-
-		if (viewportPos.x <= 0.8f && viewportPos.x >= 0f && 
-			viewportPos.y <= 1f && viewportPos.y >= 0f)
+		if (viewportPos.x <= 0.9f && viewportPos.x >= 0.1f && 
+			viewportPos.y <= 0.9f && viewportPos.y >= 0.1f)
 		{
-			Debug.Log("In Screen");
+			//Debug.Log("In Screen");
 			isInScreen = true;
 		}
 		else
 		{
-			Debug.Log("Not in screen");
+			//Debug.Log("Not in screen");
 			isInScreen = false;
 		}
 	}

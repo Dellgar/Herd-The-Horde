@@ -10,7 +10,6 @@ public class Draggable : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 	}
 
