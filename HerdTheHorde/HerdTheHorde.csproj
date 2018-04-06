@@ -294,6 +294,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Draggable.cs" />
     <Compile Include="Assets\Scripts\MouseCursor.cs" />
+    <Compile Include="Assets\Scripts\Pen.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SheepMovement.cs" />
     <Compile Include="Assets\Scripts\Spawning.cs" />
