@@ -13,28 +13,44 @@ public class SheepCollision : MonoBehaviour {
 	private bool isCollidingEnter;
 
     private SheepMovement movement_OtherScript;
+    private bool isdragging_OtherScript;
 
     void Awake()
     {
 		movement_OtherScript = GetComponent<SheepMovement>();
+        
 	}
+
+    private void Update()
+    {
+        isdragging_OtherScript = GetComponent<Draggable>().isDragging;
+    }
 
     void OnTriggerEnter2D(Collider2D colGameObject)
     {
-		if (isCollidingEnter) return;
+        if (isCollidingEnter) return;
 
-		isCollidingEnter = true;
-        if (colGameObject.CompareTag(gameObject.tag))
+        if (isdragging_OtherScript)
         {
-            Debug.Log("Right Pen");
-            colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(sheepPointValue);
-            gameObject.GetComponent<Collider2D>().isTrigger = true;
-            movement_OtherScript.enabled = false;
+            if (colGameObject.CompareTag(gameObject.tag))
+            {
+                Debug.Log("Right Pen");
+                isCollidingEnter = true;
+                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(sheepPointValue);
+                movement_OtherScript.enabled = false;
+            }
+            else
+            {
+                Debug.Log("Wrong Pen");
+                movement_OtherScript.enabled = true;
+                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(-1);
+            }
+
+            if (!colGameObject.CompareTag(gameObject.tag))
+            {    
+                isCollidingEnter = false;
+            }
         }
-        else
-		{
-			Debug.Log("Wrong Pen");
-		}
 	}
 	void OnTriggerExit2D(Collider2D colGameObject)
     {    
