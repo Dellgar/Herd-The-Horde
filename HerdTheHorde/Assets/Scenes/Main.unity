@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1308,6 +1308,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 102252550031030506, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294901769
+      objectReference: {fileID: 0}
+    - target: {fileID: 102252550031030506, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad,
+        type: 2}
+      propertyPath: m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
   m_IsPrefabParent: 0
@@ -2298,6 +2308,16 @@ Prefab:
     - target: {fileID: 4562451143794698, guid: 3ed8ee6170703334898b96599df6c498, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 102457793698176652, guid: 3ed8ee6170703334898b96599df6c498,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294901769
+      objectReference: {fileID: 0}
+    - target: {fileID: 102457793698176652, guid: 3ed8ee6170703334898b96599df6c498,
+        type: 2}
+      propertyPath: m_FontStyle
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ed8ee6170703334898b96599df6c498, type: 2}

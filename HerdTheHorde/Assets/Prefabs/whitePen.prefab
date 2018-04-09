@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212156636205939926}
   - component: {fileID: 50036858504911160}
   - component: {fileID: 61155493756317274}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: topfence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 212591501103303282}
   - component: {fileID: 50088268594495920}
   - component: {fileID: 61501163905237142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bottomfence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 212040405330029202}
   - component: {fileID: 50877732953994158}
   - component: {fileID: 61425557210523440}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: leftfence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 212478228606080080}
   - component: {fileID: 50844505794681336}
   - component: {fileID: 61210813602339772}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rightfence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4299628297017664}
   - component: {fileID: 23939564499623792}
   - component: {fileID: 102252550031030506}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: penText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,8 @@ GameObject:
   - component: {fileID: 4701149662171660}
   - component: {fileID: 50815932707003646}
   - component: {fileID: 61633893936241602}
-  m_Layer: 0
+  - component: {fileID: 114281954253882806}
+  m_Layer: 2
   m_Name: whitePen
   m_TagString: white
   m_Icon: {fileID: 0}
@@ -214,7 +215,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 838f5be50b58a5447b168b29917690e1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -476,10 +477,21 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 838f5be50b58a5447b168b29917690e1, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294901980
+--- !u!114 &114281954253882806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987000185690912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3adab323bb3a242a963f43eb603887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212040405330029202
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -229,28 +229,28 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068912713223160}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e99b9291d4af9541aa8ab6b2b889701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepCount: 0
-  isColliding: 1
+  sheepPointValue: 1
+  isCollidingEnter: 0
 --- !u!114 &114939419912707664
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068912713223160}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e39fc5c0c472141bb878ddcbac36b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
   mainCam: {fileID: 0}
-  isMoving: 1
-  moveTime: 0.4
+  isMoving: 0
+  moveTime: 0.2
   waitTime: 0.4
   viewportPos: {x: 0.3996159, y: 0.39855757}
 --- !u!212 &212411588506863260
