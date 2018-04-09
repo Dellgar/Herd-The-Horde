@@ -22,7 +22,7 @@ public class Spawning : MonoBehaviour {
         {
 			spawnPointIndex = Random.Range(0, spawnPoint.Length);
 
-			Instantiate(spawnPrefabs[0], 
+			Instantiate(spawnPrefabs[Random.Range(0, 2)], 
                 new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
 				spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
         }

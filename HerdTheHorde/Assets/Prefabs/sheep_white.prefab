@@ -20,13 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4465794742865658}
   - component: {fileID: 212822247032397882}
-  - component: {fileID: 114156058088323102}
-  - component: {fileID: 114631021139751676}
   - component: {fileID: 50696547775641938}
   - component: {fileID: 60746605518934240}
+  - component: {fileID: 114156058088323102}
+  - component: {fileID: 114631021139751676}
+  - component: {fileID: 114757474537805054}
   m_Layer: 0
   m_Name: sheep_white
-  m_TagString: Untagged
+  m_TagString: white
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,9 +237,21 @@ MonoBehaviour:
   moveSpeed: 5
   mainCam: {fileID: 0}
   isMoving: 0
-  moveTime: 1
+  moveTime: 0.2
   waitTime: 0.2
   viewportPos: {x: 0, y: 0}
+--- !u!114 &114757474537805054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416659374722194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e99b9291d4af9541aa8ab6b2b889701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepCount: 0
 --- !u!212 &212822247032397882
 SpriteRenderer:
   m_ObjectHideFlags: 1
