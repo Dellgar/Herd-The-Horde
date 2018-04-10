@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour {
     {
         if (penTotal == finishedPens)
         {
-            //SceneManager.LoadScene(0, LoadSceneMode.Single);
             Time.timeScale = 0;
             guiPanel.gameObject.SetActive(false);
             successPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 

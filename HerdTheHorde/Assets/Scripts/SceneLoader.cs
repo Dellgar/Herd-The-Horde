@@ -14,8 +14,7 @@ public class SceneLoader : MonoBehaviour {
     public void Replay()
     {
         Scene scene = SceneManager.GetActiveScene();
-        Time.timeScale = 1;
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        SceneManager.LoadScene(scene.name);
 
     }
 
