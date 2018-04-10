@@ -298,7 +298,7 @@
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SheepCollision.cs" />
     <Compile Include="Assets\Scripts\SheepMovement.cs" />
-    <Compile Include="Assets\Scripts\Spawning.cs" />
+    <Compile Include="Assets\Scripts\SheepSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

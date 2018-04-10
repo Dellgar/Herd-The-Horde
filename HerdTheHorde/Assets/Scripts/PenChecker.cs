@@ -7,8 +7,8 @@ public class PenChecker : MonoBehaviour {
     private TextMesh penText;
     private int sheepsInsidePen;
 
-	// Use this for initialization
-	void Awake () {
+	void Awake ()
+    {
         penText = gameObject.GetComponentInChildren<TextMesh>();
 	}
 
@@ -17,16 +17,15 @@ public class PenChecker : MonoBehaviour {
         UpdateScore();
     }
 
-    // Update is called once per frame
-    void UpdateScore () {
+    void UpdateScore ()
+    {
         penText.fontSize = 15;
-        penText.text = "Sheeps: " + sheepsInsidePen;
+        penText.text = " " + sheepsInsidePen;
 	}
 
     public void CorrectPenForSheep(int sheepCount)
     {
         sheepsInsidePen += sheepCount;
         UpdateScore();
-        return;
     }
 }

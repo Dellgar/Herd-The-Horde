@@ -6,56 +6,50 @@ using UnityEngine;
 
 public class SheepCollision : MonoBehaviour {
 
-    public int sheepPointValue = 1;
+    
+    const int SHEEP_AMOUNT_VALUE = 1;
 
-	//private TextMesh sheepPenText;
 	[SerializeField]
 	private bool isCollidingEnter;
 
-    private SheepMovement movement_OtherScript;
-    private bool isdragging_OtherScript;
+    private SheepMovement movementScript;
+    private Draggable draggableScript;
 
     void Awake()
     {
-		movement_OtherScript = GetComponent<SheepMovement>();
-        
-	}
-
-    private void Update()
-    {
-        isdragging_OtherScript = GetComponent<Draggable>().isDragging;
+		movementScript = GetComponent<SheepMovement>();
+        draggableScript = GetComponent<Draggable>();
     }
 
-    void OnTriggerEnter2D(Collider2D colGameObject)
+    void OnTriggerStay2D(Collider2D colGameObject)
     {
-        if (isCollidingEnter) return;
-
-        if (isdragging_OtherScript)
+        if (draggableScript.isMouseUp)
         {
+            if (isCollidingEnter) return;
+
             if (colGameObject.CompareTag(gameObject.tag))
             {
                 Debug.Log("Right Pen");
+                
                 isCollidingEnter = true;
-                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(sheepPointValue);
-                movement_OtherScript.enabled = false;
+                draggableScript.canDrag = false;
+                movementScript.enabled = false;
+                gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
+                gameObject.active = false;
             }
             else
             {
                 Debug.Log("Wrong Pen");
-                movement_OtherScript.enabled = true;
-                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(-1);
-            }
-
-            if (!colGameObject.CompareTag(gameObject.tag))
-            {    
-                isCollidingEnter = false;
+                //TODO : when wrong sheep is in the pen, release N amount of sheeps, including the wrong one
+                /*
+                isCollidingEnter = true;
+                movementScript.enabled = false;
+                gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+                //colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(-SHEEP_AMOUNT_VALUE);
+                //TODO : RELESE THE SHEEPS (AMOUNT OF RELEASED SHEEPS);
+                */
             }
         }
 	}
-	void OnTriggerExit2D(Collider2D colGameObject)
-    {    
-        //gameObject.GetComponent<Collider2D>().isTrigger = false;
-        //movement_OtherScript.enabled = true;
-	}
-
 }
