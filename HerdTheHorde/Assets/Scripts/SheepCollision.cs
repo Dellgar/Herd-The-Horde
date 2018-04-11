@@ -36,7 +36,7 @@ public class SheepCollision : MonoBehaviour {
                 movementScript.enabled = false;
                 gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
                 colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
-                gameObject.active = false;
+                gameObject.SetActive(false);
             }
             else
             {
