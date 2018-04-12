@@ -34,7 +34,7 @@ public class SheepSpawner : MonoBehaviour {
 
         spawnPointIndex = Random.Range(0, spawnPoint.Length);
 
-        Instantiate(spawnPrefabs[Random.Range(0, 2)],
+        Instantiate(spawnPrefabs[Random.Range(0, 4)],
             new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
             spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
 

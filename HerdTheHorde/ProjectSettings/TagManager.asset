@@ -8,6 +8,7 @@ TagManager:
   - redPen
   - red
   - white
+  - black
   layers:
   - Default
   - TransparentFX
