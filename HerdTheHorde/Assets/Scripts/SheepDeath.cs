@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SheepDeath : MonoBehaviour {
 
-    public float wolfTimer;             // Time when the wolf appears
+    [SerializeField]
+    private double wolfTimer;             // Time when the wolf appears
+    public float wolfTimerMin, wolfTimerMax;
     public TextMesh timerText;
 
     public bool hasWolfAppeared;        // Wolf for _this_ sheep is in the screen
@@ -12,7 +14,7 @@ public class SheepDeath : MonoBehaviour {
     public bool isWolfEating;           // RIP ;_;
     public bool isWolfLeaving;          // Finished eating, eating other sheeps later, cya!
 
-    private float initTime;             // Time since object was instantiated
+    private float initTime;             // Time when object was instantiated
     public float timeSinceInitializition;
 
     private GameManager gmScript;
@@ -28,14 +30,17 @@ public class SheepDeath : MonoBehaviour {
         isWolfLeaving = false;
         timerText = GetComponentInChildren<TextMesh>();
 
+        wolfTimer = System.Math.Round(Random.Range(wolfTimerMin, wolfTimerMax), 1);
         initTime = Time.timeSinceLevelLoad;
 	}
 	
 	void Update ()
     {
+        if (wolfTimer < wolfTimerMin || wolfTimer > wolfTimerMax) wolfTimer = Random.Range(wolfTimerMin, wolfTimerMax);
+
         timeSinceInitializition = Time.timeSinceLevelLoad - initTime;
-        
-        timerText.text = Mathf.Round(timeSinceInitializition).ToString(); 
+
+        timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); // Mathf.Round(timeSinceInitializition).ToString(); 
         WolfTimerCounter();
 	}
 

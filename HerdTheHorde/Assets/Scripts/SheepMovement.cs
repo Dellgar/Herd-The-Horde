@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SheepMovement : MonoBehaviour {
 
+    private Animator sheepAnim;
+
     public float moveSpeed;
 	public Camera mainCam;
     private Rigidbody2D myRigidbody;
@@ -21,10 +23,10 @@ public class SheepMovement : MonoBehaviour {
 	private bool isInScreen;
 
 
-	// Use this for initialization
 	void Start ()
     {
-		//Accessing to components with variables
+        //Accessing to components with variables
+        sheepAnim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
 		sheepRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
@@ -38,16 +40,18 @@ public class SheepMovement : MonoBehaviour {
 		moveDirection = Random.Range(0, 4);
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
 		//Store what is the coordinate of sheep in viewport-coordinates
 		viewportPos = mainCam.WorldToViewportPoint(transform.position);
 		CameraBoundaries();
 
+        CheckAnimation();
+
 		if (isMoving)
         {
             moveCounter -= Time.deltaTime;
+            
 
             switch (moveDirection)
             {
@@ -154,4 +158,16 @@ public class SheepMovement : MonoBehaviour {
 			isInScreen = false;
 		}
 	}
+
+    public void CheckAnimation()
+    {
+        if (isMoving)
+        {
+            sheepAnim.SetBool("isWalking", true);    
+        }
+        else
+        {
+            sheepAnim.SetBool("isWalking", false);
+        }
+    }
 }
