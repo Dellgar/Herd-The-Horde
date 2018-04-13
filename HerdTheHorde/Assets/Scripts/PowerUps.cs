@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour {
 
-    [Range(0,1)]
+    [Range(0.1f , 1f)]
     public float timeBaahmbValue;
     public float timeBaahmbDuration;
-    public float test;
+	private float baahmbHelper;
+	bool isActiveTimeBaahmb;
+    private float currentTime;
+	private float buttonpressTime;
 
-	// Use this for initialization
-	void Start ()
-    {
-        test = Time.timeSinceLevelLoad;
-	}
-	
-	// Update is called once per frame
 	void Update ()
     {
-        timeBaahmbDuration = Time.timeSinceLevelLoad;
+		currentTime = Time.timeSinceLevelLoad;
+
+		if (isActiveTimeBaahmb)
+		{
+			Time.timeScale = timeBaahmbValue;
+			timeBaahmbDuration -= Time.deltaTime;
+			if (timeBaahmbDuration <= 0)
+			{
+				isActiveTimeBaahmb = !isActiveTimeBaahmb;
+				timeBaahmbDuration = baahmbHelper;
+			}
+		}
+		else
+		{
+			Time.timeScale = 1;
+		}
 	}
 
     public void TimeBaahmb()
     {
-        //Time.timeScale = timeBaahmbValue;
-        //timeBaahmbDuration = Time.timeSinceLevelLoad - Time.deltaTime;
+		buttonpressTime = currentTime;
+		baahmbHelper = timeBaahmbDuration;
+		isActiveTimeBaahmb = true;
     }
 }
