@@ -12,7 +12,6 @@ public class SheepSpawner : MonoBehaviour {
     public bool spawnerActive;
     public float spawningInterval;
 
-
 	// Use this for initialization
 	void Start () {
         spawnerReady = true;
@@ -34,7 +33,7 @@ public class SheepSpawner : MonoBehaviour {
 
         spawnPointIndex = Random.Range(0, spawnPoint.Length);
 
-        Instantiate(spawnPrefabs[Random.Range(0, 4)],
+        Instantiate(spawnPrefabs[Random.Range(0, spawnPrefabs.Length)],
             new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
             spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
 

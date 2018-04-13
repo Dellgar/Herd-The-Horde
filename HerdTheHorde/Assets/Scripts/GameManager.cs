@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int deadSheepAmount;
     public int permittedDeaths;
     public float timeTakenInLvl;
+    public int amountOfSheepToSpawn;
 
     private void Start()
     {

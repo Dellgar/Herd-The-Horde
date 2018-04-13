@@ -258,7 +258,7 @@ MonoBehaviour:
   wolfTimer: 0
   wolfTimerMin: 8
   wolfTimerMax: 11
-  timerText: {fileID: 0}
+  timerText: {fileID: 102362116370014798}
   hasWolfAppeared: 0
   wolfSpeed: 0
   isWolfEating: 0

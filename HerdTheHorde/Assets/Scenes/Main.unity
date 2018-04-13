@@ -5335,8 +5335,6 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 1068912713223160, guid: f92b010a3d5d3db4586eba16ec193a4e, type: 2}
   - {fileID: 1416659374722194, guid: 7b1aae3f6a4482047a46b33d16ce2335, type: 2}
-  - {fileID: 1613572161961380, guid: 09e52a1e9a9609f4f85df8feed470fa0, type: 2}
-  - {fileID: 1248238371711894, guid: 2750f8d92e768b94c98145549cd279c6, type: 2}
   spawnPoint:
   - {fileID: 2066727110}
   - {fileID: 1158528602}
@@ -7855,6 +7853,7 @@ GameObject:
   - component: {fileID: 1791779596}
   - component: {fileID: 1791779595}
   - component: {fileID: 1791779597}
+  - component: {fileID: 1791779598}
   m_Layer: 0
   m_Name: _manager
   m_TagString: Untagged
@@ -7884,6 +7883,7 @@ MonoBehaviour:
   deadSheepAmount: 0
   permittedDeaths: 10
   timeTakenInLvl: 0
+  amountOfSheepToSpawn: 0
 --- !u!4 &1791779596
 Transform:
   m_ObjectHideFlags: 0
@@ -7908,6 +7908,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44facd8abb5fd346aa971fa35015c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1791779598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791779594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbe2d4ab01f29c41bbe4de036322180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBaahmbValue: 0.1
+  timeBaahmbDuration: 0
+  test: 0
 --- !u!1 &1796978915
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,7 +8336,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1845058645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1791779598}
+        m_MethodName: TimeBaahmb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1845058645
