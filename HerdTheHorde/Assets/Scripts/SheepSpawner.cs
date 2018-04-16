@@ -26,7 +26,7 @@ public class SheepSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(spawningInterval <= 1f) spawningInterval = 1f;
+        if(spawningInterval <= 0.5f) spawningInterval = 0.9f;
 	}
 
     IEnumerator Spawning()

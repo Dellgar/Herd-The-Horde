@@ -243,7 +243,7 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   isMoving: 0
   moveTime: 0.2
-  waitTime: 0.2
+  waitTime: 0.1
   viewportPos: {x: 0, y: 0}
 --- !u!114 &114395377947356182
 MonoBehaviour:

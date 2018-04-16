@@ -27,6 +27,7 @@ public class Draggable : MonoBehaviour {
         if (canDrag)
         {
             Vector2 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+
             Vector2 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             transform.position = curPosition;
         }
