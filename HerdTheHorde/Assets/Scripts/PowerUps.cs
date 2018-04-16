@@ -24,12 +24,10 @@ public class PowerUps : MonoBehaviour {
 			{
 				isActiveTimeBaahmb = !isActiveTimeBaahmb;
 				timeBaahmbDuration = baahmbHelper;
-			}
+                Time.timeScale = 1;
+            }
 		}
-		else
-		{
-			Time.timeScale = 1;
-		}
+
 	}
 
     public void TimeBaahmb()

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameoverPanel;
     public GameObject statisticsPanel;
     private int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
+    public bool spawnerActive;
 
     [Header("Stat Objects")]
     public Text sheepLostText;
@@ -24,7 +25,8 @@ public class GameManager : MonoBehaviour
     public int deadSheepAmount;
     public int permittedDeaths;
     public float timeTakenInLvl;
-    public int amountOfSheepToSpawn;
+    public int sheepToSpawn;
+    public int sheepSpawned;
 
     private void Start()
     {
@@ -58,6 +60,16 @@ public class GameManager : MonoBehaviour
         deadSheepAmount += amountOfDeaths;
 
         if (deadSheepAmount >= permittedDeaths) SetGameState(2);
+    }
+
+    public void SpawnedAmount (int spawned)
+    {
+        sheepSpawned += spawned;
+
+        if (sheepToSpawn == sheepSpawned)
+        {
+            spawnerActive = false;
+        }
     }
 
     public void SetGameState(int result)
