@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class SheepDeath : MonoBehaviour {
 
+	private GameManager gmScript;
+
+	[Header ("Death Counter")]
     [SerializeField]
     private double wolfTimer;             // Time when the wolf appears
     public float wolfTimerMin, wolfTimerMax;
     public TextMesh timerText;
 
+	private float initTime;             // Time when object was instantiated
+	public float timeSinceInitializition;
+
+	[Header ("Wolf")]
     public bool hasWolfAppeared;        // Wolf for _this_ sheep is in the screen
     public float wolfSpeed;             // Wolf's movement speed
     public bool isWolfEating;           // RIP ;_;
     public bool isWolfLeaving;          // Finished eating, eating other sheeps later, cya!
 
-    private float initTime;             // Time when object was instantiated
-    public float timeSinceInitializition;
-
-    private GameManager gmScript;
-
+	public Sprite wolfAttack;
+	public Sprite wolfKill;
+	public GameObject wolfPrefab;
+	public GameObject wolfSpawnLocation;
 
 
     void Start ()
@@ -40,22 +46,35 @@ public class SheepDeath : MonoBehaviour {
 
         timeSinceInitializition = Time.timeSinceLevelLoad - initTime;
 
-        timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); // Mathf.Round(timeSinceInitializition).ToString(); 
+        timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); 
         WolfTimerCounter();
 	}
 
     void WolfTimerCounter()
     {
-
         if(timeSinceInitializition >= wolfTimer)
         {
-            hasWolfAppeared = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //hasWolfAppeared = true;
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            gmScript.SheepLost(1);
+			if (!hasWolfAppeared)
+			{
+				//spawns one wolf per sheep
+				hasWolfAppeared = true;
+				Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity);
 
-            Destroy(this.gameObject);
+				//if wolf is at the sheep then lose one sheep (take .this position due this being the sheep)
+				gmScript.SheepLost(1);
+				//disable renderer + rigidbody
+				//change wolfsprite
+				//go off from screen and destroy sheep
+
+				Destroy(this.gameObject);
+			}
+
         }
-
     }
+
+
+
 }

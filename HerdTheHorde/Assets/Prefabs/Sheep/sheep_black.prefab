@@ -282,11 +282,15 @@ MonoBehaviour:
   wolfTimerMin: 7
   wolfTimerMax: 11
   timerText: {fileID: 102543052480773316}
+  timeSinceInitializition: 0
   hasWolfAppeared: 0
   wolfSpeed: 0
   isWolfEating: 0
   isWolfLeaving: 0
-  timeSinceInitializition: 0
+  wolfAttack: {fileID: 21300000, guid: 4642dc0170f982f4a9aed02dbca0b775, type: 3}
+  wolfKill: {fileID: 21300000, guid: d6e5975a9d7e6d04cb3e72585b52e855, type: 3}
+  wolfPrefab: {fileID: 0}
+  wolfSpawLocation: {fileID: 0}
 --- !u!114 &114939419912707664
 MonoBehaviour:
   m_ObjectHideFlags: 1
