@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour {
     // Use this for initialization
     public void LoadFirstLevel()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 
     public void Replay()
@@ -20,7 +20,7 @@ public class SceneLoader : MonoBehaviour {
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene("Title", LoadSceneMode.Single);
     }
 
     public void ExitGame()

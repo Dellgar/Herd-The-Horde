@@ -12,7 +12,12 @@ public class PowerUps : MonoBehaviour {
     private float currentTime;
 	private float buttonpressTime;
 
-	void Update ()
+    private void Start()
+    {
+        buttonpressTime = 0;
+    }
+
+    void Update ()
     {
 		currentTime = Time.timeSinceLevelLoad;
 

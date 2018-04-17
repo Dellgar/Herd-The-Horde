@@ -298,6 +298,7 @@
     <Compile Include="Assets\Scripts\PenChecker.cs" />
     <Compile Include="Assets\Scripts\PowerUps.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Sheep.cs" />
     <Compile Include="Assets\Scripts\SheepCollision.cs" />
     <Compile Include="Assets\Scripts\SheepDeath.cs" />
     <Compile Include="Assets\Scripts\SheepMovement.cs" />

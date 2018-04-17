@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public float timeTakenInLvl;
     public int sheepToSpawn;
     public int sheepSpawned;
+    public int whiteSpawns;
+    public int blackSpawns;
+
 
     private void Start()
     {
@@ -62,10 +65,19 @@ public class GameManager : MonoBehaviour
         if (deadSheepAmount >= permittedDeaths) SetGameState(2);
     }
 
-    public void SpawnedAmount (int spawned)
+    public void SheepSpawn (int spawned, string race)
     {
         sheepSpawned += spawned;
+        switch (race)
+        {
+            case "white":
+                whiteSpawns++;
+                break;
 
+            case "black":
+                blackSpawns++;
+                break;
+        }
         if (sheepToSpawn == sheepSpawned)
         {
             spawnerActive = false;
