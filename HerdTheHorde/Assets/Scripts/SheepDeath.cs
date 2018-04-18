@@ -5,6 +5,10 @@ using UnityEngine;
 public class SheepDeath : MonoBehaviour {
 
 	private GameManager gmScript;
+    private SheepMovement moveScript;
+    private Rigidbody2D rb2D;
+    private SpriteRenderer spriteRenderer;
+    
 
 	[Header ("Death Counter")]
     [SerializeField]
@@ -17,23 +21,20 @@ public class SheepDeath : MonoBehaviour {
 
 	[Header ("Wolf")]
     public bool hasWolfAppeared;        // Wolf for _this_ sheep is in the screen
-    public float wolfSpeed;             // Wolf's movement speed
-    public bool isWolfEating;           // RIP ;_;
-    public bool isWolfLeaving;          // Finished eating, eating other sheeps later, cya!
-
-	public Sprite wolfAttack;
-	public Sprite wolfKill;
-	public GameObject wolfPrefab;
-	public GameObject wolfSpawnLocation;
+    
+	public GameObject wolfPrefab;       //prefab to spawn
+    GameObject badWolf;                 //spawned wolf
+    public GameObject wolfSpawnLocation;
 
 
     void Start ()
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+        moveScript = GetComponent<SheepMovement>();
+        rb2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         hasWolfAppeared = false;
-        isWolfEating = false;
-        isWolfLeaving = false;
         timerText = GetComponentInChildren<TextMesh>();
 
         wolfTimer = System.Math.Round(Random.Range(wolfTimerMin, wolfTimerMax), 1);
@@ -42,6 +43,8 @@ public class SheepDeath : MonoBehaviour {
 	
 	void Update ()
     {
+        if (wolfSpawnLocation == null) wolfSpawnLocation = GameObject.Find("WolfSpawnLocation");
+
         if (wolfTimer < wolfTimerMin || wolfTimer > wolfTimerMax) wolfTimer = Random.Range(wolfTimerMin, wolfTimerMax);
 
         timeSinceInitializition = Time.timeSinceLevelLoad - initTime;
@@ -61,19 +64,32 @@ public class SheepDeath : MonoBehaviour {
 			{
 				//spawns one wolf per sheep
 				hasWolfAppeared = true;
-				Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity);
+				 GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
+                badWolf.name = "Wolfy"; //Sheeplost list
+                moveScript.enabled = false;
+                rb2D.isKinematic = true;
+                //spriteRenderer.enabled = false;
 
-				//if wolf is at the sheep then lose one sheep (take .this position due this being the sheep)
-				gmScript.SheepLost(1);
+                //this.gameObject.transform.SetParent(badWolf.transform);
+                badWolf.GetComponent<Wolf>().WolfStuff(this.transform);
+                
+
+                //if wolf is at the sheep then lose one sheep (take .this position due this being the sheep)
+                //start moving wolf
+                //wolfMoving = true;
+
+				//gmScript.SheepLost(1);
 				//disable renderer + rigidbody
 				//change wolfsprite
 				//go off from screen and destroy sheep
 
-				Destroy(this.gameObject);
+			    //Destroy(this.gameObject);
 			}
 
         }
     }
+
+ 
 
 
 

@@ -67,13 +67,17 @@ public class SheepSpawner : MonoBehaviour {
             //limit prefab pool to spawn only from one race
             int sheepPrefab = Random.Range(listMin, listMax);
 
-            Instantiate(spawnPrefabs[sheepPrefab],
+            gManagerScript.SheepSpawn(1, spawnableRaces[rndRace]);
+
+            GameObject sheep = Instantiate(spawnPrefabs[sheepPrefab],
                 new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
                 spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
+            sheep.name = "Sheep #" + gManagerScript.sheepSpawned.ToString();
+
             Debug.Log("Sheep Spawned");
 
             spawningInterval = spawningInterval - 0.1f;
-            gManagerScript.SheepSpawn(1, spawnableRaces[rndRace]);
+            
         }
         
         

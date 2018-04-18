@@ -285,12 +285,13 @@ MonoBehaviour:
   timeSinceInitializition: 0
   hasWolfAppeared: 0
   wolfSpeed: 0
+  wolfMoving: 0
   isWolfEating: 0
   isWolfLeaving: 0
   wolfAttack: {fileID: 21300000, guid: 4642dc0170f982f4a9aed02dbca0b775, type: 3}
   wolfKill: {fileID: 21300000, guid: d6e5975a9d7e6d04cb3e72585b52e855, type: 3}
-  wolfPrefab: {fileID: 0}
-  wolfSpawLocation: {fileID: 0}
+  wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
+  wolfSpawnLocation: {fileID: 0}
 --- !u!114 &114939419912707664
 MonoBehaviour:
   m_ObjectHideFlags: 1
