@@ -6,9 +6,7 @@ public class SheepDeath : MonoBehaviour {
 
 	private GameManager gmScript;
     private SheepMovement moveScript;
-    private Rigidbody2D rb2D;
-    private SpriteRenderer spriteRenderer;
-    
+    private Rigidbody2D rb2D; 
 
 	[Header ("Death Counter")]
     [SerializeField]
@@ -32,7 +30,6 @@ public class SheepDeath : MonoBehaviour {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         moveScript = GetComponent<SheepMovement>();
         rb2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         hasWolfAppeared = false;
         timerText = GetComponentInChildren<TextMesh>();
@@ -49,7 +46,8 @@ public class SheepDeath : MonoBehaviour {
 
         timeSinceInitializition = Time.timeSinceLevelLoad - initTime;
 
-        timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); 
+        timerText.text = "";
+        //timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); 
         WolfTimerCounter();
 	}
 
@@ -57,40 +55,21 @@ public class SheepDeath : MonoBehaviour {
     {
         if(timeSinceInitializition >= wolfTimer)
         {
-            //hasWolfAppeared = true;
-            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
 			if (!hasWolfAppeared)
 			{
 				//spawns one wolf per sheep
 				hasWolfAppeared = true;
-				 GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
-                badWolf.name = "Wolfy"; //Sheeplost list
+                gmScript.AddSheepToRipList(this.gameObject);
+
                 moveScript.enabled = false;
                 rb2D.isKinematic = true;
-                //spriteRenderer.enabled = false;
 
-                //this.gameObject.transform.SetParent(badWolf.transform);
-                badWolf.GetComponent<Wolf>().WolfStuff(this.transform);
-                
+                GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
+                badWolf.name = "Wolfy"; //Take sheep from Sheeplost list?
 
-                //if wolf is at the sheep then lose one sheep (take .this position due this being the sheep)
-                //start moving wolf
-                //wolfMoving = true;
-
-				//gmScript.SheepLost(1);
-				//disable renderer + rigidbody
-				//change wolfsprite
-				//go off from screen and destroy sheep
-
-			    //Destroy(this.gameObject);
+                badWolf.GetComponent<Wolf>().WolfStuff(this.transform, this.gameObject);
 			}
-
         }
     }
-
- 
-
-
 
 }

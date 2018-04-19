@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
-
     public GameObject guiPanel;
     public GameObject successPanel;
     public GameObject gameoverPanel;
     public GameObject statisticsPanel;
     private int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
     public bool spawnerActive;
+    public List<GameObject> deadSheepList;
 
     [Header("Stat Objects")]
     public Text sheepLostText;
@@ -58,6 +57,11 @@ public class GameManager : MonoBehaviour
         if (finishedPens >= penTotal) SetGameState(1);
     }
 
+    public void AddSheepToRipList(GameObject soonDeadSheep)
+    {
+        deadSheepList.Add(soonDeadSheep);
+    }
+
     public void SheepLost(int amountOfDeaths)
     {
         deadSheepAmount += amountOfDeaths;
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour
                 blackSpawns++;
                 break;
         }
+
         if (sheepToSpawn == sheepSpawned)
         {
             spawnerActive = false;
@@ -120,4 +125,5 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
 }
