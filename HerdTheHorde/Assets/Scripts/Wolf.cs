@@ -55,7 +55,11 @@ public class Wolf : MonoBehaviour {
                 this.transform.position = Vector2.MoveTowards(this.transform.position, wolfLeaveLocation.transform.position, wolfSpeed);
                 if (this.transform.position == wolfLeaveLocation.transform.position)
                 {
-                    gmScript.SheepLost(1);
+					//remove target sheep from riplist
+					gmScript.SheepRipList("dead", targetSheep);
+
+					//count the death only when game is ongoing
+					if (gmScript.gameState == 3) gmScript.SheepLost(1);
 
                     Debug.Log("Destroying wolf /related");
                     //when leaveposition is achieved then destroy the wolf AND the sheep

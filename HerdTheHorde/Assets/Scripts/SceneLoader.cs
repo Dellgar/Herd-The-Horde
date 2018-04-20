@@ -11,7 +11,12 @@ public class SceneLoader : MonoBehaviour {
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 
-    public void Replay()
+	public void Endless()
+	{
+		SceneManager.LoadScene("Endless", LoadSceneMode.Single);
+	}
+
+	public void Replay()
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);

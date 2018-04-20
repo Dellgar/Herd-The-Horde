@@ -8,12 +8,12 @@ public class PenChecker : MonoBehaviour {
     private int sheepsInsidePen;
     public int sheepGoal;
     [SerializeField] private bool isSheepGoalAchieved;
-    public GameManager gManagerScript;
+    public GameManager gmScript;
 
 	void Awake ()
     {
         penText = gameObject.GetComponentInChildren<TextMesh>();
-        gManagerScript = GameObject.Find("_manager").GetComponent<GameManager>();
+        gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
 	}
 
     private void Update()
@@ -24,8 +24,8 @@ public class PenChecker : MonoBehaviour {
 
     void UpdateScore ()
     {
-        penText.fontSize = 15;
-        penText.text = sheepsInsidePen + " / " + sheepGoal;
+		if (gmScript.isEndless) penText.text = sheepsInsidePen.ToString();
+		else penText.text = sheepsInsidePen + " / " + sheepGoal;
 	}
 
     public void CorrectPenForSheep(int sheepCount)
@@ -43,7 +43,7 @@ public class PenChecker : MonoBehaviour {
         {
             Debug.Log("Pen finished");
             isSheepGoalAchieved = true;
-            gManagerScript.LevelComplete(1);
+            gmScript.LevelComplete(1);
         }
     }
 }

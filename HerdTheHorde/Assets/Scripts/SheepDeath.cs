@@ -59,7 +59,7 @@ public class SheepDeath : MonoBehaviour {
 			{
 				//spawns one wolf per sheep
 				hasWolfAppeared = true;
-                gmScript.AddSheepToRipList(this.gameObject);
+                gmScript.SheepRipList("timeup", this.gameObject);
 
                 moveScript.enabled = false;
                 rb2D.isKinematic = true;

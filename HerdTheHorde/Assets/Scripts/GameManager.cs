@@ -6,31 +6,49 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject guiPanel;
-    public GameObject successPanel;
-    public GameObject gameoverPanel;
-    public GameObject statisticsPanel;
-    private int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
+	public bool isEndless;
+    public int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
     public bool spawnerActive;
     public List<GameObject> deadSheepList;
 
-    [Header("Stat Objects")]
+	[Header("UserInterface")]
+	public GameObject guiPanel;
+	public GameObject successPanel;
+	public GameObject gameoverPanel;
+	public GameObject statisticsPanel;
+
+	public Text levelUI;
+	public Text timeUI;
+	public Text sheepUI;
+
+	[Header("Stat Objects")]
     public Text sheepLostText;
     public Text timeTakenText;
 
     [Header("Statistics")]
     public int penTotal;
-    public int finishedPens;
-    public int deadSheepAmount;
+    [SerializeField] private int finishedPens;
+	[SerializeField] private int deadSheepAmount;
     public int permittedDeaths;
-    public float timeTakenInLvl;
+	[SerializeField] private float timeTakenInLvl;
     public int sheepToSpawn;
-    public int sheepSpawned;
-    public int whiteSpawns;
-    public int blackSpawns;
+	public int sheepSpawned;
+	[SerializeField] private int whiteSpawns;
+	[SerializeField] private int blackSpawns;
 
+	private void Awake()
+	{
+		if (SceneManager.GetActiveScene().name == "Endless")
+		{
+			isEndless = true;
+		}
+		else
+		{
+			isEndless = false;
+		}
+	}
 
-    private void Start()
+	private void Start()
     {
         if (penTotal == 0) Debug.Log("penTotal not set for this level in _gamemanager");
         if (permittedDeaths == 0)
@@ -40,6 +58,7 @@ public class GameManager : MonoBehaviour
             permittedDeaths = 1;
         }
 
+		levelUI.text = "World 1 : " + SceneManager.GetActiveScene().name;
         SetGameState(3);
     }
 
@@ -48,6 +67,8 @@ public class GameManager : MonoBehaviour
         timeTakenInLvl = Time.timeSinceLevelLoad;
         sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
         timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
+		timeUI.text = timeTakenText.text;
+		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
     }
 
     public void LevelComplete(int fPens)
@@ -57,10 +78,11 @@ public class GameManager : MonoBehaviour
         if (finishedPens >= penTotal) SetGameState(1);
     }
 
-    public void AddSheepToRipList(GameObject soonDeadSheep)
+    public void SheepRipList(string sheepStatus, GameObject sheepObject)
     {
-        deadSheepList.Add(soonDeadSheep);
-    }
+		if(sheepStatus == "timeup") deadSheepList.Add(sheepObject);
+		if(sheepStatus == "dead") deadSheepList.Remove(sheepObject);
+	}
 
     public void SheepLost(int amountOfDeaths)
     {
