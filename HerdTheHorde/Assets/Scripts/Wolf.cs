@@ -15,6 +15,7 @@ public class Wolf : MonoBehaviour {
     public Sprite wolfKill;
     SpriteRenderer sheepRenderer;
     SpriteRenderer wolfRenderer;
+    Animator wolfAnim;
 
     [Header("Wolf")]
     [Range (0.05f, 3f)]
@@ -31,6 +32,7 @@ public class Wolf : MonoBehaviour {
         sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
         wolfRenderer = GetComponent<SpriteRenderer>();
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+        wolfAnim = GetComponent<Animator>();
     }
 
     void Update ()
@@ -46,17 +48,20 @@ public class Wolf : MonoBehaviour {
         //wolf is always on move when it has spawned/instantiated through the sheepdeath
         if (isWolfOnMove)
         {
+
             if (isWolfLeaving)
             {
                 Debug.Log("wolf is now leaving");
-                wolfRenderer.sprite = wolfKill;
+                wolfAnim.SetInteger("wolfState", 3);
+                //wolfRenderer.sprite = wolfKill;
 
                 //wolf is leaving and moving towards leave position
                 this.transform.position = Vector2.MoveTowards(this.transform.position, wolfLeaveLocation.transform.position, wolfSpeed);
                 if (this.transform.position == wolfLeaveLocation.transform.position)
                 {
-					//remove target sheep from riplist
-					gmScript.SheepRipList("dead", targetSheep);
+
+                    //remove target sheep from riplist
+                    gmScript.SheepRipList("dead", targetSheep);
 
 					//count the death only when game is ongoing
 					if (gmScript.gameState == 3) gmScript.SheepLost(1);
@@ -73,16 +78,25 @@ public class Wolf : MonoBehaviour {
             else
             {
                 Debug.Log("wolf is now attacking");
+                wolfAnim.SetInteger("wolfState", 1);
 
                 this.transform.position = Vector2.MoveTowards(this.transform.position, targetPosXYZ, wolfSpeed);
                 if (this.transform.position == targetPosXYZ)
                 {
                     //when wolf is at the sheep position, disable renderer and let the wolf leave
                     sheepRenderer.enabled = false;
-                    isWolfLeaving = true;
+                    wolfAnim.SetInteger("wolfState", 2);
+                    Invoke("DustFightCompleted", 1f);
+
+                    
                 }
             }
         }
+    }
+
+    void DustFightCompleted()
+    {
+        isWolfLeaving = true;
     }
 
     public void WolfStuff(Transform target, GameObject sheep)

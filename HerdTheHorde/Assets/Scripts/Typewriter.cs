@@ -8,6 +8,7 @@ public class Typewriter : MonoBehaviour {
 
 
 	private Text textField;
+    public bool isFinished;
 
 	[TextArea(6, 30)]
 	public string myTxtArea;
@@ -30,8 +31,8 @@ public class Typewriter : MonoBehaviour {
 		foreach (var letter in myTxtArea.ToCharArray())
 		{
 			textField.text += letter;
-			//textField.text = myTxtArea;
 			yield return new WaitForSeconds(inMilliseconds/1000f);
 		}
-	}
+        isFinished = true;
+    }
 }

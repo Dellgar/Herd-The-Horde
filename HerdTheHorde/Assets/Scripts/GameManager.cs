@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour
 	public Text levelUI;
 	public Text timeUI;
 	public Text sheepUI;
+    public Text scoreUI;
 
-	[Header("Stat Objects")]
+    [Header("Stat Objects")]
     public Text sheepLostText;
     public Text timeTakenText;
 
@@ -35,8 +36,11 @@ public class GameManager : MonoBehaviour
 	public int sheepSpawned;
 	[SerializeField] private int whiteSpawns;
 	[SerializeField] private int blackSpawns;
+    [SerializeField] private int playerScorePoints;
 
-	private void Awake()
+
+
+    private void Awake()
 	{
 		if (SceneManager.GetActiveScene().name == "Endless")
 		{
@@ -69,6 +73,13 @@ public class GameManager : MonoBehaviour
         timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
 		timeUI.text = timeTakenText.text;
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
+        scoreUI.text = "Score: " + playerScorePoints.ToString();
+
+    }
+
+    public void PlayerScore(int scoreAmount)
+    {
+        playerScorePoints += scoreAmount + Mathf.RoundToInt(timeTakenInLvl);
     }
 
     public void LevelComplete(int fPens)

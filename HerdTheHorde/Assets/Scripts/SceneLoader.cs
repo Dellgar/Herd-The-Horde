@@ -3,25 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class SceneLoader : MonoBehaviour {
-
-    // Use this for initialization
-    public void LoadFirstLevel()
-    {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
-    }
-
-	public void Endless()
-	{
-		SceneManager.LoadScene("Endless", LoadSceneMode.Single);
-	}
-
-	public void Replay()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
-
-    }
+public class SceneLoader : MonoBehaviour
+{
 
     public void MainMenu()
     {
@@ -32,6 +15,38 @@ public class SceneLoader : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void Replay()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+    }
+
+    public void LoadOverworld()
+    {
+        SceneManager.LoadScene("Overworld", LoadSceneMode.Single);
+    }
+
+    public void LoadFirstLevel()
+    {
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+	public void Endless()
+	{
+		SceneManager.LoadScene("Endless", LoadSceneMode.Single);
+	}
+
+
+
+
+
+  
 	
 	
 }

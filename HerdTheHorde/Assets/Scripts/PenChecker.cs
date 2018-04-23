@@ -18,11 +18,11 @@ public class PenChecker : MonoBehaviour {
 
     private void Update()
     {
-        UpdateScore();
+        UpdatePenScore();
         PenCompleted();
     }
 
-    void UpdateScore ()
+    void UpdatePenScore ()
     {
 		if (gmScript.isEndless) penText.text = sheepsInsidePen.ToString();
 		else penText.text = sheepsInsidePen + " / " + sheepGoal;
@@ -31,13 +31,16 @@ public class PenChecker : MonoBehaviour {
     public void CorrectPenForSheep(int sheepCount)
     {
         sheepsInsidePen += sheepCount;
-        UpdateScore();
+        UpdatePenScore();
+        gmScript.PlayerScore(12);
     }
 
     void PenCompleted()
     {
         if (isSheepGoalAchieved)
+        {
             return;
+        }
 
         if (sheepsInsidePen >= sheepGoal)
         {
