@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
         scoreUI.text = "Score: " + playerScorePoints.ToString();
 
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            SetGameState(4);
+        }
+
     }
 
     public void PlayerScore(int scoreAmount)
@@ -153,6 +158,16 @@ public class GameManager : MonoBehaviour
                 guiPanel.gameObject.SetActive(true);
                 successPanel.gameObject.SetActive(false);
                 gameoverPanel.gameObject.SetActive(false);
+                statisticsPanel.gameObject.SetActive(false);
+                if (Cursor.visible == true) Cursor.visible = false;
+                break;
+
+            case 4: //Paused
+
+                if (Time.timeScale == 1f) Time.timeScale = 0f;
+                else Time.timeScale = 1f;
+
+                guiPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(false);
                 if (Cursor.visible == true) Cursor.visible = false;
                 break;

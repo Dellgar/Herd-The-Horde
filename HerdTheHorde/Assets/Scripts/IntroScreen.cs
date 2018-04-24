@@ -49,12 +49,12 @@ public class IntroScreen : MonoBehaviour {
 
         //fade in
         fadePanel.CrossFadeAlpha(0f, fadeDuration, true);
-        yield return new WaitForSeconds(fadeDuration+1);
+        yield return new WaitForSeconds(fadeDuration-1);
 
         txtScreen2.SetActive(true);
         
         //WAIT THE TEXT
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(8);
         fadePanel.CrossFadeAlpha(1f, fadeDuration / 7, true);
         yield return new WaitForSeconds(fadeDuration / 7);
 
