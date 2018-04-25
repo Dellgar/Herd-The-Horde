@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114871803542692656}
   - component: {fileID: 114551601253775654}
   - component: {fileID: 114697287720944654}
+  - component: {fileID: 70222602430454144}
   m_Layer: 0
   m_Name: sheep_rainbaah_allcolor
   m_TagString: black
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136140061467138}
   m_LocalRotation: {x: -0.034899585, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 8.3561325, y: 2.0488415, z: -0.7}
+  m_LocalPosition: {x: 9.128624, y: -0.5192132, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000178897143884}
@@ -191,6 +192,21 @@ PolygonCollider2D:
       - {x: 1.4583334, y: -2.0625}
       - {x: 1.9583334, y: -2.1458335}
       - {x: 2.2916667, y: -0.9375}
+--- !u!70 &70222602430454144
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136140061467138}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -1.6}
+  m_Size: {x: 3.5478384, y: 1.0920018}
+  m_Direction: 1
 --- !u!95 &95598033515450130
 Animator:
   serializedVersion: 3

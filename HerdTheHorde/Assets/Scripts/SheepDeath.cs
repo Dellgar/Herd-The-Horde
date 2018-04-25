@@ -63,6 +63,8 @@ public class SheepDeath : MonoBehaviour {
 
                 moveScript.enabled = false;
                 rb2D.isKinematic = true;
+                rb2D.simulated = false;
+                //rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
 
                 GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
                 badWolf.name = "Wolfy"; //Take sheep from Sheeplost list?

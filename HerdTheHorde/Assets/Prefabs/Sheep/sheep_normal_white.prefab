@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212822247032397882}
   - component: {fileID: 50696547775641938}
   - component: {fileID: 60898572389699848}
+  - component: {fileID: 70909998735932078}
   - component: {fileID: 95002994442221482}
   - component: {fileID: 114156058088323102}
   - component: {fileID: 114631021139751676}
@@ -70,14 +71,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416659374722194}
-  m_LocalRotation: {x: -0.034899585, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 3.1496372, y: -1.389317, z: 3.45}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.670408, y: 3.0318651, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4072771686456208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -4, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23379118065212138
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -193,6 +194,21 @@ PolygonCollider2D:
       - {x: 1.75, y: -2.1875}
       - {x: 2.0833335, y: -2.1458335}
       - {x: 2.2083335, y: -2.0625}
+--- !u!70 &70909998735932078
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416659374722194}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -1.6}
+  m_Size: {x: 3.5478384, y: 1.0920018}
+  m_Direction: 1
 --- !u!95 &95002994442221482
 Animator:
   serializedVersion: 3
