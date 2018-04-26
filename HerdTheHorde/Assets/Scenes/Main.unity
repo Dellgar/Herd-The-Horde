@@ -946,7 +946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &248747808
 Transform:
   m_ObjectHideFlags: 0
@@ -2729,7 +2729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &670020935
 Transform:
   m_ObjectHideFlags: 0
@@ -7122,7 +7122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1620872304
 Transform:
   m_ObjectHideFlags: 0
@@ -7488,11 +7488,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4701149662171660, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.640846
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4701149662171660, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.3289146
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4701149662171660, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7517,10 +7517,6 @@ Prefab:
     - target: {fileID: 4701149662171660, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4493190663496736, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 616ff0dbec19a5b4dbecfcc5a5ee36ad, type: 2}
@@ -7715,7 +7711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1725308062
 Transform:
   m_ObjectHideFlags: 0
@@ -7901,11 +7897,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4928203210363508, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.912563
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 4928203210363508, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.130082
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 4928203210363508, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7934,10 +7930,6 @@ Prefab:
     - target: {fileID: 1495699091835792, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
       propertyPath: m_Name
       value: blackPen
-      objectReference: {fileID: 0}
-    - target: {fileID: 4223647282319296, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf7aedd9d7b3c3542af2d930e8286653, type: 2}
@@ -7971,10 +7963,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7f560bc49c26047ac5fd3f61bdaa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCamera: {fileID: 1418074664}
   isEndless: 0
   gameState: 0
   spawnerActive: 0
   deadSheepList: []
+  sheepAllowedArea:
+  - {x: 0.3, y: 0.75}
+  - {x: 0.75, y: 0.3}
+  - {x: 0.3, y: 0.3}
+  - {x: 0.75, y: 0.75}
   guiPanel: {fileID: 417622741}
   successPanel: {fileID: 1345426118}
   gameoverPanel: {fileID: 1650236614}
@@ -7985,12 +7983,13 @@ MonoBehaviour:
   scoreUI: {fileID: 1383920471}
   sheepLostText: {fileID: 412079714}
   timeTakenText: {fileID: 1434190095}
+  playerScoreText: {fileID: 1765282789}
   penTotal: 2
   finishedPens: 0
   deadSheepAmount: 0
-  permittedDeaths: 15
+  permittedDeaths: 32
   timeTakenInLvl: 0
-  sheepToSpawn: 80
+  sheepToSpawn: 250
   sheepSpawned: 0
   whiteSpawns: 0
   blackSpawns: 0
@@ -8489,13 +8488,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1919255565}
+  - component: {fileID: 1919255566}
   m_Layer: 0
   m_Name: Constrains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1919255565
 Transform:
   m_ObjectHideFlags: 0
@@ -8513,6 +8513,47 @@ Transform:
   m_Father: {fileID: 1289170131}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1919255566
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919255564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -58.602776, y: 38.44559}
+      - {x: -58.44213, y: 13.16181}
+      - {x: -18.310127, y: 13.560154}
+      - {x: 0.07834625, y: 17.022404}
+      - {x: 21.816065, y: 13.53726}
+      - {x: 24.24283, y: -0.18548441}
+      - {x: 21.958435, y: -13.041971}
+      - {x: 0.07719803, y: -16.855408}
+      - {x: -18.016756, y: -12.841631}
+      - {x: -23.339985, y: -0.18511724}
+      - {x: -18.357128, y: 13.158262}
+      - {x: -58.593544, y: 12.978766}
+      - {x: -59.68696, y: -36.793755}
+      - {x: -18.426523, y: -37.184452}
+      - {x: 21.889471, y: -37.169785}
+      - {x: 62.142067, y: -37.256367}
+      - {x: 62.958088, y: 39.442554}
 --- !u!1 &1972802565
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SheepMovement : MonoBehaviour {
 
+    private GameManager gmScript;
+
     private Animator sheepAnim;
 
     public float moveSpeed;
@@ -30,6 +32,7 @@ public class SheepMovement : MonoBehaviour {
         myRigidbody = GetComponent<Rigidbody2D>();
 		sheepRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
+        gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         
 		//Set counters
         waitCounter = waitTime;
@@ -42,7 +45,7 @@ public class SheepMovement : MonoBehaviour {
 	
 	void Update ()
     {
-		//Store what is the coordinate of sheep in viewport-coordinates
+		//Store what is the coordinate of sheep in the viewport-coordinates
 		viewportPos = mainCam.WorldToViewportPoint(transform.position);
 		CameraBoundaries();
 
@@ -74,18 +77,22 @@ public class SheepMovement : MonoBehaviour {
                     break;
 
             case 4: //up right
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(moveSpeed, moveSpeed);
                     break;
 
             case 5: //down left
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
                     break;
 
             case 6: // down right
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(moveSpeed, -moveSpeed);
                     break;
 
             case 7: // up left
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(-moveSpeed, moveSpeed);
                     break;
             }
@@ -115,22 +122,24 @@ public class SheepMovement : MonoBehaviour {
 		//then force the movedirection to be opposite of that, making the sheeps coming back into the screen
 		if (!isInScreen)
 		{
-			if (viewportPos.x > 0.9f)
+			if (viewportPos.x > gmScript.sheepAllowedArea[1].x)     //if sheep X is greater than allowable X
 			{
-				moveDirection = 3;
-			}
-			if (viewportPos.x < 0.1f)
-			{
-				moveDirection = 1;
+				moveDirection = 3;  //left
 			}
 
-			if (viewportPos.y > 0.9f)
-			{
-				moveDirection = 2;
+			if (viewportPos.x < gmScript.sheepAllowedArea[0].x)     //if sheep X is less than allowable X
+            {
+				moveDirection = 1;  //right
 			}
-			if (viewportPos.y < 0.1f)
+
+			if (viewportPos.y > gmScript.sheepAllowedArea[0].y)
 			{
-				moveDirection = 0;
+				moveDirection = 2;  //down
+			}
+
+			if (viewportPos.y < gmScript.sheepAllowedArea[1].y)
+			{
+                moveDirection = 0;  //up
 			}
 		}
 		//If the sheeps are in screen bounds, then randomize movedirection
@@ -146,8 +155,8 @@ public class SheepMovement : MonoBehaviour {
 	//Set screen bounds, where if sheeps wander outside they are forced to take movedirection leading them back
 	public void CameraBoundaries()
 	{
-		if (viewportPos.x <= 0.9f && viewportPos.x >= 0.1f && 
-			viewportPos.y <= 0.9f && viewportPos.y >= 0.1f)
+		if (viewportPos.x <= gmScript.sheepAllowedArea[1].x && viewportPos.x >= gmScript.sheepAllowedArea[0].x && 
+			viewportPos.y <= gmScript.sheepAllowedArea[0].y && viewportPos.y >= gmScript.sheepAllowedArea[1].y)
 		{
 			//Debug.Log("In Screen");
 			isInScreen = true;

@@ -19,9 +19,9 @@ public class IntroScreen : MonoBehaviour {
     private bool isFadedIn;
 
     void Start () {
-        fadePanel = GameObject.Find("fadePanel").GetComponent<Image>();
-        introScreen1 = GameObject.Find("First").GetComponent<SpriteRenderer>();
-        introScreen2 = GameObject.Find("Second").GetComponent<SpriteRenderer>();
+        if (fadePanel == null) fadePanel = GameObject.Find("fadePanel").GetComponent<Image>();
+        if (introScreen1 == null) introScreen1 = GameObject.Find("First").GetComponent<SpriteRenderer>();
+        if (introScreen2 == null) introScreen2 = GameObject.Find("Second").GetComponent<SpriteRenderer>();
 
         StartCoroutine(Intro());
     }

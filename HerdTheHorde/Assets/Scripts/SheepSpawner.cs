@@ -27,7 +27,7 @@ public class SheepSpawner : MonoBehaviour {
 	
 	void Update ()
     {
-        if(spawningInterval <= 0.5f) spawningInterval = 0.9f;
+        if(spawningInterval <= 0.85f) spawningInterval = 1.5f;
 
         for (int i = 0; i < 8; ++i)
         {
@@ -37,7 +37,7 @@ public class SheepSpawner : MonoBehaviour {
                 new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
                 spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
 
-                nroSheep.name = "Sheep #" + gmScript.sheepSpawned.ToString();
+                nroSheep.name = "Sheep Num#" + i.ToString();
             }
         }
 
@@ -58,13 +58,13 @@ public class SheepSpawner : MonoBehaviour {
             {
                 case "white":
                     listMin = 0;
-                    listMax = 4;
+                    listMax = 1;
                     //Debug.Log("race: white");
                     break;
 
                 case "black":
-                    listMin = 4;
-                    listMax = 7;
+                    listMin = 5;
+                    listMax = 6;
                     //Debug.Log("race: black");
                     break;
 
@@ -85,7 +85,7 @@ public class SheepSpawner : MonoBehaviour {
 
             Debug.Log("Sheep Spawned");
 
-            spawningInterval = spawningInterval - 0.1f;
+            spawningInterval = spawningInterval - 0.08f;
 
         }
     }

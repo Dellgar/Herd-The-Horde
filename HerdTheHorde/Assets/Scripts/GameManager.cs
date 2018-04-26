@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public bool isEndless;
+    public Camera levelCamera;
+    public bool isEndless;
     public int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
     public bool spawnerActive;
     public List<GameObject> deadSheepList;
+    public Vector2[] sheepAllowedArea;
 
-	[Header("UserInterface")]
+
+    [Header("UserInterface")]
 	public GameObject guiPanel;
 	public GameObject successPanel;
 	public GameObject gameoverPanel;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
     [Header("Stat Objects")]
     public Text sheepLostText;
     public Text timeTakenText;
+    public Text playerScoreText;
 
     [Header("Statistics")]
     public int penTotal;
@@ -38,11 +42,13 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private int blackSpawns;
     [SerializeField] private int playerScorePoints;
 
-
+    
 
     private void Awake()
 	{
-		if (SceneManager.GetActiveScene().name == "Endless")
+        if (levelCamera == null ) levelCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+
+        if (SceneManager.GetActiveScene().name == "Endless")
 		{
 			isEndless = true;
 		}
@@ -66,11 +72,37 @@ public class GameManager : MonoBehaviour
         SetGameState(3);
     }
 
+    private void OnDrawGizmos()
+    {
+
+        Vector3 posA = levelCamera.ViewportToWorldPoint(new Vector3(sheepAllowedArea[0].x, sheepAllowedArea[0].y, 5));  //upperleft
+        Vector3 posB = levelCamera.ViewportToWorldPoint(new Vector3(sheepAllowedArea[1].x, sheepAllowedArea[1].y, 5));  //upperright
+        Vector3 posC = levelCamera.ViewportToWorldPoint(new Vector3(sheepAllowedArea[2].x, sheepAllowedArea[2].y, 5));  //bottomleft
+        Vector3 posD = levelCamera.ViewportToWorldPoint(new Vector3(sheepAllowedArea[3].x, sheepAllowedArea[3].y, 5));  //bottomright
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(posA, posB);
+        Gizmos.DrawCube(posA, new Vector3(1f, 1f, 1f));
+        Gizmos.DrawCube(posB, new Vector3(1f, 1f, 1f));
+
+        //helpers to draw the rectangle for allowed area :: A D C B
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(posA, posD);
+        Gizmos.DrawLine(posA, posC);
+        Gizmos.DrawLine(posB, posD);
+        Gizmos.DrawLine(posB, posC);
+
+    }
+
     void Update()
     {
+        //Staistics panel
         timeTakenInLvl = Time.timeSinceLevelLoad;
         sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
         timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
+        playerScoreText.text = "Score: " + playerScorePoints.ToString();
+
+        //UserInterface
 		timeUI.text = timeTakenText.text;
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
         scoreUI.text = "Score: " + playerScorePoints.ToString();

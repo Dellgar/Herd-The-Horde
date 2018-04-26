@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270446042617698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4928203210363508}
@@ -182,7 +182,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495699091835792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.912563, y: -8.130082, z: 0.18511}
+  m_LocalPosition: {x: -19, y: -11, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4576031850587264}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3adab323bb3a242a963f43eb603887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepGoal: 10
+  sheepGoal: 15
   isSheepGoalAchieved: 0
   gmScript: {fileID: 0}
 --- !u!212 &212288539130988762
