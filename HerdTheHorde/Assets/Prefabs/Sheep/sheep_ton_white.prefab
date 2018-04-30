@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 60280683349731968}
   - component: {fileID: 95377250898011534}
   - component: {fileID: 114395377947356182}
+  - component: {fileID: 114453172719720752}
   - component: {fileID: 114349037032006748}
   - component: {fileID: 114819357056261118}
   - component: {fileID: 114873727953407256}
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613572161961380}
   m_LocalRotation: {x: -0.034899585, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 9.557749, y: -14.804549, z: 3.3}
+  m_LocalPosition: {x: 8.945493, y: -14.123664, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4047767165253070}
@@ -282,6 +283,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDrag: 0
   isMouseUp: 0
+  SheepScript: {fileID: 0}
+--- !u!114 &114453172719720752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613572161961380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e750ae899a1a144a8a51f45cc599a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  race: 
+  type: 
+  thisSheep: {fileID: 0}
+  bulgedSprite: {fileID: 21300000, guid: 666254c6f9094ff45a14e478b1008b7f, type: 3}
 --- !u!114 &114819357056261118
 MonoBehaviour:
   m_ObjectHideFlags: 1

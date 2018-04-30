@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> deadSheepList;
     public Vector2[] sheepAllowedArea;
 
+    //Game Handling
+    public GameObject clickedSheep;
+
 
     [Header("UserInterface")]
 	public GameObject guiPanel;
@@ -112,6 +115,11 @@ public class GameManager : MonoBehaviour
             SetGameState(4);
         }
 
+    }
+
+    public void SheepOnCursor(GameObject cursorSheep)
+    {
+        clickedSheep = cursorSheep;
     }
 
     public void PlayerScore(int scoreAmount)

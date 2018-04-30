@@ -9,18 +9,26 @@ public class Draggable : MonoBehaviour {
     public bool canDrag;
     public bool isMouseUp;
 
+    public Sheep sheepScript;
+    private GameObject mySheep;
+
     private void Awake()
     {
+        sheepScript = GetComponent<Sheep>();
         canDrag = true;
     }
+
+
 
     void OnMouseDown()
 	{
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         isMouseUp = false;
-	}
+        sheepScript.SheepBulge();
 
-	public void OnMouseDrag()
+    }
+
+    public void OnMouseDrag()
 	{
         if (!canDrag) return;
 
@@ -36,6 +44,9 @@ public class Draggable : MonoBehaviour {
     private void OnMouseUp()
     {
         isMouseUp = true;
+        sheepScript.SheepBulge();
     }
+
+    
 
 }
