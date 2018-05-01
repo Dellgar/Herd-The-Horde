@@ -9,17 +9,17 @@ public class PowerUps : MonoBehaviour {
     public float timeBaahmbDuration;
 	private float baahmbHelper;
 	bool isActiveTimeBaahmb;
-    private float currentTime;
-	private float buttonpressTime;
+    //private float currentTime;
+	//private float buttonpressTime;
 
     private void Start()
     {
-        buttonpressTime = 0;
+        //buttonpressTime = 0;
     }
 
     void Update ()
     {
-		currentTime = Time.timeSinceLevelLoad;
+		//currentTime = Time.timeSinceLevelLoad;
 
 		if (isActiveTimeBaahmb)
 		{
@@ -37,7 +37,7 @@ public class PowerUps : MonoBehaviour {
 
     public void TimeBaahmb()
     {
-		buttonpressTime = currentTime;
+		//buttonpressTime = currentTime;
 		baahmbHelper = timeBaahmbDuration;
 		isActiveTimeBaahmb = true;
     }

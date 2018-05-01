@@ -22,12 +22,13 @@ GameObject:
   - component: {fileID: 212448308646535664}
   - component: {fileID: 50929204214405552}
   - component: {fileID: 60790222625120328}
+  - component: {fileID: 70177419502494702}
   - component: {fileID: 95170801294373780}
   - component: {fileID: 114488679057842496}
+  - component: {fileID: 114407111970030998}
   - component: {fileID: 114494576903154984}
   - component: {fileID: 114059767522552482}
   - component: {fileID: 114342812586361810}
-  - component: {fileID: 70177419502494702}
   m_Layer: 0
   m_Name: sheep_ton_black
   m_TagString: black
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248238371711894}
   m_LocalRotation: {x: -0.034899585, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: -0.20694923, y: -14.200546, z: 3.2853627}
+  m_LocalPosition: {x: -0.74222606, y: -17.38129, z: 3.2853627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686006898279998}
@@ -281,6 +282,22 @@ MonoBehaviour:
   hasWolfAppeared: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
   wolfSpawnLocation: {fileID: 0}
+--- !u!114 &114407111970030998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248238371711894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e750ae899a1a144a8a51f45cc599a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  race: black
+  type: ton
+  draggableScript: {fileID: 0}
+  fearShake: {fileID: 0}
+  bulgedSprite: {fileID: 21300000, guid: 53fa809e3f5d6224e82044f986892f49, type: 3}
 --- !u!114 &114488679057842496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDrag: 0
   isMouseUp: 0
+  sheepScript: {fileID: 0}
 --- !u!114 &114494576903154984
 MonoBehaviour:
   m_ObjectHideFlags: 1

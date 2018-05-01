@@ -6,7 +6,8 @@ public class SheepDeath : MonoBehaviour {
 
 	private GameManager gmScript;
     private SheepMovement moveScript;
-    private Rigidbody2D rb2D; 
+    private Rigidbody2D rb2D;
+	private Animator sheepAnim;
 
 	[Header ("Death Counter")]
     [SerializeField]
@@ -30,8 +31,9 @@ public class SheepDeath : MonoBehaviour {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         moveScript = GetComponent<SheepMovement>();
         rb2D = GetComponent<Rigidbody2D>();
+		sheepAnim = GetComponent<Animator>();
 
-        hasWolfAppeared = false;
+		hasWolfAppeared = false;
         timerText = GetComponentInChildren<TextMesh>();
 
         wolfTimer = System.Math.Round(Random.Range(wolfTimerMin, wolfTimerMax), 1);
@@ -62,11 +64,12 @@ public class SheepDeath : MonoBehaviour {
                 gmScript.SheepRipList("timeup", this.gameObject);
 
                 moveScript.enabled = false;
-                rb2D.isKinematic = true;
                 rb2D.simulated = false;
-                //rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+				sheepAnim.SetBool("isHorrified", true);
+				//rb2D.isKinematic = true;
+				//rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
 
-                GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
+				GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
                 badWolf.name = "Wolfy"; //Take sheep from Sheeplost list?
 
                 badWolf.GetComponent<Wolf>().WolfStuff(this.transform, this.gameObject);

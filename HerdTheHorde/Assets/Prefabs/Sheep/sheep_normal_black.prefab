@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 60270393301048814}
   - component: {fileID: 70593781281615306}
   - component: {fileID: 95244013421330526}
-  - component: {fileID: 114229590229716098}
   - component: {fileID: 114105895046430910}
+  - component: {fileID: 114229590229716098}
   - component: {fileID: 114939419912707664}
   - component: {fileID: 114287789909574078}
   - component: {fileID: 114826213243187992}
@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068912713223160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.103851, y: 7.062819, z: 0}
+  m_LocalPosition: {x: -0.837495, y: -5.6637483, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4860070073210294}
@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDrag: 0
   isMouseUp: 0
+  sheepScript: {fileID: 0}
 --- !u!114 &114229590229716098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,6 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   race: black
   type: normal
+  draggableScript: {fileID: 0}
+  fearShake: {fileID: 0}
+  bulgedSprite: {fileID: 21300000, guid: f6972eb3b2804c54f9eb05b426180b7e, type: 3}
 --- !u!114 &114287789909574078
 MonoBehaviour:
   m_ObjectHideFlags: 1

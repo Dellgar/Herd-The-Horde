@@ -8,9 +8,9 @@ public class Sheep : MonoBehaviour {
     public string type;
     private GameManager gmScript;
     public Draggable draggableScript;
-    public GameObject thisSheep;
+	public GameObject fearShake;
 
-    public Sprite bulgedSprite;
+	public Sprite bulgedSprite;
     private Sprite defaultSprite;
 
 	// Use this for initialization
@@ -31,11 +31,20 @@ public class Sheep : MonoBehaviour {
         //thisSheep = cSheep;
         gmScript.SheepOnCursor(this.gameObject);
 
-        if(!draggableScript.isMouseUp)  //on sheep click
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bulgedSprite;
 
-        if(draggableScript.isMouseUp)   //on sheep release
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
-        //Instead, set animator controller to do this
+
+		//Instead, set animator controller to do this
+		//currently works but animator overrules so if you want to see this, disable animator
+		if (!draggableScript.isMouseUp)	//on sheep click
+		{  
+			this.gameObject.GetComponent<Animator>().enabled = false;
+			this.gameObject.GetComponent<SpriteRenderer>().sprite = bulgedSprite;
+		}
+
+		if (draggableScript.isMouseUp)   //on sheep release
+		{
+			this.gameObject.GetComponent<Animator>().enabled = true;
+			this.gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+		}
     }
 }

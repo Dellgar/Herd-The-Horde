@@ -9,7 +9,8 @@ public class SheepSpawner : MonoBehaviour {
     public string[] spawnableRaces;         //List of spawnable sheep races
     private int listMin, listMax;           //Set the prefab restriction what to spawn, ie. white 0 - 2; inclusive - exclusive
     public GameObject[] spawnPrefabs;		//List of prefabs that can be spawned
-    public GameObject[] spawnPoint;			//List of gameobjects storing the spawnpoint coordinate
+    public Vector3[] spawnPoint;           //List of the spawnpoints
+
 	private int spawnPointIndex;			//Randomized value, pointing to what spawnpoint location is used
 
     public bool spawnerReady;
@@ -24,6 +25,8 @@ public class SheepSpawner : MonoBehaviour {
 
         StartCoroutine(Spawning());
     }
+
+
 	
 	void Update ()
     {
@@ -34,16 +37,24 @@ public class SheepSpawner : MonoBehaviour {
             if (Input.GetKeyDown("" + i))
             {
                 GameObject nroSheep = Instantiate(spawnPrefabs[i],
-                new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
-                spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
+                new Vector2(spawnPoint[spawnPointIndex].x,
+                spawnPoint[spawnPointIndex].y), Quaternion.identity);
 
                 nroSheep.name = "Sheep Num#" + i.ToString();
             }
         }
-
 	}
 
-    IEnumerator Spawning()
+	private void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.cyan;
+		foreach (var pos in spawnPoint)
+		{
+			Gizmos.DrawCube(pos, new Vector3(2f, 2f, 2f));
+		}
+	}
+
+	IEnumerator Spawning()
     {
         while (gmScript.spawnerActive)
         {
@@ -79,8 +90,8 @@ public class SheepSpawner : MonoBehaviour {
             gmScript.SheepSpawn(1, spawnableRaces[rndRace]);
 
             GameObject sheep = Instantiate(spawnPrefabs[sheepPrefab],
-                new Vector2(spawnPoint[spawnPointIndex].transform.position.x,
-                spawnPoint[spawnPointIndex].transform.position.y), Quaternion.identity);
+                new Vector2(spawnPoint[spawnPointIndex].x,
+                spawnPoint[spawnPointIndex].y), Quaternion.identity);
             sheep.name = "Sheep #" + gmScript.sheepSpawned.ToString();
 
             Debug.Log("Sheep Spawned");

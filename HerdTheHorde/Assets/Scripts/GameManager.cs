@@ -45,9 +45,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private int blackSpawns;
     [SerializeField] private int playerScorePoints;
 
-    
 
-    private void Awake()
+
+
+	private void Awake()
 	{
         if (levelCamera == null ) levelCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 
