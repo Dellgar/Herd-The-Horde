@@ -31,8 +31,6 @@ public class Sheep : MonoBehaviour {
         //thisSheep = cSheep;
         gmScript.SheepOnCursor(this.gameObject);
 
-
-
 		//Instead, set animator controller to do this
 		//currently works but animator overrules so if you want to see this, lets disable animator
 		if (!draggableScript.isMouseUp)	//on sheep click

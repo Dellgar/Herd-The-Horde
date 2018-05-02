@@ -24,7 +24,7 @@ public class Draggable : MonoBehaviour {
 	{
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         isMouseUp = false;
-        sheepScript.SheepBulge();
+        //sheepScript.SheepBulge();
 
     }
 
@@ -44,7 +44,7 @@ public class Draggable : MonoBehaviour {
     private void OnMouseUp()
     {
         isMouseUp = true;
-        sheepScript.SheepBulge();
+        //sheepScript.SheepBulge();
     }
 
     

@@ -32,7 +32,7 @@ public class SheepCollision : MonoBehaviour {
         {
             if (isCollidingEnter) return;
 
-            if (colGameObject.CompareTag(gameObject.tag))
+            if (colGameObject.CompareTag(gameObject.tag) && colGameObject.name == "whitePen" || colGameObject.name == "blackPen")   //paskaa koodia, vaiha ja tee tagit lammas skriptiin
             {
                 Debug.Log("Right Pen");
                 
