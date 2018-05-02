@@ -34,7 +34,7 @@ public class Sheep : MonoBehaviour {
 
 
 		//Instead, set animator controller to do this
-		//currently works but animator overrules so if you want to see this, disable animator
+		//currently works but animator overrules so if you want to see this, lets disable animator
 		if (!draggableScript.isMouseUp)	//on sheep click
 		{  
 			this.gameObject.GetComponent<Animator>().enabled = false;

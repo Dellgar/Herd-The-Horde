@@ -63,7 +63,7 @@ public class SheepDeath : MonoBehaviour {
 				hasWolfAppeared = true;
                 gmScript.SheepRipList("timeup", this.gameObject);
 
-                moveScript.enabled = false;
+                //moveScript.enabled = false;
                 rb2D.simulated = false;
 				sheepAnim.SetBool("isHorrified", true);
 				//rb2D.isKinematic = true;

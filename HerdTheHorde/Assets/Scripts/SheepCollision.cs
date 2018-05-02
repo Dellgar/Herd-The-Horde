@@ -21,6 +21,11 @@ public class SheepCollision : MonoBehaviour {
         draggableScript = GetComponent<Draggable>();
     }
 
+    private void Update()
+    {
+        
+    }
+
     void OnTriggerStay2D(Collider2D colGameObject)
     {
         if (draggableScript.isMouseUp)
@@ -33,9 +38,15 @@ public class SheepCollision : MonoBehaviour {
                 
                 isCollidingEnter = true;
                 draggableScript.canDrag = false;
-                movementScript.enabled = false;
-                gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
-                colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
+                //movementScript.enabled = false;
+                
+                // Error; object reference not set
+                //colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
+                PenChecker colGameObjChecker = colGameObject.gameObject.GetComponent<PenChecker>();
+                
+                colGameObjChecker.CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
+
+
                 gameObject.SetActive(false);
             }
             else
