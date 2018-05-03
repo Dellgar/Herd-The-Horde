@@ -32,7 +32,7 @@ public class SheepSpawner : MonoBehaviour {
     {
         if(spawningInterval <= 0.85f) spawningInterval = 1.5f;
 
-        for (int i = 0; i < 8; ++i)
+        for (int i = 0; i < 9; ++i)
         {
             if (Input.GetKeyDown("" + i))
             {
