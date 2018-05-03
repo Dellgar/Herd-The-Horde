@@ -48,7 +48,7 @@ public class SheepDeath : MonoBehaviour {
 
         timeSinceInitializition = Time.timeSinceLevelLoad - initTime;
 
-        timerText.text = "";
+        //timerText.text = "";
         //timerText.text = (wolfTimer - timeSinceInitializition).ToString("F1"); 
         WolfTimerCounter();
 	}
