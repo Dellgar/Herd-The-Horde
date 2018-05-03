@@ -299,7 +299,7 @@ MonoBehaviour:
   type: ton
   draggableScript: {fileID: 0}
   fearShake: {fileID: 0}
-  bulgedSprite: {fileID: 21300000, guid: 358b8168bcd0ed243a9397fd50a83024, type: 3}
+  bulgedSprite: {fileID: 21300000, guid: 12017639e7074e542b1e05a957b27c35, type: 3}
 --- !u!114 &114819357056261118
 MonoBehaviour:
   m_ObjectHideFlags: 1

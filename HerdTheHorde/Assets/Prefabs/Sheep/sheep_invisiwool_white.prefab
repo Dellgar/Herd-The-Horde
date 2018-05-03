@@ -310,7 +310,7 @@ MonoBehaviour:
   type: invisiwool
   draggableScript: {fileID: 0}
   fearShake: {fileID: 0}
-  bulgedSprite: {fileID: 21300000, guid: 93c765bd010727f43b5e7cc047b4171d, type: 3}
+  bulgedSprite: {fileID: 21300000, guid: bc7adfe75cf83f94a96ad7c9462b2a9d, type: 3}
 --- !u!114 &114835072229644024
 MonoBehaviour:
   m_ObjectHideFlags: 1

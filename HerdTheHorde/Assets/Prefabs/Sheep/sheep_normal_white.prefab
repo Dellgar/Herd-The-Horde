@@ -325,7 +325,7 @@ MonoBehaviour:
   type: normal
   draggableScript: {fileID: 0}
   fearShake: {fileID: 0}
-  bulgedSprite: {fileID: 21300000, guid: 666254c6f9094ff45a14e478b1008b7f, type: 3}
+  bulgedSprite: {fileID: 21300000, guid: 2d5289e5d3023904ea4e4f9f041e5f1b, type: 3}
 --- !u!212 &212822247032397882
 SpriteRenderer:
   m_ObjectHideFlags: 1

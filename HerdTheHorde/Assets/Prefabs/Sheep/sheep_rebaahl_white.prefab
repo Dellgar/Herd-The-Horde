@@ -322,7 +322,7 @@ MonoBehaviour:
   type: rebaahl
   draggableScript: {fileID: 0}
   fearShake: {fileID: 0}
-  bulgedSprite: {fileID: 21300000, guid: d6e5975a9d7e6d04cb3e72585b52e855, type: 3}
+  bulgedSprite: {fileID: 21300000, guid: 0659829016a3b1d44ac8e2f6e0aecda7, type: 3}
 --- !u!212 &212945271757813878
 SpriteRenderer:
   m_ObjectHideFlags: 1
