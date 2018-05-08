@@ -179,4 +179,12 @@ public class SheepMovement : MonoBehaviour {
             sheepAnim.SetBool("isWalking", false);
         }
     }
+
+    public void DisableMoving()
+    {
+        isMoving = false;
+        waitTime = 1;
+        moveTime = 0;
+        moveSpeed = 0;
+    }
 }

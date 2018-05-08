@@ -5648,6 +5648,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1583040980417800, guid: a3507f839dc7dc74b9e980bddbae8432, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3507f839dc7dc74b9e980bddbae8432, type: 2}
   m_IsPrefabParent: 0
@@ -10660,6 +10664,7 @@ MonoBehaviour:
   - {x: 0.3, y: 0.3}
   - {x: 0.75, y: 0.75}
   clickedSheep: {fileID: 0}
+  hasWolfSpawned: 0
   guiPanel: {fileID: 417622741}
   successPanel: {fileID: 1345426118}
   gameoverPanel: {fileID: 1650236614}

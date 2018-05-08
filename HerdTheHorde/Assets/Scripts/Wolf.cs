@@ -20,31 +20,131 @@ public class Wolf : MonoBehaviour {
     [Header("Wolf")]
     [Range (0.05f, 3f)]
     public float wolfSpeed;             // Wolf's movement speed
-    public bool isWolfLeaving;          // Finished eating, eating other sheeps later, cya!
     public GameObject wolfLeaveLocation;
 
     private Vector3 targetPosXYZ;
     private GameObject targetSheep;
 
 
+
+    // ** ** //
+    public List<GameObject> wolfsTargetList;
+    private bool checkingList;
+    public Vector3 currentTargetPos;
+    public bool isWolfLeaving;
+
+
+
     private void Start()
     {
-        sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
+        //sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
         wolfRenderer = GetComponent<SpriteRenderer>();
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         wolfAnim = GetComponent<Animator>();
+
+        checkingList = false;
     }
 
     void Update ()
     {
-        //check wolf has leave location and renderer is set
-        if (wolfLeaveLocation == null) wolfLeaveLocation = GameObject.Find("WolfLeaveLocation");
-        if (sheepRenderer == null) sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
-        if (wolfRenderer == null) wolfRenderer = GetComponent<SpriteRenderer>();
+        if (isWolfLeaving)
+        {
+            wolfAnim.SetInteger("wolfState", 3);
 
+            transform.position = Vector2.MoveTowards(transform.position, wolfLeaveLocation.transform.position, wolfSpeed * 2 * Time.deltaTime);
+            //currentTargetPos = wolfLeaveLocation.transform.position;
+
+            if (transform.position == wolfLeaveLocation.transform.position)
+            {
+                gmScript.hasWolfSpawned = false;
+                Destroy(this);
+            }
+        }
+
+        // Target list checked and updated, lets go for a hunt
+        if (isWolfOnMove)    //set through sheep's death
+        {
+
+            //check wolf has leave location and renderer is set
+            if (wolfLeaveLocation == null) wolfLeaveLocation = GameObject.Find("WolfLeaveLocation");
+            //if (sheepRenderer == null) sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
+            if (wolfRenderer == null) wolfRenderer = GetComponent<SpriteRenderer>();
+
+
+            //start checking riplist
+            if (!checkingList)
+            {
+                Debug.Log("Getting lunch-waypoints from riplist");
+                checkingList = true;
+
+                foreach (var obj in gmScript.deadSheepList)
+                {
+                    wolfsTargetList.Add(obj);
+                    Debug.Log("Added new target for wolf; " + obj.name);
+                }
+            }
+
+            //set targets
+            for (int i = 0; i < wolfsTargetList.Count; i++)
+            {
+                currentTargetPos = wolfsTargetList[i].transform.position;
+
+
+                wolfAnim.SetInteger("wolfState", 1);
+                transform.position = Vector2.MoveTowards(transform.position, currentTargetPos, wolfSpeed * 5 * Time.deltaTime);
+                Debug.Log("Wolf moves towards target: " + wolfsTargetList[i]);
+
+                if (transform.position == currentTargetPos)
+                {
+                    Debug.Log("wolf AT TARGET, dustcloud");
+                    //wolf is at the target position
+
+                    wolfAnim.SetInteger("wolfState", 2);
+
+                    //check if sheep still exists in riplist
+                    if (gmScript.deadSheepList.Contains(wolfsTargetList[i]))
+                    {
+                        Debug.Log("wolf target found from riplist");
+
+                        wolfsTargetList[i].GetComponent<SpriteRenderer>().enabled = false;
+
+                        //Removing from lists, because sheep is now fucking gone, man
+                        //gmScript.deadSheepList.Remove(wolfsTargetList[i]);
+                        //wolfsTargetList.Remove(wolfsTargetList[i]);
+                    }
+                    else
+                    {
+                        //Sheep was probably saved before wolf killed it
+                        Debug.Log("Sheep not found from riplist - what happened");
+                    }
+
+                    Debug.Log("for index " + i);
+
+                    //targetlist is finished, go away you wolf!
+                    if (i == wolfsTargetList.Count)
+                    {
+                        //Removing from lists, because sheep is now fucking gone, man
+                        gmScript.deadSheepList.Remove(wolfsTargetList[i]);
+                        wolfsTargetList.Remove(wolfsTargetList[i]);
+
+                        Debug.Log("targets eliminated");
+                        isWolfLeaving = true;
+                        
+                    }
+                }
+
+                //next target [i]
+            }
+        }
+
+
+
+
+        /*
         //target (sheep's) position in vector3
         targetPosXYZ = new Vector3(targetSheepPos.x, targetSheepPos.y, this.transform.position.z);
    
+        
         //wolf is always on move when it has spawned/instantiated through the sheepdeath
         if (isWolfOnMove)
         {
@@ -59,7 +159,6 @@ public class Wolf : MonoBehaviour {
                 this.transform.position = Vector2.MoveTowards(this.transform.position, wolfLeaveLocation.transform.position, wolfSpeed);
                 if (this.transform.position == wolfLeaveLocation.transform.position)
                 {
-
                     //remove target sheep from riplist
                     gmScript.SheepRipList("dead", targetSheep);
 
@@ -92,19 +191,20 @@ public class Wolf : MonoBehaviour {
                 }
             }
         }
+        */
     }
 
     void DustFightCompleted()
     {
-        isWolfLeaving = true;
+        
     }
 
     public void WolfStuff(Transform target, GameObject sheep)
     {
         isWolfOnMove = true;
-        targetSheep = sheep;
-        targetSheepTrans = target;
-        targetSheepPos = target.position;
+        //targetSheep = sheep;
+        //targetSheepTrans = target;
+        //targetSheepPos = target.position;
     }
 
 }

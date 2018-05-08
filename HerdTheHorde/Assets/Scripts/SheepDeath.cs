@@ -57,22 +57,33 @@ public class SheepDeath : MonoBehaviour {
     {
         if(timeSinceInitializition >= wolfTimer)
         {
-			if (!hasWolfAppeared)
+			//if (!gmScript.hasWolfSpawned)
 			{
-				//spawns one wolf per sheep
-				hasWolfAppeared = true;
-                gmScript.SheepRipList("timeup", this.gameObject);
+				
 
-                //moveScript.enabled = false;
-                rb2D.simulated = false;
-				sheepAnim.SetBool("isHorrified", true);
-				//rb2D.isKinematic = true;
-				//rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                
+                //rb2D.simulated = false;
 
-				GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
-                badWolf.name = "Wolfy"; //Take sheep from Sheeplost list?
+                //disabling moving but not interaction
+                moveScript.DisableMoving();
 
-                badWolf.GetComponent<Wolf>().WolfStuff(this.transform, this.gameObject);
+                if(!gmScript.deadSheepList.Contains(this.gameObject)) gmScript.SheepRipList("timeup", this.gameObject);
+
+                sheepAnim.SetBool("isHorrified", true);
+
+                if (!gmScript.hasWolfSpawned)
+                {
+                    //spawns one wolf per sheep for now (bool check)
+                    //hasWolfAppeared = true;
+                    gmScript.hasWolfSpawned = true;
+
+                    gameObject.GetComponent<CapsuleCollider2D>().isTrigger = true;
+
+                    GameObject badWolf = Instantiate(wolfPrefab, wolfSpawnLocation.transform.position, Quaternion.identity) as GameObject;
+                    badWolf.name = "Wolfy"; //Take sheep from Sheeplost list?
+
+                    badWolf.GetComponent<Wolf>().WolfStuff(this.transform, this.gameObject);
+                }
 			}
         }
     }

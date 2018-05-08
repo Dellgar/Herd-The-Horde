@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     //Game Handling
     public GameObject clickedSheep;
-
+    public bool hasWolfSpawned;
 
     [Header("UserInterface")]
 	public GameObject guiPanel;
@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
     {
+        hasWolfSpawned = false;
+
         if (penTotal == 0) Debug.Log("penTotal not set for this level in _gamemanager");
         if (permittedDeaths == 0)
         {
