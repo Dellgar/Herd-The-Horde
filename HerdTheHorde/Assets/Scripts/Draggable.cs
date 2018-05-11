@@ -6,17 +6,16 @@ using UnityEngine;
 public class Draggable : MonoBehaviour {
 
 	private Vector3 offset;
-    public bool canDrag;
-    public bool isMouseUp;
 
     public Sheep sheepScript;
     private GameManager gmScript;
 
     public GameObject mySheep;
 
-    private bool followingCursor;
-
-    private bool wasSaved;
+	public bool canDrag;
+	public bool isMouseUp;
+	private bool followingCursor;
+	public float dragSensitivity;
 
     
 
@@ -24,8 +23,9 @@ public class Draggable : MonoBehaviour {
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         sheepScript = GetComponent<Sheep>();
-        canDrag = true;
-        mySheep = this.gameObject;
+		mySheep = this.gameObject;
+
+		canDrag = true;
     }
 
     private void Update()
@@ -34,39 +34,34 @@ public class Draggable : MonoBehaviour {
 
         if (followingCursor && canDrag)
         {
-            mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, 0.2f);
+			if (dragSensitivity == 0) dragSensitivity = 2f;//Debug.Log("Drag Sensitivity is " + dragSensitivity + " ; 0 Cannot drag");
+            mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, dragSensitivity);
         }
+	}
 
-        
-        if (wasSaved)
-        {
-            if (gmScript.deadSheepList.Contains(mySheep)) gmScript.SheepRipList("saved", mySheep);
-            else return;
+	IEnumerator Save_SheepFromWolf()
+	{
+		if (gmScript.deadSheepList.Contains(mySheep)) gmScript.SheepRipList("saved", mySheep);
+		yield return null;
+	}
 
-        }
-        else if (!wasSaved)
-        {
-            if (!gmScript.deadSheepList.Contains(mySheep)) gmScript.SheepRipList("unsaved", mySheep);
-            else return;
-        }
-        
-    }
+	IEnumerator Unsave_SheepFromWolf()
+	{
+		if (!gmScript.deadSheepList.Contains(mySheep)) gmScript.SheepRipList("unsaved", mySheep);
+		yield return null;
+	}
 
-
-
-    void OnMouseDown()
+	void OnMouseDown()
 	{
 		//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         isMouseUp = false;
         sheepScript.SheepBulge();
-
         followingCursor = true;
 
-        wasSaved = true;
-        
-    }
+		StartCoroutine("Save_SheepFromWolf");
+	}
 
-    /*public void OnMouseDrag()
+	/*public void OnMouseDrag()
 	{
         if (!canDrag) return;
 
@@ -79,14 +74,14 @@ public class Draggable : MonoBehaviour {
         }
 	}*/
 
-    private void OnMouseUp()
+	private void OnMouseUp()
     {
         isMouseUp = true;
         sheepScript.SheepBulge();
         followingCursor = false;
 
-        wasSaved = false;
-    }
+		StartCoroutine("Unsave_SheepFromWolf");
+	}
 
 
 

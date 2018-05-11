@@ -21,11 +21,6 @@ public class SheepCollision : MonoBehaviour {
         draggableScript = GetComponent<Draggable>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     void OnTriggerStay2D(Collider2D colGameObject)
     {
         if (draggableScript.isMouseUp)
@@ -45,7 +40,6 @@ public class SheepCollision : MonoBehaviour {
                 PenChecker colGameObjChecker = colGameObject.gameObject.GetComponent<PenChecker>();
                 
                 colGameObjChecker.CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
-
 
                 gameObject.SetActive(false);
                 Destroy(gameObject);

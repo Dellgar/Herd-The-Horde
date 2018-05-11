@@ -8,7 +8,6 @@ public class Sheep : MonoBehaviour {
     public string type;
     private GameManager gmScript;
     public Draggable draggableScript;
-	public GameObject fearShake;
 
 	public Sprite bulgedSprite;
     private Sprite defaultSprite;
@@ -23,10 +22,9 @@ public class Sheep : MonoBehaviour {
 
     public void SheepBulge()
     {
-        //thisSheep = cSheep;
         gmScript.SheepOnCursor(this.gameObject);
 
-		//Instead, set animator controller to do this
+		//Instead, set animator controller to do this, so new animation for bulge instead of still sprite
 		//currently works but animator overrules so if you want to see this, lets disable animator
 		if (!draggableScript.isMouseUp)	//on sheep click
 		{  
