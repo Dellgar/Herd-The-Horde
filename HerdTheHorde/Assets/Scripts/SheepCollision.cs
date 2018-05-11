@@ -48,6 +48,7 @@ public class SheepCollision : MonoBehaviour {
 
 
                 gameObject.SetActive(false);
+                Destroy(gameObject);
             }
             else
             {

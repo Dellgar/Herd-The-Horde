@@ -30,7 +30,7 @@ public class SheepSpawner : MonoBehaviour {
 	
 	void Update ()
     {
-        if(spawningInterval <= 0.85f) spawningInterval = 1.5f;
+        if(spawningInterval <= 1f) spawningInterval = 1.8f;
 
         for (int i = 0; i < 9; ++i)
         {

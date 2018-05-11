@@ -21,11 +21,6 @@ public class Sheep : MonoBehaviour {
         defaultSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
     public void SheepBulge()
     {
         //thisSheep = cSheep;
