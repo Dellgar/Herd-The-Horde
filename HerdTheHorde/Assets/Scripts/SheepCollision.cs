@@ -7,7 +7,7 @@ using UnityEngine;
 public class SheepCollision : MonoBehaviour {
 
 	private Sheep sheepScript;
-	private GameManager gmScript;
+	//private GameManager gmScript;
 	private Draggable draggableScript;
 	//private SheepMovement movementScript;
 
@@ -19,10 +19,8 @@ public class SheepCollision : MonoBehaviour {
 
     void Awake()
     {
-		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+		//gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
 		draggableScript = GetComponent<Draggable>();
-		//sheepScript = gmScript.clickedSheep.GetComponent<Sheep>();
-
 	}
 
 	private void Update()
@@ -47,17 +45,13 @@ public class SheepCollision : MonoBehaviour {
         {
             if (isCollidingEnter) return;
 
-			//if (colGameObject.CompareTag(gameObject.tag) && colGameObject.name == "whitePen" || colGameObject.name == "blackPen")   //paskaa koodia, vaiha ja tee tagit lammas skriptiin
-			if(sheepScript.race == colGameObject.tag)
+			if(sheepScript.race == colGameObject.tag || sheepScript.race == "all")
 			{
                 Debug.Log("Right Pen");
                 
                 isCollidingEnter = true;
                 draggableScript.canDrag = false;
-                //movementScript.enabled = false;
-                
-                // Error; object reference not set
-                //colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(SHEEP_AMOUNT_VALUE);
+
                 PenChecker colGameObjChecker = colGameObject.gameObject.GetComponent<PenChecker>();
                 
                 colGameObjChecker.CorrectPenForSheep(SHEEP_AMOUNT_VALUE);

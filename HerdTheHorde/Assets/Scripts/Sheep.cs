@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour {
 
-	private GameManager gmScript;
+	//private GameManager gmScript;
 	private Draggable draggableScript;
 
 	public string race;
@@ -27,7 +27,7 @@ public class Sheep : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+        //gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         draggableScript = GetComponent<Draggable>();
 
         defaultSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
