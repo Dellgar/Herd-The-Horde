@@ -5,37 +5,41 @@ using UnityEngine;
 
 public class Draggable : MonoBehaviour {
 
-	private Vector3 offset;
+	private GameManager gmScript;
+	private Sheep sheepScript;
+	private SheepDeath sheepdeathScript;
 
-    public Sheep sheepScript;
-    private GameManager gmScript;
+
+	private Vector3 offset;
 
     public GameObject mySheep;
 
 	public bool canDrag;
 	public bool isMouseUp;
 	private bool followingCursor;
-	public float dragSensitivity;
+	private float dragSens;
 
     
 
     private void Awake()
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
-        sheepScript = GetComponent<Sheep>();
+
 		mySheep = this.gameObject;
+
+		sheepdeathScript = GetComponent<SheepDeath>();
 
 		canDrag = true;
     }
 
-    private void Update()
+	private void Update()
     {
         Vector2 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (followingCursor && canDrag)
         {
-			if (dragSensitivity == 0) dragSensitivity = 2f;//Debug.Log("Drag Sensitivity is " + dragSensitivity + " ; 0 Cannot drag");
-            mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, dragSensitivity);
+			if (dragSens == 0) dragSens = 2f;//Debug.Log("Drag Sensitivity is " + dragSensitivity + " ; 0 Cannot drag");
+            mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, dragSens);
         }
 	}
 
@@ -54,11 +58,20 @@ public class Draggable : MonoBehaviour {
 	void OnMouseDown()
 	{
 		//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        isMouseUp = false;
+		gmScript.SheepOnCursor(mySheep);
+
+		sheepdeathScript.isDeathTimerRunning = false;
+
+		sheepScript = mySheep.GetComponent<Sheep>();
+		dragSens = sheepScript.dragSensitivity;
+
+		isMouseUp = false;
         sheepScript.SheepBulge();
         followingCursor = true;
 
+
 		StartCoroutine("Save_SheepFromWolf");
+		
 	}
 
 	/*public void OnMouseDrag()
@@ -76,7 +89,9 @@ public class Draggable : MonoBehaviour {
 
 	private void OnMouseUp()
     {
-        isMouseUp = true;
+		sheepdeathScript.isDeathTimerRunning = true;
+
+		isMouseUp = true;
         sheepScript.SheepBulge();
         followingCursor = false;
 

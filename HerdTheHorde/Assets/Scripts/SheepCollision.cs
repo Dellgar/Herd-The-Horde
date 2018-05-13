@@ -7,17 +7,16 @@ using UnityEngine;
 public class SheepCollision : MonoBehaviour {
 
     
-    const int SHEEP_AMOUNT_VALUE = 1;
+    private const int SHEEP_AMOUNT_VALUE = 1;
 
 	[SerializeField]
 	private bool isCollidingEnter;
 
-    private SheepMovement movementScript;
+    //private SheepMovement movementScript;
     private Draggable draggableScript;
 
     void Awake()
     {
-		movementScript = GetComponent<SheepMovement>();
         draggableScript = GetComponent<Draggable>();
     }
 

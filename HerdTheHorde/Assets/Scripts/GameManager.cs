@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerScore(int scoreAmount)
     {
-        playerScorePoints += scoreAmount + Mathf.RoundToInt(timeTakenInLvl);
+        playerScorePoints += scoreAmount;
     }
 
     public void LevelComplete(int fPens)

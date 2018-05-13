@@ -41,11 +41,11 @@ GameObject:
   - component: {fileID: 60049700881030146}
   - component: {fileID: 70693621958178412}
   - component: {fileID: 95791571261329374}
-  - component: {fileID: 114557205545534858}
   - component: {fileID: 114796457711329152}
+  - component: {fileID: 114136504707844840}
+  - component: {fileID: 114557205545534858}
   - component: {fileID: 114351989075150370}
   - component: {fileID: 114835072229644024}
-  - component: {fileID: 114136504707844840}
   m_Layer: 0
   m_Name: sheep_invisiwool_white
   m_TagString: white
@@ -259,9 +259,6 @@ MonoBehaviour:
   wolfTimer: 0
   wolfTimerMin: 7
   wolfTimerMax: 11
-  timerText: {fileID: 102409412666467852}
-  timeSinceInitializition: 0
-  hasWolfAppeared: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
   wolfSpawnLocation: {fileID: 0}
 --- !u!114 &114351989075150370
@@ -275,11 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e39fc5c0c472141bb878ddcbac36b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  mainCam: {fileID: 0}
-  isMoving: 0
-  moveTime: 0.3
-  waitTime: 0.2
   viewportPos: {x: 0.3996159, y: 0.39855757}
 --- !u!114 &114557205545534858
 MonoBehaviour:
@@ -292,9 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf29297f168f2b54b86c1a97cac3a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
-  sheepScript: {fileID: 0}
 --- !u!114 &114796457711329152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,9 +300,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   race: white
   type: invisiwool
-  draggableScript: {fileID: 0}
-  fearShake: {fileID: 0}
   bulgedSprite: {fileID: 21300000, guid: bc7adfe75cf83f94a96ad7c9462b2a9d, type: 3}
+  speed: 7
+  movingTime: 1
+  idleTime: 0.2
+  dragSensitivity: 0.2
+  scoreValue: 60
 --- !u!114 &114835072229644024
 MonoBehaviour:
   m_ObjectHideFlags: 1

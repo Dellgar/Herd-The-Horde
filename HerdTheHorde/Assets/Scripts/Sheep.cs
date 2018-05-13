@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour {
 
-    public string race;
+	private GameManager gmScript;
+	private Draggable draggableScript;
+
+	public string race;
     public string type;
-    private GameManager gmScript;
-    public Draggable draggableScript;
 
 	public Sprite bulgedSprite;
     private Sprite defaultSprite;
+
+	[Header("Movement")]
+	public float speed;
+	public float movingTime;
+	public float idleTime;
+
+	[Header("Dragging")]
+	[Tooltip("Negative values push the sheep away from cursor.")]
+	public float dragSensitivity;
+
+	[Header("Score")]
+	public int scoreValue;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +35,7 @@ public class Sheep : MonoBehaviour {
 
     public void SheepBulge()
     {
-        gmScript.SheepOnCursor(this.gameObject);
+        //gmScript.SheepOnCursor(this.gameObject);
 
 		//Instead, set animator controller to do this, so new animation for bulge instead of still sprite
 		//currently works but animator overrules so if you want to see this, lets disable animator

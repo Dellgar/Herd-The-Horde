@@ -12,6 +12,12 @@ public class SheepDeath : MonoBehaviour {
     [SerializeField]
     private float wolfTimer;             // Time when the wolf appears
     public float wolfTimerMin, wolfTimerMax;
+	private bool isSheepTimeUp;
+
+	private float initTime;
+	[SerializeField]
+	private float timeSinceInit;
+	public bool isDeathTimerRunning;
 
 	[Header ("Wolf")]
 	public GameObject wolfPrefab;       //prefab to spawn
@@ -24,14 +30,25 @@ public class SheepDeath : MonoBehaviour {
         moveScript = GetComponent<SheepMovement>();
 		sheepAnim = GetComponent<Animator>();
 
+		isDeathTimerRunning = true;
+		isSheepTimeUp = false;
         wolfTimer = Random.Range(wolfTimerMin, wolfTimerMax);
-
-		Invoke("WolfTimerCounter", wolfTimer);
+		initTime = Time.timeSinceLevelLoad;
+		//Invoke("WolfTimerCounter", wolfTimer);
 	}
 	
 	void Update ()
     {
         if (wolfSpawnLocation == null) wolfSpawnLocation = GameObject.Find("WolfSpawnLocation");
+
+		if(isDeathTimerRunning)	timeSinceInit = Time.timeSinceLevelLoad - initTime;
+
+		if(timeSinceInit >= wolfTimer && !isSheepTimeUp)
+		{
+			isSheepTimeUp = true;
+			WolfTimerCounter();
+		}
+
 	}
 
     void WolfTimerCounter()

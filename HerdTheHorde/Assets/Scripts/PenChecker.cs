@@ -3,26 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PenChecker : MonoBehaviour {
+	private GameManager gmScript;
+	private Sheep sheepScript;
 
-    private TextMesh penText;
+	private TextMesh penText;
     private int sheepsInsidePen;
     public int sheepGoal;
     [SerializeField] private bool isSheepGoalAchieved;
-    public GameManager gmScript;
+	private int sheepsScoreValue;
+
 
 	void Awake ()
     {
-        penText = gameObject.GetComponentInChildren<TextMesh>();
-        gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+
+		penText = gameObject.GetComponentInChildren<TextMesh>();
 	}
 
-    private void Update()
+	private void Start()
+	{
+		
+		//sheepScript = GetComponent<Sheep>();
+	}
+
+	private void Update()
     {
-        UpdatePenScore();
+        UpdatePenStatus();
         PenCompleted();
     }
 
-    void UpdatePenScore ()
+    void UpdatePenStatus ()
     {
 		if (gmScript.isEndless) penText.text = sheepsInsidePen.ToString();
 		else penText.text = sheepsInsidePen + " / " + sheepGoal;
@@ -30,9 +40,11 @@ public class PenChecker : MonoBehaviour {
 
     public void CorrectPenForSheep(int sheepCount)
     {
-        sheepsInsidePen += sheepCount;
-        UpdatePenScore();
-        gmScript.PlayerScore(12);
+		sheepScript = gmScript.clickedSheep.GetComponent<Sheep>();
+
+		sheepsInsidePen += sheepCount;
+        UpdatePenStatus();
+        gmScript.PlayerScore(sheepScript.scoreValue);
     }
 
     void PenCompleted()

@@ -5,19 +5,22 @@ using UnityEngine;
 public class SheepMovement : MonoBehaviour {
 
     private GameManager gmScript;
+	private Sheep sheepScript;
 
     private Animator sheepAnim;
+	private Rigidbody2D myRigidbody;
+	private SpriteRenderer sheepRenderer;
 
-    public float moveSpeed;
-	public Camera mainCam;
-    private Rigidbody2D myRigidbody;
-    public bool isMoving;
-    public float moveTime;
-    private float moveCounter;
-    public float waitTime;
-    private float waitCounter;
+	private Camera mainCam;
+	private bool isMoving;
+
+	private float moveSpeed;
+    private float moveTime;
+    private float waitTime;
+
+	private float moveCounter;
+	private float waitCounter;
     private int moveDirection;
-    private SpriteRenderer sheepRenderer;
 
 	[SerializeField]
 	private Vector2 viewportPos;
@@ -25,15 +28,23 @@ public class SheepMovement : MonoBehaviour {
 	private bool isInScreen;
 
 
-	void Start ()
-    {
-        //Accessing to components with variables
-        sheepAnim = GetComponent<Animator>();
-        myRigidbody = GetComponent<Rigidbody2D>();
+	private void Awake()
+	{
+		//Accessing to components with variables
+		sheepAnim = GetComponent<Animator>();
+		myRigidbody = GetComponent<Rigidbody2D>();
 		sheepRenderer = GetComponent<SpriteRenderer>();
 		mainCam = Camera.main;
-        gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
-        
+		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+		sheepScript = GetComponent<Sheep>();
+	}
+
+	void Start ()
+    {
+		moveSpeed = sheepScript.speed;
+		moveTime = sheepScript.movingTime;
+		waitTime = sheepScript.idleTime;
+
 		//Set counters
         waitCounter = waitTime;
         moveCounter = moveTime;
@@ -183,7 +194,6 @@ public class SheepMovement : MonoBehaviour {
     public void DisableMoving()
     {
         isMoving = false;
-        waitTime = 1;
         moveTime = 0;
         moveSpeed = 0;
     }

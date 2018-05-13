@@ -6,26 +6,14 @@ public class Wolf : MonoBehaviour {
 
     private GameManager gmScript;
 
-    [Header("Sheep instantiate variables")]
-    public bool isWolfOnMove;
-    //public Vector2 targetSheepPos;
-    //public Transform targetSheepTrans;
-
-    [Header("Renderer / Sprites")]
-    public Sprite wolfKill;
-    //SpriteRenderer sheepRenderer;
+    [Header("Renderer")]
     SpriteRenderer wolfRenderer;
     Animator wolfAnim;
 
     [Header("Wolf")]
-    [Range (0.05f, 3f)]
+    [Range (0.05f, 5f)]
     public float wolfSpeed;             // Wolf's movement speed
     public GameObject wolfLeaveLocation;
-
-    //private Vector3 targetPosXYZ;
-    //private GameObject targetSheep;
-
-
 
     // ** ** //
     public List<GameObject> wolfsTargetList;
@@ -37,7 +25,6 @@ public class Wolf : MonoBehaviour {
 
     private void Start()
     {
-        //sheepRenderer = targetSheep.GetComponent<SpriteRenderer>();
         wolfRenderer = GetComponent<SpriteRenderer>();
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         wolfAnim = GetComponent<Animator>();
@@ -55,25 +42,37 @@ public class Wolf : MonoBehaviour {
 
 		foreach (var obj in gmScript.deadSheepList)
 		{
-			wolfsTargetList.Add(obj);
-			Debug.Log("Added new target for wolf; " + obj.name);
+			Debug.Log("wolf's foreach obj: " + obj);
+			if (obj != null)
+			{
+				wolfsTargetList.Add(obj);
+				Debug.Log("Added new target for wolf; " + obj.name);
+			}
+			else
+			{
+				isWolfLeaving = true;
+				StopCoroutine("WolfBehaviour");
+			}
 		}
 
-		if (gmScript.deadSheepList.Count == 0) isWolfLeaving = true;
+		if (gmScript.deadSheepList.Count == 0)
+		{
+			isWolfLeaving = true;
+			StopCoroutine("WolfBehaviour");
+		}
 	}
 
 	IEnumerator WolfBehaviour()
 	{
-		yield return new WaitForSeconds(1f);
-
+		yield return new WaitForSeconds(1.3f);
 
 		CheckTargetLists();
 
 		//set targets
 		for (int i = 0; i < wolfsTargetList.Count; i++)
 		{
-			currentTargetPos = wolfsTargetList[i].transform.position;
 
+			currentTargetPos = wolfsTargetList[i].transform.position;
 
 			wolfAnim.SetInteger("wolfState", 1);
 			while (transform.position != currentTargetPos)
@@ -139,7 +138,6 @@ public class Wolf : MonoBehaviour {
 			wolfAnim.SetInteger("wolfState", 3);
 
 			transform.position = Vector2.MoveTowards(transform.position, wolfLeaveLocation.transform.position, wolfSpeed * 20 * Time.deltaTime);
-			//currentTargetPos = wolfLeaveLocation.transform.position;
 
 			if (transform.position == wolfLeaveLocation.transform.position)
 			{
