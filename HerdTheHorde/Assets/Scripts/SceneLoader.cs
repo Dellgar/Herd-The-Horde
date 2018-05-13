@@ -42,11 +42,17 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene("Endless", LoadSceneMode.Single);
 	}
 
+	public void Credits()
+	{
+		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+	}
 
 
 
 
-  
-	
-	
+
+
+
+
+
 }

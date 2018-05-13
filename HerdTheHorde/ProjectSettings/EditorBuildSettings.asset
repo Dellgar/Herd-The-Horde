@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Endless.unity
     guid: 0fee572e5eef62d4fa26c0d6a275e5c0
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: a7982e60f5bad1945a911818870ab4d2
