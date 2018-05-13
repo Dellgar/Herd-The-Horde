@@ -8,6 +8,7 @@ public class Draggable : MonoBehaviour {
 	private GameManager gmScript;
 	private Sheep sheepScript;
 	private SheepDeath sheepdeathScript;
+	private SheepCollision sheepcollScript;
 
 
 	private Vector3 offset;
@@ -24,6 +25,7 @@ public class Draggable : MonoBehaviour {
     private void Awake()
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+		sheepcollScript = GetComponent<SheepCollision>();
 
 		mySheep = this.gameObject;
 
@@ -69,6 +71,9 @@ public class Draggable : MonoBehaviour {
         sheepScript.SheepBulge();
         followingCursor = true;
 
+		mySheep.GetComponent<CapsuleCollider2D>().isTrigger = true;
+
+		sheepcollScript.PrepareForCollision(mySheep);
 
 		StartCoroutine("Save_SheepFromWolf");
 		
@@ -94,6 +99,8 @@ public class Draggable : MonoBehaviour {
 		isMouseUp = true;
         sheepScript.SheepBulge();
         followingCursor = false;
+
+		mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
 
 		StartCoroutine("Unsave_SheepFromWolf");
 	}

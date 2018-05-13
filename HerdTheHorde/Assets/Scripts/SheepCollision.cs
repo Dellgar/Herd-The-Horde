@@ -6,28 +6,50 @@ using UnityEngine;
 
 public class SheepCollision : MonoBehaviour {
 
-    
-    private const int SHEEP_AMOUNT_VALUE = 1;
+	private Sheep sheepScript;
+	private GameManager gmScript;
+	private Draggable draggableScript;
+	//private SheepMovement movementScript;
+
+	private const int SHEEP_AMOUNT_VALUE = 1;
 
 	[SerializeField]
 	private bool isCollidingEnter;
 
-    //private SheepMovement movementScript;
-    private Draggable draggableScript;
 
     void Awake()
     {
-        draggableScript = GetComponent<Draggable>();
-    }
+		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
+		draggableScript = GetComponent<Draggable>();
+		//sheepScript = gmScript.clickedSheep.GetComponent<Sheep>();
 
-    void OnTriggerStay2D(Collider2D colGameObject)
+	}
+
+	private void Update()
+	{
+		
+	}
+
+	IEnumerator PrepareClickedSheepForCollision(GameObject prepareObject)
+	{
+		sheepScript = prepareObject.GetComponent<Sheep>();
+		yield return null;
+	}
+
+	public void PrepareForCollision(GameObject prepareMySheep)
+	{
+		StartCoroutine(PrepareClickedSheepForCollision(prepareMySheep));
+	}
+
+	void OnTriggerStay2D(Collider2D colGameObject)
     {
         if (draggableScript.isMouseUp)
         {
             if (isCollidingEnter) return;
 
-            if (colGameObject.CompareTag(gameObject.tag) && colGameObject.name == "whitePen" || colGameObject.name == "blackPen")   //paskaa koodia, vaiha ja tee tagit lammas skriptiin
-            {
+			//if (colGameObject.CompareTag(gameObject.tag) && colGameObject.name == "whitePen" || colGameObject.name == "blackPen")   //paskaa koodia, vaiha ja tee tagit lammas skriptiin
+			if(sheepScript.race == colGameObject.tag)
+			{
                 Debug.Log("Right Pen");
                 
                 isCollidingEnter = true;

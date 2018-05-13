@@ -71,7 +71,7 @@ public class Wolf : MonoBehaviour {
 		//set targets
 		for (int i = 0; i < wolfsTargetList.Count; i++)
 		{
-
+			if (wolfsTargetList[i] == null) i++;
 			currentTargetPos = wolfsTargetList[i].transform.position;
 
 			wolfAnim.SetInteger("wolfState", 1);
