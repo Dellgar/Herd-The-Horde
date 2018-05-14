@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public PlayerProgress pprogScript;
+
     public Camera levelCamera;
     public bool isEndless;
     public int gameState;                          // 1 Victory, 2 Game Over, 3 Ongoing
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
 	public GameObject successPanel;
 	public GameObject gameoverPanel;
 	public GameObject statisticsPanel;
+	public GameObject pausePanel;
+
 
 	public Text levelUI;
 	public Text timeUI;
@@ -50,7 +54,9 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-        if (levelCamera == null ) levelCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+		pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
+
+		if (levelCamera == null ) levelCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 
         if (SceneManager.GetActiveScene().name == "Endless")
 		{
@@ -102,16 +108,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //Staistics panel
-        timeTakenInLvl = Time.timeSinceLevelLoad;
+		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
+
+		//Staistics panel
+		timeTakenInLvl = Time.timeSinceLevelLoad;
         sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
         timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
-        playerScoreText.text = "Score: " + playerScorePoints.ToString();
+        playerScoreText.text = "Score: " + pprogScript.playerScore.ToString();
 
         //UserInterface
 		timeUI.text = timeTakenText.text;
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
-        scoreUI.text = "Score: " + playerScorePoints.ToString();
+        scoreUI.text = "Score: " + pprogScript.playerScore.ToString();
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -127,7 +135,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayerScore(int scoreAmount)
     {
-        playerScorePoints += scoreAmount;
+        pprogScript.playerScore += scoreAmount;
+		//pprogScript.playerScore = playerScorePoints;
     }
 
     public void LevelComplete(int fPens)
@@ -181,7 +190,8 @@ public class GameManager : MonoBehaviour
                 guiPanel.gameObject.SetActive(false);
                 successPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(true);
-                if (Cursor.visible == false) Cursor.visible = true;
+
+				if (Cursor.visible == false) Cursor.visible = true;
                 break;
 
             case 2: //Game Over
@@ -191,7 +201,8 @@ public class GameManager : MonoBehaviour
                 guiPanel.gameObject.SetActive(false);
                 gameoverPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(true);
-                if (Cursor.visible == false) Cursor.visible = true;
+
+				if (Cursor.visible == false) Cursor.visible = true;
                 break;
 
             case 3: //In Progress
@@ -202,17 +213,31 @@ public class GameManager : MonoBehaviour
                 successPanel.gameObject.SetActive(false);
                 gameoverPanel.gameObject.SetActive(false);
                 statisticsPanel.gameObject.SetActive(false);
-                if (Cursor.visible == true) Cursor.visible = false;
+
+				if (Cursor.visible == true) Cursor.visible = false;
                 break;
 
             case 4: //Paused
 
-                if (Time.timeScale == 1f) Time.timeScale = 0f;
-                else if (Time.timeScale == 0f) Time.timeScale = 1f;
+				if (Time.timeScale == 1f)
+				{
+					Time.timeScale = 0f;
+					gameState = 4;
+					pausePanel.gameObject.SetActive(true);
+					if (Cursor.visible == false) Cursor.visible = true;
+				}
+				else if (Time.timeScale == 0f)
+				{
+					Time.timeScale = 1f;
+					gameState = 3;
+					pausePanel.gameObject.SetActive(false);
+					if (Cursor.visible == true) Cursor.visible = false;
+				}
 
-                guiPanel.gameObject.SetActive(true);
+				guiPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(false);
-                if (Cursor.visible == true) Cursor.visible = false;
+
+				
                 break;
         }
     }

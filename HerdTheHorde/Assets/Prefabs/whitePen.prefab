@@ -341,9 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3adab323bb3a242a963f43eb603887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepGoal: 15
+  sheepGoal: 1
   isSheepGoalAchieved: 0
-  gmScript: {fileID: 0}
 --- !u!212 &212171743978099174
 SpriteRenderer:
   m_ObjectHideFlags: 1

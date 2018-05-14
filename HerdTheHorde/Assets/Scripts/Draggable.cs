@@ -59,24 +59,26 @@ public class Draggable : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-		gmScript.SheepOnCursor(mySheep);
+		if (gmScript.gameState == 3)
+		{
+			//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+			gmScript.SheepOnCursor(mySheep);
 
-		sheepdeathScript.isDeathTimerRunning = false;
+			sheepdeathScript.isDeathTimerRunning = false;
 
-		sheepScript = mySheep.GetComponent<Sheep>();
-		dragSens = sheepScript.dragSensitivity;
+			sheepScript = mySheep.GetComponent<Sheep>();
+			dragSens = sheepScript.dragSensitivity;
 
-		isMouseUp = false;
-        sheepScript.SheepBulge();
-        followingCursor = true;
+			isMouseUp = false;
+			sheepScript.SheepBulge();
+			followingCursor = true;
 
-		mySheep.GetComponent<CapsuleCollider2D>().isTrigger = true;
+			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = true;
 
-		sheepcollScript.PrepareForCollision(mySheep);
+			sheepcollScript.PrepareForCollision(mySheep);
 
-		StartCoroutine("Save_SheepFromWolf");
-		
+			StartCoroutine("Save_SheepFromWolf");
+		}
 	}
 
 	/*public void OnMouseDrag()
@@ -93,18 +95,19 @@ public class Draggable : MonoBehaviour {
 	}*/
 
 	private void OnMouseUp()
-    {
-		sheepdeathScript.isDeathTimerRunning = true;
+	{
+		if (gmScript.gameState == 3)
+		{
+			sheepdeathScript.isDeathTimerRunning = true;
 
-		isMouseUp = true;
-        sheepScript.SheepBulge();
-        followingCursor = false;
+			isMouseUp = true;
+			sheepScript.SheepBulge();
+			followingCursor = false;
 
-		mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
+			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
 
-		StartCoroutine("Unsave_SheepFromWolf");
+			StartCoroutine("Unsave_SheepFromWolf");
+		}
 	}
-
-
 
 }

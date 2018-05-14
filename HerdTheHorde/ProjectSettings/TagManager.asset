@@ -9,6 +9,7 @@ TagManager:
   - red
   - white
   - black
+  - level
   layers:
   - Default
   - TransparentFX
