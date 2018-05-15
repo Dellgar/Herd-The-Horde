@@ -16,6 +16,11 @@ public class SheepCollision : MonoBehaviour {
 	[SerializeField]
 	private bool isCollidingEnter;
 
+    /*Vector3 rebirthpos;
+    public GameObject[] whiteSheepTypes;
+    public GameObject[] blackSheepTypes;
+    GameObject prefabToSpawn;
+    */
 
     void Awake()
     {
@@ -38,8 +43,24 @@ public class SheepCollision : MonoBehaviour {
 	{
 		StartCoroutine(PrepareClickedSheepForCollision(prepareMySheep));
 	}
+   
+    /*void OnCollisionEnter2D(Collision2D sheepCollision)
+    {
+        if (sheepCollision.gameObject.GetComponent<Sheep>().race == "sheepmon")
+        {
+            if (sheepCollision.gameObject.tag == "sheep") // && sheepScript.race == "sheepmon")
+            {
+                Debug.Log("Sheepmon collided with " + sheepCollision.gameObject.name);
+                rebirthpos = sheepCollision.transform.position;
+                DecidePrefab(sheepCollision);
+                Destroy(sheepCollision.gameObject);
+                Instantiate(prefabToSpawn, rebirthpos, Quaternion.identity);
+            }
+        }
+    }
+    */
 
-	void OnTriggerStay2D(Collider2D colGameObject)
+    void OnTriggerStay2D(Collider2D colGameObject)
     {
         if (draggableScript.isMouseUp)
         {
@@ -59,6 +80,16 @@ public class SheepCollision : MonoBehaviour {
                 gameObject.SetActive(false);
                 Destroy(gameObject);
             }
+            else if(colGameObject.tag == "sheep") // && sheepScript.race == "sheepmon")
+            {
+                Debug.Log("Trigger collision, game object tag was sheep");
+                /*Debug.Log("Sheepmon collided with " + colGameObject.gameObject.name);
+                rebirthpos = colGameObject.transform.position;
+                DecidePrefab(colGameObject);
+                Destroy(colGameObject);
+                Instantiate(prefabToSpawn, rebirthpos, Quaternion.identity);
+                */
+            }
             else
             {
                 Debug.Log("Wrong Pen");
@@ -73,4 +104,20 @@ public class SheepCollision : MonoBehaviour {
             }
         }
 	}
+
+    /*void DecidePrefab(Collision2D sheepmonCollision)
+    {
+        string temptype = sheepmonCollision.gameObject.GetComponent<Sheep>().type;
+        string temprace = sheepmonCollision.gameObject.GetComponent<Sheep>().race;
+        
+
+        if(temprace == "white")
+        {
+            if (temptype == "normal")
+            {
+                prefabToSpawn = blackSheepTypes[0];
+            }
+        }
+    }
+    */
 }
