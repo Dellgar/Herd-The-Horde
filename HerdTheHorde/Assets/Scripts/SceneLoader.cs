@@ -25,8 +25,14 @@ public class SceneLoader : MonoBehaviour
 	}
 
 
-public void MainMenu()
+    public void BackFromCredits()
     {
+        SceneManager.LoadScene("Title", LoadSceneMode.Single);
+    }
+
+    public void MainMenu()
+    {
+        
 		pprogScript.playerCurrency = 0;
 		pprogScript.playerScore = 0;
 		pprogScript.levelProgress = 1;
@@ -81,6 +87,18 @@ public void MainMenu()
 	{
 		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene(6, LoadSceneMode.Single);
+    }
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene(7, LoadSceneMode.Single);
+    }
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene(8, LoadSceneMode.Single);
+    }
 
 
 

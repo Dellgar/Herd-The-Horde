@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour {
 			else
 			{
 				levelsButtons[i].GetComponent<Button>().interactable = true;
-				levelsButtons[i].GetComponent<Image>().sprite = unlocked;
+				//levelsButtons[i].GetComponent<Image>().sprite = unlocked;
 
 			}
 		}

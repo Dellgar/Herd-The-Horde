@@ -37,7 +37,7 @@ public class GameStore : MonoBehaviour {
 	private void Start()
     {
         if (gameStorePanel == null) GameObject.Find("GameStore");
-        coinAmount = pprogScript.playerCurrency;
+        //coinAmount = pprogScript.playerCurrency;
         
     }
 
@@ -46,16 +46,12 @@ public class GameStore : MonoBehaviour {
 		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 		if (pstatus == null) pstatus = GameObject.Find("pstatus").GetComponent<Text>();
 
-		pstatus.text = "Score: [" + pprogScript.playerScore.ToString() + "] Currency: [" + pprogScript.playerCurrency.ToString() +"]";
+        coinAmount = pprogScript.playerScore / 10;
 
-		coinAmount = pprogScript.playerCurrency;
-
+        pstatus.text = "Score: [" + pprogScript.playerScore.ToString() + "] Currency: [" + pprogScript.playerCurrency.ToString() +"]";
 		coinsOwnedTxtObj.text = "COINS: " + coinAmount.ToString();
 
         CoinChecker();
-
-		
-
     }
 
 
@@ -77,8 +73,8 @@ public class GameStore : MonoBehaviour {
 
         if (btn.name == "Shepherds Dog")
         {
-            coinAmount = coinAmount - shepherdsDogPrice;
-			pprogScript.playerCurrency = coinAmount;
+            //coinAmount = coinAmount - shepherdsDogPrice;
+            pprogScript.playerCurrency -= shepherdsDogPrice;
         }
         if (btn.name == "Time Baahmb")
         {
@@ -87,8 +83,8 @@ public class GameStore : MonoBehaviour {
 		}
 		if (btn.name == "Decoy Sheep")
         {
-            coinAmount = coinAmount - decoySheepPrice;
-			pprogScript.playerCurrency = coinAmount;
+            //coinAmount = coinAmount - decoySheepPrice;
+            pprogScript.playerCurrency -= decoySheepPrice;// coinAmount;
 		}
 		if (btn.name == "Dollying")
         {
