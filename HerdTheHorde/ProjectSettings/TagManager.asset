@@ -10,6 +10,8 @@ TagManager:
   - white
   - black
   - level
+  - yellow
+  - brown
   layers:
   - Default
   - TransparentFX

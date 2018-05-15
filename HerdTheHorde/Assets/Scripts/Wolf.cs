@@ -54,6 +54,7 @@ public class Wolf : MonoBehaviour {
 				StopCoroutine("WolfBehaviour");
 			}
 		}
+		Debug.Log("All objects added for into targetlist");
 
 		if (gmScript.deadSheepList.Count == 0)
 		{
@@ -71,7 +72,7 @@ public class Wolf : MonoBehaviour {
 		//set targets
 		for (int i = 0; i < wolfsTargetList.Count; i++)
 		{
-			if (wolfsTargetList[i] == null) i++;
+			if (wolfsTargetList[i] == null) wolfsTargetList.RemoveAt(i);
 			currentTargetPos = wolfsTargetList[i].transform.position;
 
 			wolfAnim.SetInteger("wolfState", 1);
@@ -107,14 +108,14 @@ public class Wolf : MonoBehaviour {
 				{
 					//Sheep was probably saved before wolf killed it
 					Debug.Log("Sheep not found from riplist - what happened");
-					gmScript.deadSheepList.Remove(wolfsTargetList[i]);
+					wolfsTargetList.Remove(wolfsTargetList[i]);
 
 				}
 
 				Debug.Log("for index " + i);
 
 				//targetlist is finished, go away you wolf!
-				if (i == wolfsTargetList.Count-1)
+				if (i >= wolfsTargetList.Count-1)
 				{
 
 					foreach (var target in wolfsTargetList)

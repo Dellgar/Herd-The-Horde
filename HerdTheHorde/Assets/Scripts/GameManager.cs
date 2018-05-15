@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-		pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
+		//pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 
 		if (levelCamera == null ) levelCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 
@@ -108,18 +108,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
+		//if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 
 		//Staistics panel
 		timeTakenInLvl = Time.timeSinceLevelLoad;
         sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
         timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
-        playerScoreText.text = "Score: " + pprogScript.playerScore.ToString();
+        //playerScoreText.text = "Score: " + pprogScript.playerScore.ToString();
 
         //UserInterface
 		timeUI.text = timeTakenText.text;
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
-        scoreUI.text = "Score: " + pprogScript.playerScore.ToString();
+        //scoreUI.text = "Score: " + pprogScript.playerScore.ToString();
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -135,8 +135,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerScore(int scoreAmount)
     {
-        pprogScript.playerScore += scoreAmount;
-		//pprogScript.playerScore = playerScorePoints;
+        //pprogScript.playerScore += scoreAmount;
     }
 
     public void LevelComplete(int fPens)

@@ -106,7 +106,7 @@ public class Draggable : MonoBehaviour {
 
 			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
 
-			StartCoroutine("Unsave_SheepFromWolf");
+			//StartCoroutine("Unsave_SheepFromWolf");
 		}
 	}
 
