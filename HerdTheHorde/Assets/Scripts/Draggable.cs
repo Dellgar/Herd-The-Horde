@@ -20,12 +20,14 @@ public class Draggable : MonoBehaviour {
 	private bool followingCursor;
 	private float dragSens;
 
-    
+    private AudioSource audiosource;
+    public AudioClip onclickAudio;
 
     private void Awake()
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
 		sheepcollScript = GetComponent<SheepCollision>();
+        audiosource = GetComponent<AudioSource>();
 
 		mySheep = this.gameObject;
 
@@ -63,6 +65,8 @@ public class Draggable : MonoBehaviour {
 		{
 			//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 			gmScript.SheepOnCursor(mySheep);
+
+            audiosource.PlayOneShot(onclickAudio, 1f);
 
 			sheepdeathScript.isDeathTimerRunning = false;
 
