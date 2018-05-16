@@ -29,9 +29,10 @@ GameObject:
   - component: {fileID: 114156058088323102}
   - component: {fileID: 114631021139751676}
   - component: {fileID: 114757474537805054}
+  - component: {fileID: 82568535045547040}
   m_Layer: 0
   m_Name: sheep_normal_white
-  m_TagString: white
+  m_TagString: sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,6 +211,86 @@ CapsuleCollider2D:
   m_Offset: {x: 0.03, y: -1.6}
   m_Size: {x: 3.5478384, y: 1.0920018}
   m_Direction: 1
+--- !u!82 &82568535045547040
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416659374722194}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95002994442221482
 Animator:
   serializedVersion: 3
@@ -262,6 +343,7 @@ MonoBehaviour:
   mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
+  onclickAudio: {fileID: 8300000, guid: a028f9e48e09e7044ae7ee35b4467da4, type: 3}
 --- !u!114 &114574726414976044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +357,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wolfTimer: 0
   wolfTimerMin: 8
-  wolfTimerMax: 11
+  wolfTimerMax: 10
+  timeSinceInit: 0
+  isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
   wolfSpawnLocation: {fileID: 0}
 --- !u!114 &114631021139751676
@@ -316,10 +400,10 @@ MonoBehaviour:
   race: white
   type: normal
   bulgedSprite: {fileID: 21300000, guid: 2d5289e5d3023904ea4e4f9f041e5f1b, type: 3}
-  speed: 5
+  speed: 7
   movingTime: 1
-  idleTime: 0.5
-  dragSensitivity: 0.5
+  idleTime: 0.9
+  dragSensitivity: 1
   scoreValue: 10
 --- !u!212 &212822247032397882
 SpriteRenderer:

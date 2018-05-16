@@ -29,9 +29,10 @@ GameObject:
   - component: {fileID: 114720215695723560}
   - component: {fileID: 114871803542692656}
   - component: {fileID: 114551601253775654}
+  - component: {fileID: 82221586184935356}
   m_Layer: 0
   m_Name: sheep_rainbaah_allcolor
-  m_TagString: black
+  m_TagString: sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +208,86 @@ CapsuleCollider2D:
   m_Offset: {x: 0.03, y: -1.6}
   m_Size: {x: 3.5478384, y: 1.0920018}
   m_Direction: 1
+--- !u!82 &82221586184935356
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136140061467138}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95598033515450130
 Animator:
   serializedVersion: 3
@@ -259,10 +340,10 @@ MonoBehaviour:
   race: all
   type: rainbaah
   bulgedSprite: {fileID: 21300000, guid: a7aa201b195de664880a70435f1eb43e, type: 3}
-  speed: 5
+  speed: 7
   movingTime: 1
-  idleTime: 0.7
-  dragSensitivity: 0.6
+  idleTime: 0.9
+  dragSensitivity: 1
   scoreValue: 30
 --- !u!114 &114551601253775654
 MonoBehaviour:
@@ -290,6 +371,8 @@ MonoBehaviour:
   wolfTimer: 0
   wolfTimerMin: 7
   wolfTimerMax: 11
+  timeSinceInit: 0
+  isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
   wolfSpawnLocation: {fileID: 0}
 --- !u!114 &114720215695723560
@@ -306,6 +389,7 @@ MonoBehaviour:
   mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
+  onclickAudio: {fileID: 8300000, guid: d4a8ac3b68503594aaf8b78bd6a71e20, type: 3}
 --- !u!114 &114871803542692656
 MonoBehaviour:
   m_ObjectHideFlags: 1

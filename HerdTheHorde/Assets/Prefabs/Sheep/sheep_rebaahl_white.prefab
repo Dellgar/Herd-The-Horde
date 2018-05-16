@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 114693109191834826}
   m_Layer: 0
   m_Name: sheep_rebaahl_white
-  m_TagString: white
+  m_TagString: sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +259,8 @@ MonoBehaviour:
   wolfTimer: 0
   wolfTimerMin: 7
   wolfTimerMax: 11
+  timeSinceInit: 0
+  isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
   wolfSpawnLocation: {fileID: 0}
 --- !u!114 &114693109191834826
@@ -299,6 +301,7 @@ MonoBehaviour:
   mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
+  onclickAudio: {fileID: 0}
 --- !u!114 &114999569285448534
 MonoBehaviour:
   m_ObjectHideFlags: 1

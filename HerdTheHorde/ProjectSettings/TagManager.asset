@@ -12,6 +12,8 @@ TagManager:
   - level
   - yellow
   - brown
+  - sheepmon
+  - sheep
   layers:
   - Default
   - TransparentFX
