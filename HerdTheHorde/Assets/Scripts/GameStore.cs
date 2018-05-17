@@ -21,6 +21,7 @@ public class GameStore : MonoBehaviour {
 	[Header("Currency")]
 	private int coinAmount;
     public Text coinsOwnedTxtObj;
+    private int currencyhelper;
 
     [Header("Prices")]
 	[SerializeField] private int shepherdsDogPrice;
@@ -46,12 +47,26 @@ public class GameStore : MonoBehaviour {
 		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 		if (pstatus == null) pstatus = GameObject.Find("pstatus").GetComponent<Text>();
 
-        coinAmount = pprogScript.playerScore / 10;
+        //coinAmount = pprogScript.playerCurrency;
 
         pstatus.text = "Score: [" + pprogScript.playerScore.ToString() + "] Currency: [" + pprogScript.playerCurrency.ToString() +"]";
-		coinsOwnedTxtObj.text = "COINS: " + coinAmount.ToString();
+		coinsOwnedTxtObj.text = "" + pprogScript.playerCurrency.ToString();
 
         CoinChecker();
+    }
+
+    IEnumerator SetCurrency()
+    {
+        
+        pprogScript.playerCurrency = pprogScript.playerScore / 10;
+        coinAmount = pprogScript.playerCurrency;
+        yield return null;
+    }
+    IEnumerator SetNewCurrency()
+    {
+        pprogScript.playerCurrency = currencyhelper;
+
+        yield return null;
     }
 
 
@@ -59,12 +74,16 @@ public class GameStore : MonoBehaviour {
     {
         gameStorePanel.SetActive(true);
         guiPanel.SetActive(false);
+        //StartCoroutine("SetCurrency");
     }
 
     public void CloseGameStore()
     {
         gameStorePanel.SetActive(false);
         guiPanel.SetActive(true);
+        StartCoroutine("SetNewCurrency");
+        
+
     }
 
     public void BuyPowerUps(Button btn)
@@ -74,76 +93,88 @@ public class GameStore : MonoBehaviour {
         if (btn.name == "Shepherds Dog")
         {
             //coinAmount = coinAmount - shepherdsDogPrice;
-            pprogScript.playerCurrency -= shepherdsDogPrice;
+            coinAmount = pprogScript.playerCurrency - shepherdsDogPrice;
         }
         if (btn.name == "Time Baahmb")
         {
-            coinAmount = coinAmount - timeBaahmbPrice;
-			pprogScript.playerCurrency = coinAmount;
+            //coinAmount = coinAmount - timeBaahmbPrice;
+            coinAmount = pprogScript.playerCurrency - timeBaahmbPrice;
 		}
 		if (btn.name == "Decoy Sheep")
         {
             //coinAmount = coinAmount - decoySheepPrice;
-            pprogScript.playerCurrency -= decoySheepPrice;// coinAmount;
+            coinAmount = pprogScript.playerCurrency - decoySheepPrice;// coinAmount;
 		}
 		if (btn.name == "Dollying")
         {
-            coinAmount = coinAmount - dollyingPrice;
-			pprogScript.playerCurrency = coinAmount;
+            //coinAmount = coinAmount - dollyingPrice;
+            coinAmount = pprogScript.playerCurrency - timeBaahmbPrice;
 		}
 		if (btn.name == "Colour Change")
         {
-            coinAmount = coinAmount - colourChangePrice;
-			pprogScript.playerCurrency = coinAmount;
+            //coinAmount = coinAmount - colourChangePrice;
+            coinAmount = pprogScript.playerCurrency - timeBaahmbPrice;
 		}
-	}
+        StartCoroutine("CoinChecker");
+        pprogScript.playerCurrency = coinAmount;
+        //pprogScript.playerCurrency = currencyhelper;
+    }
 
-    public void CoinChecker()
+    IEnumerator CoinChecker()
     {
-        if (coinAmount <= 0) coinAmount = 0;
-
-        if (coinAmount <= 49)
+        //coinAmount = currencyhelper;
+        if (coinAmount < 0)
+        {
+            coinAmount = 0;
+            yield return null;
+        }
+        if (coinAmount >= 1 && coinAmount <= 49)
         {
             shepherdsDogIcon.SetActive(false);
             timeBaahmbIcon.SetActive(false);
             decoySheepIcon.SetActive(false);
             dollyingIcon.SetActive(false);
             colourChangeIcon.SetActive(false);
+            yield return null;
         }
-        else if (coinAmount <= 99)
+        else if (coinAmount >= 50 && coinAmount <= 99)
         {
             shepherdsDogIcon.SetActive(false);
             timeBaahmbIcon.SetActive(false);
             decoySheepIcon.SetActive(false);
             dollyingIcon.SetActive(false);
             colourChangeIcon.SetActive(true);
+            yield return null;
         }
 
-        else if (coinAmount <= 149)
+        else if (coinAmount >= 100 && coinAmount <= 149)
         {
             shepherdsDogIcon.SetActive(false);
             timeBaahmbIcon.SetActive(false);
             decoySheepIcon.SetActive(false);
             dollyingIcon.SetActive(true);
             colourChangeIcon.SetActive(true);
+            yield return null;
         }
 
-        else if (coinAmount <= 999)
+        else if (coinAmount >= 150 && coinAmount <= 999)
         {
             shepherdsDogIcon.SetActive(false);
             timeBaahmbIcon.SetActive(false);
             decoySheepIcon.SetActive(true);
             dollyingIcon.SetActive(true);
             colourChangeIcon.SetActive(true);
+            yield return null;
         }
 
-        else if (coinAmount <= 1999)
+        else if (coinAmount >= 1000 && coinAmount <= 1999)
         {
             shepherdsDogIcon.SetActive(true);
             timeBaahmbIcon.SetActive(false);
             decoySheepIcon.SetActive(true);
             dollyingIcon.SetActive(true);
             colourChangeIcon.SetActive(true);
+            yield return null;
         }
 
         else if (coinAmount >= 2000)
@@ -153,7 +184,8 @@ public class GameStore : MonoBehaviour {
             decoySheepIcon.SetActive(true);
             dollyingIcon.SetActive(true);
             colourChangeIcon.SetActive(true);
+            yield return null;
         }
-        else return;
+        yield return null;
     }
 }

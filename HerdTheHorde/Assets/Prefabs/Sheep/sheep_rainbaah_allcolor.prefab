@@ -389,7 +389,7 @@ MonoBehaviour:
   mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
-  onclickAudio: {fileID: 8300000, guid: d4a8ac3b68503594aaf8b78bd6a71e20, type: 3}
+  onclickAudio: {fileID: 8300000, guid: d6e48cbea17da1d418b1b21b82a9d968, type: 3}
 --- !u!114 &114871803542692656
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -32,15 +32,18 @@ public class LevelManager : MonoBehaviour {
 			if (i + 1 > pprogScript.levelProgress)
 			{
 				levelsButtons[i].GetComponent<Button>().interactable = false;
-				levelsButtons[i].GetComponent<Image>().sprite = locked;
+                levelsButtons[i].transform.GetChild(0).gameObject.SetActive(true);
+				//levelsButtons[i].GetComponent<Image>().sprite = locked;
 			}
 			else
 			{
 				levelsButtons[i].GetComponent<Button>().interactable = true;
-				//levelsButtons[i].GetComponent<Image>().sprite = unlocked;
+                levelsButtons[i].transform.GetChild(0).gameObject.SetActive(false);
 
-			}
-		}
+                //levelsButtons[i].GetComponent<Image>().sprite = unlocked;
+
+            }
+        }
 
 	}
 }
