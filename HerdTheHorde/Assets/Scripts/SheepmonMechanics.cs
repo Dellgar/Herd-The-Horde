@@ -5,7 +5,7 @@ using UnityEngine;
 public class SheepmonMechanics : MonoBehaviour {
 
     string collidedwithtype;
-    string collidedwithrace;
+    //string collidedwithrace;
     Vector3 rebirthpos;
     public GameObject[] whiteSheepTypes;
     public GameObject[] blackSheepTypes;
@@ -23,7 +23,7 @@ public class SheepmonMechanics : MonoBehaviour {
             rebirthpos = collisionWith.transform.position;
 
             collidedwithtype = collisionWith.gameObject.GetComponent<Sheep>().type;
-            collidedwithrace = collisionWith.gameObject.GetComponent<Sheep>().race;
+            //collidedwithrace = collisionWith.gameObject.GetComponent<Sheep>().race;
 
             //if we collide with another sheep that is not of the same race
             //ie. if sheepmon is white then do this if collision happened with black, and vice versa

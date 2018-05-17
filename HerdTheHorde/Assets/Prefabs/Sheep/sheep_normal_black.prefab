@@ -358,7 +358,7 @@ MonoBehaviour:
   speed: 7
   movingTime: 1
   idleTime: 0.9
-  dragSensitivity: 1
+  dragSensitivity: 10
   scoreValue: 10
 --- !u!114 &114287789909574078
 MonoBehaviour:

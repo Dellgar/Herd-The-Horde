@@ -285,10 +285,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DontDestroyMePlease.cs" />
     <Compile Include="Assets\Scripts\Draggable.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameStore.cs" />
     <Compile Include="Assets\Scripts\IntroScreen.cs" />
+    <Compile Include="Assets\Scripts\LevelDecorsZ.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MouseCursor.cs" />
     <Compile Include="Assets\Scripts\PenChecker.cs" />

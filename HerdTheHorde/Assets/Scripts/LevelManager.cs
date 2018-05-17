@@ -19,31 +19,39 @@ public class LevelManager : MonoBehaviour {
 		pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 	}
 
-	// Update is called once per frame
-	void Update ()
+	private void Start()
 	{
+		Debug.Log("start in lvl select");
+		StartCoroutine("UnlockingLevels", 0.6f);
+	}
 
+	IEnumerator UnlockingLevels()
+	{
 		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 
 		levelProgression = pprogScript.levelProgress;
 
 		for (int i = 0; i < levelsButtons.Length; i++)
 		{
-			if (i + 1 > pprogScript.levelProgress)
+			if (i+1> pprogScript.levelProgress)
 			{
 				levelsButtons[i].GetComponent<Button>().interactable = false;
-                levelsButtons[i].transform.GetChild(0).gameObject.SetActive(true);
+				levelsButtons[i].transform.GetChild(0).gameObject.SetActive(true);
 				//levelsButtons[i].GetComponent<Image>().sprite = locked;
 			}
 			else
 			{
+				levelsButtons[i].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("unlocked", true);
+				yield return new WaitForSeconds(0.6f);
+
 				levelsButtons[i].GetComponent<Button>().interactable = true;
-                levelsButtons[i].transform.GetChild(0).gameObject.SetActive(false);
 
-                //levelsButtons[i].GetComponent<Image>().sprite = unlocked;
+				
+				levelsButtons[i].transform.GetChild(0).gameObject.SetActive(false);
 
-            }
-        }
-
+			}
+		}
+		yield return null;
 	}
+
 }

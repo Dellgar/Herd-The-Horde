@@ -339,8 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolfTimer: 0
-  wolfTimerMin: 7
-  wolfTimerMax: 11
+  wolfTimerMin: 9
+  wolfTimerMax: 12
   timeSinceInit: 0
   isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
@@ -359,10 +359,10 @@ MonoBehaviour:
   race: white
   type: initial
   bulgedSprite: {fileID: 21300000, guid: 40a7772843eb3a241a827c084f1c0c10, type: 3}
-  speed: 8
-  movingTime: 1.5
-  idleTime: 0.3
-  dragSensitivity: 0.3
+  speed: 13
+  movingTime: 1
+  idleTime: 0.5
+  dragSensitivity: 10
   scoreValue: 50
 --- !u!114 &114528546455729278
 MonoBehaviour:

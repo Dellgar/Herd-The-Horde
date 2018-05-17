@@ -403,7 +403,7 @@ MonoBehaviour:
   speed: 7
   movingTime: 1
   idleTime: 0.9
-  dragSensitivity: 1
+  dragSensitivity: 10
   scoreValue: 10
 --- !u!212 &212822247032397882
 SpriteRenderer:
