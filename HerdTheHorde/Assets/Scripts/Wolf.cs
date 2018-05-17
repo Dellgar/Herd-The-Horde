@@ -78,7 +78,7 @@ public class Wolf : MonoBehaviour {
 			wolfAnim.SetInteger("wolfState", 1);
 			while (transform.position != currentTargetPos)
 			{
-				transform.position = Vector2.MoveTowards(transform.position, currentTargetPos, wolfSpeed * 10 * Time.deltaTime);
+				transform.position = Vector3.MoveTowards(transform.position, currentTargetPos, wolfSpeed * 10 * Time.deltaTime);
 				yield return null;
 			}
 

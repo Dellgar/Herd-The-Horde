@@ -58,6 +58,21 @@ public class SheepMovement : MonoBehaviour {
     {
 		//Store what is the coordinate of sheep in the viewport-coordinates
 		viewportPos = mainCam.WorldToViewportPoint(transform.position);
+
+		float clampedViewportPosY = Mathf.Clamp(viewportPos.y, 0f, 1f);
+
+		Vector3 minXY = mainCam.ViewportToWorldPoint(new Vector3(0f, 0f, 0f));
+		Vector3 maxXY = mainCam.ViewportToWorldPoint(new Vector3(1f, 1f, 0f));
+
+
+		float posZ = Mathf.Lerp(-5f, 5f, clampedViewportPosY);
+		float posY = Mathf.Clamp(transform.position.y, (minXY.y), (maxXY.y));
+		float posX = Mathf.Clamp(transform.position.x, (minXY.x), (maxXY.x));
+
+
+		transform.position = new Vector3(posX, posY, posZ);
+
+
 		CameraBoundaries();
 
         CheckAnimation();
@@ -125,6 +140,8 @@ public class SheepMovement : MonoBehaviour {
                 ChooseDirection();
             }
         }
+
+
 	}
 	
     public void ChooseDirection()
@@ -169,12 +186,12 @@ public class SheepMovement : MonoBehaviour {
 		if (viewportPos.x <= gmScript.sheepAllowedArea[1].x && viewportPos.x >= gmScript.sheepAllowedArea[0].x && 
 			viewportPos.y <= gmScript.sheepAllowedArea[0].y && viewportPos.y >= gmScript.sheepAllowedArea[1].y)
 		{
-			//Debug.Log("In Screen");
+			Debug.Log("In Allowed MiddleArea");
 			isInScreen = true;
 		}
 		else
 		{
-			//Debug.Log("Not in screen");
+			Debug.Log("Not in Allowed MiddleArea");
 			isInScreen = false;
 		}
 	}
@@ -197,4 +214,10 @@ public class SheepMovement : MonoBehaviour {
         moveTime = 0;
         moveSpeed = 0;
     }
+	void OverlapZ()
+	{
+
+
+
+	}
 }
