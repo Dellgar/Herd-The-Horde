@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114186905570525510}
   m_Layer: 2
   m_Name: pen_white
-  m_TagString: black
+  m_TagString: white
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609002712460602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3, y: -13.5, z: 0}
+  m_LocalPosition: {x: 7.7, y: -1.7, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4787186963533426}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3adab323bb3a242a963f43eb603887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepGoal: 1
+  sheepGoal: 5
   isSheepGoalAchieved: 0
 --- !u!212 &212170742313089058
 SpriteRenderer:
