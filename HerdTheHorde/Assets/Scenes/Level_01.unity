@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2452,6 +2452,146 @@ Transform:
   m_PrefabParentObject: {fileID: 4574888613196658, guid: 2ecd0b912a4c7954a973097c2c9872a8,
     type: 2}
   m_PrefabInternal: {fileID: 983278831}
+--- !u!1001 &1256248942
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011894212530072, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[0].x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[0].y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[1].x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[1].y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[2].y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[2].z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[3].y
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPoint.Array.data[3].z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1613572161961380, guid: 09e52a1e9a9609f4f85df8feed470fa0,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1546853498293720, guid: 1536aa8234fa65a4ead3f4cc8c2762d5,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1695110225927632, guid: 2e9112a0ba1f17f449a45d83e8780e6b,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1136140061467138, guid: 407a82d502d146f46b843ae0be5881e5,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1068912713223160, guid: f92b010a3d5d3db4586eba16ec193a4e,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1248238371711894, guid: 2750f8d92e768b94c98145549cd279c6,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1046910449624512, guid: b4c3fddf6a8cd0e46bc2825ecbacd835,
+        type: 2}
+    - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
+        type: 2}
+      propertyPath: spawnPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1583040980417800, guid: a3507f839dc7dc74b9e980bddbae8432,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1265296253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1265296254
 Transform:
   m_ObjectHideFlags: 0
@@ -2626,11 +2766,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4558934564893584, guid: 7bebbea4623437d46b48dfc7d2d3f0c2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.7
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: 4558934564893584, guid: 7bebbea4623437d46b48dfc7d2d3f0c2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 4558934564893584, guid: 7bebbea4623437d46b48dfc7d2d3f0c2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2659,7 +2799,7 @@ Prefab:
     - target: {fileID: 114186905570525510, guid: 7bebbea4623437d46b48dfc7d2d3f0c2,
         type: 2}
       propertyPath: sheepGoal
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bebbea4623437d46b48dfc7d2d3f0c2, type: 2}
@@ -3314,7 +3454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1554399379
 Transform:
   m_ObjectHideFlags: 0
@@ -3813,7 +3953,7 @@ MonoBehaviour:
   penTotal: 1
   finishedPens: 0
   deadSheepAmount: 0
-  permittedDeaths: 6
+  permittedDeaths: 7
   timeTakenInLvl: 0
   sheepToSpawn: 20000
   sheepSpawned: 0
@@ -3991,7 +4131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1906506821
 Transform:
   m_ObjectHideFlags: 0
