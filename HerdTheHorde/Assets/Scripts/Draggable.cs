@@ -86,25 +86,13 @@ public class Draggable : MonoBehaviour {
 			followingCursor = true;
 
 			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = true;
+            mySheep.GetComponent<SheepMovement>().enabled = false;
 
-			sheepcollScript.PrepareForCollision(mySheep);
+            sheepcollScript.PrepareForCollision(mySheep);
 
 			StartCoroutine("Save_SheepFromWolf");
 		}
 	}
-
-	/*public void OnMouseDrag()
-	{
-        if (!canDrag) return;
-
-        if (canDrag)
-        {
-            Vector2 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-
-            Vector2 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-            transform.position = curPosition;
-        }
-	}*/
 
 	private void OnMouseUp()
 	{
@@ -117,9 +105,10 @@ public class Draggable : MonoBehaviour {
 			followingCursor = false;
 
 			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            mySheep.GetComponent<SheepMovement>().enabled = true;
 
-			//StartCoroutine("Unsave_SheepFromWolf");
-		}
+            //StartCoroutine("Unsave_SheepFromWolf");
+        }
 	}
 
 }
