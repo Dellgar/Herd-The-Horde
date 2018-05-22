@@ -42,8 +42,16 @@ public class Draggable : MonoBehaviour {
 
         if (followingCursor && canDrag)
         {
-			if (dragSens == 0) dragSens = 2f;//Debug.Log("Drag Sensitivity is " + dragSensitivity + " ; 0 Cannot drag");
-            mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, dragSens);
+            if (dragSens == 0) dragSens = 2f;
+
+            if (sheepScript.type == "confusesheep")
+            {
+                mySheep.transform.position = Vector3.MoveTowards(transform.position, -cursorPosition, dragSens);
+            }
+            else
+            {
+                mySheep.transform.position = Vector3.MoveTowards(transform.position, cursorPosition, dragSens);
+            }
         }
 	}
 

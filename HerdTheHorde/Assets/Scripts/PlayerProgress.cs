@@ -21,7 +21,7 @@ public class PlayerProgress : MonoBehaviour {
 
 	void Start ()
 	{
-		playerScore = 0;
+		playerScore = 20000;
 		playerCurrency = 0;
 		levelProgress = 1;
 	}

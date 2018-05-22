@@ -365,12 +365,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   race: black
-  type: normal
+  type: confusesheep
   bulgedSprite: {fileID: 21300000, guid: bb3e1b034edede541a5809a207c61166, type: 3}
   speed: 7
   movingTime: 1
   idleTime: 0.9
-  dragSensitivity: -0.3
+  dragSensitivity: 0.3
   scoreValue: 10
 --- !u!114 &114904022397281742
 MonoBehaviour:
