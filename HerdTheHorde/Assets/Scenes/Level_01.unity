@@ -2496,9 +2496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8168abb26d4a24984b31ac84f1c5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableRaces:
-  - black
-  - white
   spawnPrefabs:
   - {fileID: 1416659374722194, guid: 7b1aae3f6a4482047a46b33d16ce2335, type: 2}
   - {fileID: 1613572161961380, guid: 09e52a1e9a9609f4f85df8feed470fa0, type: 2}
@@ -3422,6 +3419,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4743757525639226, guid: a6d859e6d9223a7439831f22cb41cd2a,
     type: 2}
   m_PrefabInternal: {fileID: 1097409367}
+--- !u!1 &1604203872 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1749915721172902, guid: f43155a9216d75a46a8d52e402b924c3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1429725420}
 --- !u!1001 &1625705307
 Prefab:
   m_ObjectHideFlags: 0
@@ -3853,8 +3855,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbe2d4ab01f29c41bbe4de036322180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpBtns: []
+  isActiveTimeBaahmb: 0
   timeBaahmbValue: 0.364
   timeBaahmbDuration: 1.5
+  TimeActiveIcon: {fileID: 1976536300}
+  isActiveDoggy: 0
+  DogDuration: 1
+  DogActiveIcon: {fileID: 1604203872}
 --- !u!4 &1808793413 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4574888613196658, guid: 2ecd0b912a4c7954a973097c2c9872a8,
@@ -4172,6 +4180,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4574888613196658, guid: 2ecd0b912a4c7954a973097c2c9872a8,
     type: 2}
   m_PrefabInternal: {fileID: 311150722}
+--- !u!1 &1976536300 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1323017578168176, guid: f43155a9216d75a46a8d52e402b924c3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1429725420}
 --- !u!1001 &1989717350
 Prefab:
   m_ObjectHideFlags: 0

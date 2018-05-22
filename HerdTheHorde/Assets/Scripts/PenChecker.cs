@@ -36,6 +36,8 @@ public class PenChecker : MonoBehaviour {
     {
 		if (gmScript.isEndless) penText.text = sheepsInsidePen.ToString();
 		else penText.text = sheepsInsidePen + " / " + sheepGoal;
+
+		if(isSheepGoalAchieved) penText.text = "Completed";
 	}
 
     public void CorrectPenForSheep(int sheepCount)

@@ -1,44 +1,80 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PowerUps : MonoBehaviour {
 
-    [Range(0.1f , 1f)]
+	private GameManager gmScript;
+
+	[Header("Buttons")]
+	public Button[] powerUpBtns;
+
+	[Header("TimeBaahmb")]
+	public bool isActiveTimeBaahmb;
+	[Range(0.1f , 1f)]
     public float timeBaahmbValue;
     public float timeBaahmbDuration;
-	private float baahmbHelper;
-	bool isActiveTimeBaahmb;
-    //private float currentTime;
-	//private float buttonpressTime;
+	public GameObject TimeActiveIcon;
 
-    private void Start()
-    {
-        //buttonpressTime = 0;
-    }
+	[Header("Dog")]
+	public bool isActiveDoggy;
+	public float DogDuration;
+	public GameObject DogActiveIcon;
 
-    void Update ()
-    {
-		//currentTime = Time.timeSinceLevelLoad;
 
-		if (isActiveTimeBaahmb)
-		{
-			Time.timeScale = timeBaahmbValue;
-			timeBaahmbDuration -= Time.deltaTime;
-			if (timeBaahmbDuration <= 0)
-			{
-				isActiveTimeBaahmb = !isActiveTimeBaahmb;
-				timeBaahmbDuration = baahmbHelper;
-                Time.timeScale = 1;
-            }
-		}
 
+
+	private void Awake()
+	{
+		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
 	}
 
-    public void TimeBaahmb()
+    public void PU_TimeBaahmb()
     {
-		//buttonpressTime = currentTime;
-		baahmbHelper = timeBaahmbDuration;
+		StartCoroutine("Timeslow");
+	}
+
+	public void PU_ShepherdDog()
+	{
+		StartCoroutine("Sheepdoggy");
+	}
+
+	IEnumerator Timeslow()
+	{
 		isActiveTimeBaahmb = true;
-    }
+
+		Time.timeScale = timeBaahmbValue;
+		TimeActiveIcon.SetActive(true);
+		powerUpBtns[0].interactable = false;
+
+
+		yield return new WaitForSeconds(timeBaahmbDuration);
+
+		Time.timeScale = 1f;
+		TimeActiveIcon.SetActive(false);
+		powerUpBtns[0].interactable = true;
+
+
+		yield return null;
+	}
+
+	IEnumerator Sheepdoggy()
+	{
+		isActiveDoggy = true;
+
+		gmScript.hasWolfSpawned = true;
+		DogActiveIcon.SetActive(true);
+		powerUpBtns[1].interactable = false;
+
+		yield return new WaitForSeconds(DogDuration);
+
+		gmScript.hasWolfSpawned = false;
+		DogActiveIcon.SetActive(false);
+		powerUpBtns[1].interactable = true;
+
+
+		yield return null;
+	}
 }
