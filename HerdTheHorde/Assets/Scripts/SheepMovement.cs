@@ -27,6 +27,8 @@ public class SheepMovement : MonoBehaviour {
 
 	private bool isInScreen;
 
+    //private bool facingRight;
+
 
 	private void Awake()
 	{
@@ -89,7 +91,7 @@ public class SheepMovement : MonoBehaviour {
 					break;
 
             case 1: //right
-                    sheepRenderer.flipX = true;
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(moveSpeed, 0);
                     break;
 
@@ -98,27 +100,27 @@ public class SheepMovement : MonoBehaviour {
                     break;
 
             case 3: //left
-                    sheepRenderer.flipX = false;
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(-moveSpeed, 0);
                     break;
 
             case 4: //up right
-                    sheepRenderer.flipX = true;
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(moveSpeed, moveSpeed);
                     break;
 
             case 5: //down left
-                    sheepRenderer.flipX = false;
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(-moveSpeed, -moveSpeed);
                     break;
 
             case 6: // down right
-                    sheepRenderer.flipX = true;
+                    sheepRenderer.flipX = false;
                     myRigidbody.velocity = new Vector2(moveSpeed, -moveSpeed);
                     break;
 
             case 7: // up left
-                    sheepRenderer.flipX = false;
+                    sheepRenderer.flipX = true;
                     myRigidbody.velocity = new Vector2(-moveSpeed, moveSpeed);
                     break;
             }
@@ -214,10 +216,12 @@ public class SheepMovement : MonoBehaviour {
         moveTime = 0;
         moveSpeed = 0;
     }
-	void OverlapZ()
-	{
 
-
-
-	}
+    //public void Flip()
+    //{
+    //    facingRight = !facingRight;
+    //    Vector3 theScale = transform.localScale;
+    //    theScale.x *= -1;
+    //    transform.localScale = theScale;
+    //}
 }
