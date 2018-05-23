@@ -103,6 +103,10 @@ public class SceneLoader : MonoBehaviour
 	{
 		SceneManager.LoadScene(9, LoadSceneMode.Single);
 	}
+    public void LoadLevel5()
+    {
+        SceneManager.LoadScene(9, LoadSceneMode.Single);
+    }
 
 
 
