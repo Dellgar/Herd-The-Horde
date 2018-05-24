@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e750ae899a1a144a8a51f45cc599a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  race: white
+  race: pink
   type: invisiwool
   bulgedSprite: {fileID: 21300000, guid: bc7adfe75cf83f94a96ad7c9462b2a9d, type: 3}
   speed: 7
