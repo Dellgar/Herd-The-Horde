@@ -6,8 +6,9 @@ public class Sheep : MonoBehaviour {
 
 	//private GameManager gmScript;
 	private Draggable draggableScript;
+    private Animator animator;
 
-	public string race;
+    public string race;
     public string type;
 
 	public Sprite bulgedSprite;
@@ -25,8 +26,13 @@ public class Sheep : MonoBehaviour {
 	[Header("Score")]
 	public int scoreValue;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    // Use this for initialization
+    void Start () {
         //gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         draggableScript = GetComponent<Draggable>();
 
@@ -40,15 +46,18 @@ public class Sheep : MonoBehaviour {
 		//Instead, set animator controller to do this, so new animation for bulge instead of still sprite
 		//currently works but animator overrules so if you want to see this, lets disable animator
 		if (!draggableScript.isMouseUp)	//on sheep click
-		{  
-			this.gameObject.GetComponent<Animator>().enabled = false;
-			this.gameObject.GetComponent<SpriteRenderer>().sprite = bulgedSprite;
+		{
+            //this.gameObject.GetComponent<Animator>().enabled = false;
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = bulgedSprite;
+            animator.SetBool("isCaught", true);
+
 		}
 
 		if (draggableScript.isMouseUp)   //on sheep release
 		{
-			this.gameObject.GetComponent<Animator>().enabled = true;
-			this.gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
-		}
+            //this.gameObject.GetComponent<Animator>().enabled = true;
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            animator.SetBool("isCaught", false);
+        }
     }
 }
