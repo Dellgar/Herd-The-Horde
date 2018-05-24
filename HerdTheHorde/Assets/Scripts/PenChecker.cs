@@ -5,6 +5,8 @@ using UnityEngine;
 public class PenChecker : MonoBehaviour {
 	private GameManager gmScript;
 	private Sheep sheepScript;
+    private AudioSource audioSource;
+    public AudioClip correctPenAudio;
 
 	private TextMesh penText;
     private int sheepsInsidePen;
@@ -16,7 +18,7 @@ public class PenChecker : MonoBehaviour {
 	void Awake ()
     {
 		gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
-
+        audioSource = GetComponent<AudioSource>();
 		penText = gameObject.GetComponentInChildren<TextMesh>();
 	}
 
@@ -42,6 +44,7 @@ public class PenChecker : MonoBehaviour {
 
     public void CorrectPenForSheep(int sheepCount)
     {
+        audioSource.PlayOneShot(correctPenAudio);
 		sheepScript = gmScript.clickedSheep.GetComponent<Sheep>();
 
 		sheepsInsidePen += sheepCount;

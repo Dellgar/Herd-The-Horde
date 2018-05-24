@@ -7,8 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
 	private LevelManager lvlmgrScript;
 	private PlayerProgress pprogScript;
+    private AudioSource audioSource;
 
-	private void Start()
+
+
+    private void Start()
 	{
 		Scene scene = SceneManager.GetActiveScene();
 
@@ -21,7 +24,6 @@ public class SceneLoader : MonoBehaviour
 		{
 			pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 		}
-
 	}
 
 

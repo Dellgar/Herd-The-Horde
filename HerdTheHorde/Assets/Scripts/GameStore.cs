@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameStore : MonoBehaviour {
 
 	private PlayerProgress pprogScript;
+    private AudioSource audioSource;
+    public AudioClip[] audioStore;
 
 	[Header("Objects")]
 	private Text pstatus;
@@ -33,6 +35,7 @@ public class GameStore : MonoBehaviour {
 	{
 		pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
         pstatus = GameObject.Find("pstatus").GetComponent<Text>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 	private void Start()
@@ -40,6 +43,7 @@ public class GameStore : MonoBehaviour {
         if (gameStorePanel == null) GameObject.Find("GameStore");
 
         pprogScript.playerCurrency = pprogScript.playerScore / 10;
+        pstatus.text = pprogScript.levelProgress.ToString() + " / 5";
     }
 
     IEnumerator SetCurrencyTxt()
@@ -52,6 +56,7 @@ public class GameStore : MonoBehaviour {
     {
         gameStorePanel.SetActive(true);
         guiPanel.SetActive(false);
+        audioSource.PlayOneShot(audioStore[1]);
         StartCoroutine("SetCurrencyTxt");
         StartCoroutine("CoinChecker");
     }
