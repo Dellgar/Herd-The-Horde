@@ -23,6 +23,8 @@ public class Draggable : MonoBehaviour {
     private AudioSource audiosource;
     public AudioClip onclickAudio;
 
+    private Animator animator;
+
     private void Awake()
     {
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
@@ -32,6 +34,7 @@ public class Draggable : MonoBehaviour {
 		mySheep = this.gameObject;
 
 		sheepdeathScript = GetComponent<SheepDeath>();
+        animator = GetComponent<Animator>();
 
 		canDrag = true;
     }
@@ -82,7 +85,7 @@ public class Draggable : MonoBehaviour {
 			dragSens = sheepScript.dragSensitivity;
 
 			isMouseUp = false;
-			sheepScript.SheepBulge();
+            animator.SetBool("isCaught", true);
 			followingCursor = true;
 
 			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = true;
@@ -101,8 +104,8 @@ public class Draggable : MonoBehaviour {
 			sheepdeathScript.isDeathTimerRunning = true;
 
 			isMouseUp = true;
-			sheepScript.SheepBulge();
-			followingCursor = false;
+            animator.SetBool("isCaught", false);
+            followingCursor = false;
 
 			mySheep.GetComponent<CapsuleCollider2D>().isTrigger = false;
             mySheep.GetComponent<SheepMovement>().enabled = true;
