@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
 	private void Start()
 	{
 		Debug.Log("start in lvl select");
-		StartCoroutine("UnlockingLevels", 0.6f);
+		StartCoroutine("UnlockingLevels", 0f);
 	}
 
 	IEnumerator UnlockingLevels()
@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour {
 		{
 			if (i+1> pprogScript.levelProgress)
 			{
-				levelsButtons[i].GetComponent<Button>().interactable = false;
+                levelsButtons[i].GetComponent<Button>().interactable = false;
 				levelsButtons[i].transform.GetChild(0).gameObject.SetActive(true);
 				//levelsButtons[i].GetComponent<Image>().sprite = locked;
 			}

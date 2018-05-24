@@ -27,8 +27,6 @@ public class SheepMovement : MonoBehaviour {
 
 	private bool isInScreen;
 
-    //private bool facingRight;
-
 
 	private void Awake()
 	{
@@ -216,12 +214,4 @@ public class SheepMovement : MonoBehaviour {
         moveTime = 0;
         moveSpeed = 0;
     }
-
-    //public void Flip()
-    //{
-    //    facingRight = !facingRight;
-    //    Vector3 theScale = transform.localScale;
-    //    theScale.x *= -1;
-    //    transform.localScale = theScale;
-    //}
 }

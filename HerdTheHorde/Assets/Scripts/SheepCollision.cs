@@ -73,7 +73,7 @@ public class SheepCollision : MonoBehaviour {
                 movementScript.enabled = false;
                 gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
                 //colGameObject.gameObject.GetComponent<PenChecker>().CorrectPenForSheep(-SHEEP_AMOUNT_VALUE);
-                //TODO : RELESE THE SHEEPS (AMOUNT OF RELEASED SHEEPS);
+                //TODO : RELEASE THE SHEEPS (AMOUNT OF RELEASED SHEEPS);
                 */
             }
         }

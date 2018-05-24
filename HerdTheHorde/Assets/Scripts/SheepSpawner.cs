@@ -26,8 +26,6 @@ public class SheepSpawner : MonoBehaviour {
        StartCoroutine(SpawnPrefabSheep());
         //StartCoroutine(Spawning());
     }
-
-
 	
 	void Update ()
     {

@@ -236,7 +236,6 @@ public class GameManager : MonoBehaviour
 				guiPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(false);
 
-				
                 break;
         }
     }

@@ -7,8 +7,6 @@ public class SceneLoader : MonoBehaviour
 {
 	private LevelManager lvlmgrScript;
 	private PlayerProgress pprogScript;
-    private AudioSource audioSource;
-
 
 
     private void Start()
@@ -70,10 +68,10 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene("Overworld", LoadSceneMode.Single);
 	}
 
-	public void LoadLevelIndex()
-	{
-		SceneManager.LoadScene( (5+lvlmgrScript.levelProgression), LoadSceneMode.Single);
-	}
+	//public void LoadLevelIndex()
+	//{
+	//	SceneManager.LoadScene( (5+lvlmgrScript.levelProgression), LoadSceneMode.Single);
+	//}
 
 	public void LoadTestLevel()
     {
@@ -89,6 +87,7 @@ public class SceneLoader : MonoBehaviour
 	{
 		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
+
     public void LoadLevel1()
     {
         SceneManager.LoadScene(6, LoadSceneMode.Single);
