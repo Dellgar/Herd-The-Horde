@@ -1054,7 +1054,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 356990183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1084763489}
@@ -3801,26 +3801,6 @@ Prefab:
     - target: {fileID: 1157463481034048, guid: 365387fd00afb6047a95a5762154516c, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114340860389921014, guid: 365387fd00afb6047a95a5762154516c,
-        type: 2}
-      propertyPath: dragSensitivity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114340860389921014, guid: 365387fd00afb6047a95a5762154516c,
-        type: 2}
-      propertyPath: idleTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114982795474797984, guid: 365387fd00afb6047a95a5762154516c,
-        type: 2}
-      propertyPath: wolfTimerMin
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114982795474797984, guid: 365387fd00afb6047a95a5762154516c,
-        type: 2}
-      propertyPath: wolfTimerMax
-      value: 999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365387fd00afb6047a95a5762154516c, type: 2}

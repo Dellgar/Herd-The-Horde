@@ -21,6 +21,11 @@ public class Wolf : MonoBehaviour {
     public Vector3 currentTargetPos;
     public bool isWolfLeaving;
 
+    private AudioSource audioSource;
+    public AudioClip dustCloud;
+    public AudioClip sheepDied;
+    public AudioClip wolfAppear;
+
 
 
     private void Start()
@@ -28,6 +33,7 @@ public class Wolf : MonoBehaviour {
         wolfRenderer = GetComponent<SpriteRenderer>();
         gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         wolfAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
 		//check wolf has leave location and renderer is set
 		if (wolfLeaveLocation == null) wolfLeaveLocation = GameObject.Find("WolfLeaveLocation");
@@ -68,7 +74,7 @@ public class Wolf : MonoBehaviour {
 		yield return new WaitForSeconds(1.3f);
 
 		CheckTargetLists();
-
+        audioSource.PlayOneShot(wolfAppear);
 		//set targets
 		for (int i = 0; i < wolfsTargetList.Count; i++)
 		{
@@ -92,6 +98,9 @@ public class Wolf : MonoBehaviour {
 				{
 					Debug.Log("wolf AT TARGET, dustcloud");
 					wolfAnim.SetInteger("wolfState", 2);
+                    audioSource.PlayOneShot(dustCloud);
+                    yield return new WaitForSeconds(0.5f);
+                    audioSource.PlayOneShot(sheepDied);
 
 					Debug.Log("wolf target found from riplist");
 

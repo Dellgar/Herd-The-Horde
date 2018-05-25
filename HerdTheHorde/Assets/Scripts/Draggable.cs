@@ -21,7 +21,8 @@ public class Draggable : MonoBehaviour {
 	private float dragSens;
 
     private AudioSource audiosource;
-    public AudioClip onclickAudio;
+    private AudioClip onclickAudio;
+    public AudioClip[] pickAudio;
 
 
     private void Awake()

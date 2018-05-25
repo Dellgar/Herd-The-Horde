@@ -356,7 +356,10 @@ MonoBehaviour:
   mySheep: {fileID: 0}
   canDrag: 0
   isMouseUp: 0
-  onclickAudio: {fileID: 8300000, guid: a028f9e48e09e7044ae7ee35b4467da4, type: 3}
+  pickAudio:
+  - {fileID: 8300000, guid: a028f9e48e09e7044ae7ee35b4467da4, type: 3}
+  - {fileID: 8300000, guid: be14657e58db5a44db4e47524f0dac69, type: 3}
+  - {fileID: 8300000, guid: 0505dc80d9b964747b5a84251fb5334f, type: 3}
 --- !u!114 &114574726414976044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -412,7 +415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   race: white
   type: normal
-  bulgedSprite: {fileID: 21300000, guid: 2d5289e5d3023904ea4e4f9f041e5f1b, type: 3}
   speed: 7
   movingTime: 1
   idleTime: 0.9

@@ -34,13 +34,13 @@ public class SheepDeath : MonoBehaviour {
 		isSheepTimeUp = false;
         wolfTimer = Random.Range(wolfTimerMin, wolfTimerMax);
 		initTime = Time.timeSinceLevelLoad;
-		//Invoke("WolfTimerCounter", wolfTimer);
-	}
-	
-	void Update ()
-    {
-        if (wolfSpawnLocation == null) wolfSpawnLocation = GameObject.Find("WolfSpawnLocation");
+        //Invoke("WolfTimerCounter", wolfTimer);
 
+        if (wolfSpawnLocation == null) wolfSpawnLocation = GameObject.Find("WolfSpawnLocation");
+    }
+
+    void Update ()
+    {
 		if(isDeathTimerRunning)	timeSinceInit = Time.timeSinceLevelLoad - initTime;
 
 		if(timeSinceInit >= wolfTimer && !isSheepTimeUp)

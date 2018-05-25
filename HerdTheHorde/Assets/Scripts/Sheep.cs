@@ -11,8 +11,8 @@ public class Sheep : MonoBehaviour {
     public string race;
     public string type;
 
-	public Sprite bulgedSprite;
-    private Sprite defaultSprite;
+	//public Sprite bulgedSprite;
+    //private Sprite defaultSprite;
 
 	[Header("Movement")]
 	public float speed;
@@ -36,7 +36,7 @@ public class Sheep : MonoBehaviour {
         //gmScript = GameObject.Find("_manager").GetComponent<GameManager>();
         draggableScript = GetComponent<Draggable>();
 
-        defaultSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        //defaultSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
     public void SheepBulge()
