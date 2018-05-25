@@ -5161,11 +5161,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114184367271733096, guid: c477f86f86e74e94fbcb2cc496d27156,
-        type: 2}
-      propertyPath: sheepGoal
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c477f86f86e74e94fbcb2cc496d27156, type: 2}
   m_IsPrefabParent: 0

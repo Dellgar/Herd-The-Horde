@@ -23,7 +23,7 @@ public class Draggable : MonoBehaviour {
     private AudioSource audiosource;
     private AudioClip onclickAudio;
     public AudioClip[] pickAudio;
-
+    private int pickAudioIndex;
 
     private void Awake()
     {
@@ -76,7 +76,8 @@ public class Draggable : MonoBehaviour {
 			//offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 			gmScript.SheepOnCursor(mySheep);
 
-            audiosource.PlayOneShot(onclickAudio, 1f);
+            pickAudioIndex = Random.Range(0, 3);
+            audiosource.PlayOneShot(pickAudio[pickAudioIndex], 1f);
 
 			sheepdeathScript.isDeathTimerRunning = false;
 
