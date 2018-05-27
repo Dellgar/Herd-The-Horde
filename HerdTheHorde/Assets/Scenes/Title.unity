@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1846,11 +1846,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &1350140829
@@ -1875,7 +1875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1383086113}
   - component: {fileID: 1383086112}
-  - component: {fileID: 1383086115}
+  - component: {fileID: 1383086116}
   - component: {fileID: 1383086114}
   m_Layer: 0
   m_Name: _empty
@@ -1988,7 +1988,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1383086115
+--- !u!114 &1383086116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1996,10 +1996,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1383086111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa0a0ce828051249a6f2c087924baab, type: 3}
+  m_Script: {fileID: 11500000, guid: fc3ae3633b66145448f9243a2c03f2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAudio: []
 --- !u!1 &1540446797
 GameObject:
   m_ObjectHideFlags: 0
