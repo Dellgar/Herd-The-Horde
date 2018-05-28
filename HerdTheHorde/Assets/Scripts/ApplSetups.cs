@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplSetup : MonoBehaviour {
+public class ApplSetups : MonoBehaviour {
 
 	// Use this for initialization
 	void Start ()

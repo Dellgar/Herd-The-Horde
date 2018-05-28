@@ -59,11 +59,18 @@ public class PenChecker : MonoBehaviour {
             return;
         }
 
-        if (sheepsInsidePen >= sheepGoal)
-        {
-            Debug.Log("Pen finished");
-            isSheepGoalAchieved = true;
-            gmScript.LevelComplete(1);
-        }
+		if (sheepsInsidePen >= sheepGoal)
+		{
+			if (gmScript.isEndless)
+			{
+				Debug.Log("Endless Mode: On");
+			}
+			else
+			{
+				Debug.Log("Pen finished");
+				isSheepGoalAchieved = true;
+				gmScript.LevelComplete(1);
+			}
+		}
     }
 }

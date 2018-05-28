@@ -108,23 +108,25 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+
 		if (pprogScript == null) pprogScript = GameObject.Find("_player").GetComponent<PlayerProgress>();
 
-		//Staistics panel
+		//Statistics panel
 		timeTakenInLvl = Time.timeSinceLevelLoad;
-        sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
-        timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
-        playerScoreText.text = "Score: " + pprogScript.playerScore.ToString();
+		sheepLostText.text = "Sheep Lost: " + deadSheepAmount.ToString();
+		timeTakenText.text = "Time: " + timeTakenInLvl.ToString("F2");
+		playerScoreText.text = "Score: " + pprogScript.playerScore.ToString();
 
-        //UserInterface
+		//UserInterface
 		timeUI.text = timeTakenText.text;
 		sheepUI.text = "Deaths: " + deadSheepAmount.ToString() + " / " + permittedDeaths.ToString();
-        scoreUI.text = "Score: " + pprogScript.playerScore.ToString();
+		scoreUI.text = "Score: " + pprogScript.playerScore.ToString();
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            SetGameState(4);
-        }
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SetGameState(4);
+		}
+		
 
     }
 
@@ -218,15 +220,20 @@ public class GameManager : MonoBehaviour
 
             case 4: //Paused
 
+				//Pause ON
 				if (Time.timeScale == 1f)
 				{
+					AudioListener.pause = true;
 					Time.timeScale = 0f;
 					gameState = 4;
 					pausePanel.gameObject.SetActive(true);
 					if (Cursor.visible == false) Cursor.visible = true;
 				}
+
+				//Pause OFF
 				else if (Time.timeScale == 0f)
 				{
+					AudioListener.pause = false;
 					Time.timeScale = 1f;
 					gameState = 3;
 					pausePanel.gameObject.SetActive(false);

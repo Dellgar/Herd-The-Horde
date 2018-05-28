@@ -54,10 +54,17 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadIntro()
     {
-        SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+		StartCoroutine("LoadIntroScene");
     }
 
-    public void LoadOverworld()
+	IEnumerator LoadIntroScene()
+	{
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+		yield return null;
+	}
+
+	public void LoadOverworld()
     {
         SceneManager.LoadScene("Overworld", LoadSceneMode.Single);
     }
