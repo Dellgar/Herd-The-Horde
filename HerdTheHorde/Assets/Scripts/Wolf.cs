@@ -62,11 +62,11 @@ public class Wolf : MonoBehaviour {
 		}
 		Debug.Log("All objects added for into targetlist");
 
-		if (gmScript.deadSheepList.Count == 0)
-		{
-			isWolfLeaving = true;
-			StopCoroutine("WolfBehaviour");
-		}
+		//if (gmScript.deadSheepList.Count == 0)
+		//{
+		//	isWolfLeaving = true;
+		//	StopCoroutine("WolfBehaviour");
+		//}
 	}
 
 	IEnumerator WolfBehaviour()

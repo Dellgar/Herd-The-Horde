@@ -5,18 +5,13 @@ using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
 {
-	private LevelManager lvlmgrScript;
+
 	private PlayerProgress pprogScript;
 
 
     private void Start()
 	{
 		Scene scene = SceneManager.GetActiveScene();
-
-		if ( scene.name == "Overworld")
-		{
-			lvlmgrScript = GameObject.Find("OverworldManager").GetComponent<LevelManager>();
-		}
 
 		if(GameObject.Find("_player") != null)
 		{
@@ -32,7 +27,6 @@ public class SceneLoader : MonoBehaviour
 
     public void MainMenu()
     {
-        
 		pprogScript.playerCurrency = 0;
 		pprogScript.playerScore = 0;
 		pprogScript.levelProgress = 1;
@@ -74,11 +68,6 @@ public class SceneLoader : MonoBehaviour
 		pprogScript.levelProgress += 1;	
 		SceneManager.LoadScene("Overworld", LoadSceneMode.Single);
 	}
-
-	//public void LoadLevelIndex()
-	//{
-	//	SceneManager.LoadScene( (5+lvlmgrScript.levelProgression), LoadSceneMode.Single);
-	//}
 
 	public void LoadTestLevel()
     {
