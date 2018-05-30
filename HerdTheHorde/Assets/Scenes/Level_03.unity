@@ -593,7 +593,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
@@ -1252,6 +1252,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222239430640864, guid: 616ac0271ef3c5141b1452c4e91800e8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 616ac0271ef3c5141b1452c4e91800e8, type: 2}
@@ -2496,7 +2500,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
