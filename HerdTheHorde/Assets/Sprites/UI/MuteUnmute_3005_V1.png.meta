@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 91f4027141c011445aab0b738f0373a2
-timeCreated: 1527678537
+guid: 5b93117e3272cd14a83419bf6782e612
+timeCreated: 1527770487
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: volume_Up_down_2805_v1_0
-    21300002: volume_Up_down_2805_v1_1
+    21300000: MuteUnmute_3005_V1_0
+    21300002: MuteUnmute_3005_V1_1
+    21300004: MuteUnmute_3005_V1_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -34,7 +35,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
     wrapU: 1
     wrapV: 1
@@ -82,13 +83,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: volume_Up_down_2805_v1_0
+      name: MuteUnmute_3005_V1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 256
-        height: 256
+        y: 647
+        width: 481
+        height: 324
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,13 +97,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: volume_Up_down_2805_v1_1
+      name: MuteUnmute_3005_V1_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
+        x: 0
+        y: 324.33334
+        width: 481
+        height: 323.66666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MuteUnmute_3005_V1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333435
+        width: 481
+        height: 323.66666
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

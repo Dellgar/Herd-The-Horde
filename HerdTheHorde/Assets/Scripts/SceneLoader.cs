@@ -93,6 +93,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Gallery", LoadSceneMode.Additive);
     }
+    public void TitleMenu()
+    {
+        SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
+    }
 
     public void LoadLevel1()
     {

@@ -80,9 +80,4 @@ public class Gallery : MonoBehaviour
             gallerySelection.sprite = foolWool;
         }
     }
-
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
-    }
 }
