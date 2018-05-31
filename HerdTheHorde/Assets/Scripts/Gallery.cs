@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Gallery : MonoBehaviour
 {
@@ -78,5 +79,10 @@ public class Gallery : MonoBehaviour
         {
             gallerySelection.sprite = foolWool;
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
     }
 }

@@ -84,25 +84,35 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
 
+    public void Options()
+    {
+        SceneManager.LoadScene("Options", LoadSceneMode.Single);
+    }
+
+    public void Gallery()
+    {
+        SceneManager.LoadScene("Gallery", LoadSceneMode.Single);
+    }
+
     public void LoadLevel1()
     {
-        SceneManager.LoadScene(6, LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_01", LoadSceneMode.Single);
     }
     public void LoadLevel2()
     {
-        SceneManager.LoadScene(7, LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_02", LoadSceneMode.Single);
     }
     public void LoadLevel3()
     {
-        SceneManager.LoadScene(8, LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_03", LoadSceneMode.Single);
 	}
 	public void LoadLevel4()
 	{
-		SceneManager.LoadScene(9, LoadSceneMode.Single);
+		SceneManager.LoadScene("Level_04", LoadSceneMode.Single);
 	}
     public void LoadLevel5()
     {
-        SceneManager.LoadScene(10, LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_05", LoadSceneMode.Single);
     }
 
 
