@@ -27,6 +27,8 @@ public class Wolf : MonoBehaviour {
     public AudioClip wolfAppear;
 
 
+    private float wolfPosX;
+
 
     private void Start()
     {
@@ -39,7 +41,9 @@ public class Wolf : MonoBehaviour {
 		if (wolfLeaveLocation == null) wolfLeaveLocation = GameObject.Find("WolfLeaveLocation");
 		if (wolfRenderer == null) wolfRenderer = GetComponent<SpriteRenderer>();
 
-		StartCoroutine("WolfBehaviour");
+        wolfPosX = transform.position.x;
+
+        StartCoroutine("WolfBehaviour");
     }
 	
 	void CheckTargetLists()
@@ -82,7 +86,17 @@ public class Wolf : MonoBehaviour {
 			currentTargetPos = wolfsTargetList[i].transform.position;
 
 			wolfAnim.SetInteger("wolfState", 1);
-			while (transform.position != currentTargetPos)
+
+            if(wolfPosX > currentTargetPos.x)
+            {
+                wolfRenderer.flipX = true;
+            }
+            else
+            {
+                wolfRenderer.flipX = false;
+            }
+
+            while (transform.position != currentTargetPos)
 			{
 				transform.position = Vector3.MoveTowards(transform.position, currentTargetPos, wolfSpeed * 10 * Time.deltaTime);
 				yield return null;
@@ -93,25 +107,37 @@ public class Wolf : MonoBehaviour {
 			//wolf is at the target position
 			if (transform.position == currentTargetPos)
 			{
-				//check if sheep still exists in riplist
-				if (gmScript.deadSheepList.Contains(wolfsTargetList[i]))
+                //Set new posX for flipping
+                wolfPosX = transform.position.x;
+
+                //check if sheep still exists in riplist
+                if (gmScript.deadSheepList.Contains(wolfsTargetList[i]))
 				{
-					Debug.Log("wolf AT TARGET, dustcloud");
+					Debug.Log("slashing");
 					wolfAnim.SetInteger("wolfState", 2);
+                    yield return new WaitForSeconds(wolfAnim.GetCurrentAnimatorClipInfo(0).Length - 0.5f);
+
+                    Debug.Log("dustcloud");
+                    wolfAnim.SetInteger("wolfState", 3);
                     audioSource.PlayOneShot(dustCloud);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.4f);
                     audioSource.PlayOneShot(sheepDied);
 
-					Debug.Log("wolf target found from riplist");
+                    Debug.Log("hunting");
+                    wolfAnim.SetInteger("wolfState", 1);
+                    
+
+                    Debug.Log("wolf target found from riplist");
 
 					wolfsTargetList[i].GetComponent<SpriteRenderer>().enabled = false;
 					wolfsTargetList[i].GetComponent<PolygonCollider2D>().enabled = false;
 					wolfsTargetList[i].GetComponent<CapsuleCollider2D>().enabled = false;
 
-					//Removing from list, because sheep is now fucking gone, man
-					gmScript.deadSheepList.Remove(wolfsTargetList[i]);
+                    //Removing from list, because sheep is now fucking gone, man
+                    gmScript.SheepLost(1);
+                    gmScript.deadSheepList.Remove(wolfsTargetList[i]);
 
-					yield return new WaitForSeconds(1f);
+					yield return new WaitForSeconds(0.1f);
 				}
 				else
 				{
@@ -129,6 +155,7 @@ public class Wolf : MonoBehaviour {
 
 					foreach (var target in wolfsTargetList)
 					{
+                        
 						Destroy(target);
 					}
 
@@ -143,9 +170,12 @@ public class Wolf : MonoBehaviour {
 
 	void Update()
 	{
+
+       
+
 		if (isWolfLeaving)
 		{
-			wolfAnim.SetInteger("wolfState", 3);
+			wolfAnim.SetInteger("wolfState", 4);
 
 			transform.position = Vector2.MoveTowards(transform.position, wolfLeaveLocation.transform.position, wolfSpeed * 20 * Time.deltaTime);
 

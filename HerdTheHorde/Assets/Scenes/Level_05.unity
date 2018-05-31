@@ -400,7 +400,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawnPoint.Array.data[0].y
-      value: -19
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
@@ -2193,7 +2193,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawnPoint.Array.data[0].y
-      value: -19
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
