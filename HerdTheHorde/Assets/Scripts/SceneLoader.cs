@@ -86,12 +86,12 @@ public class SceneLoader : MonoBehaviour
 
     public void Options()
     {
-        SceneManager.LoadScene("Options", LoadSceneMode.Single);
+        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
     }
 
     public void Gallery()
     {
-        SceneManager.LoadScene("Gallery", LoadSceneMode.Single);
+        SceneManager.LoadScene("Gallery", LoadSceneMode.Additive);
     }
 
     public void LoadLevel1()
