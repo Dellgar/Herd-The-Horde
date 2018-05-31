@@ -2006,8 +2006,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 10
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2515,7 +2515,7 @@ Canvas:
   m_GameObject: {fileID: 1972344591}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1350140828}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
