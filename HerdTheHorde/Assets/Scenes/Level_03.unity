@@ -1357,6 +1357,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1091602443211746, guid: 616ac0271ef3c5141b1452c4e91800e8,
     type: 2}
   m_PrefabInternal: {fileID: 452042271}
+--- !u!114 &452042286 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114436312864271932, guid: 616ac0271ef3c5141b1452c4e91800e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 452042271}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &452042287 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114551319328304192, guid: 616ac0271ef3c5141b1452c4e91800e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 452042271}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &477600816
 Prefab:
   m_ObjectHideFlags: 0
@@ -2675,7 +2687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbe2d4ab01f29c41bbe4de036322180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpBtns: []
+  powerUpBtns:
+  - {fileID: 452042287}
+  - {fileID: 452042286}
   isActiveTimeBaahmb: 0
   timeBaahmbValue: 0.364
   timeBaahmbDuration: 1.5
