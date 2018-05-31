@@ -21,6 +21,9 @@ public class Gallery : MonoBehaviour
     public Sprite freezer;
     public Sprite foolWool;
 
+    [Header("Wolf")]
+    public Sprite wolf;
+
     [Header("Power-ups")]
     public Sprite timeBaahmb;
     public Sprite shepherdsDog;
@@ -78,6 +81,30 @@ public class Gallery : MonoBehaviour
         if (btn.name == "Fool Wool")
         {
             gallerySelection.sprite = foolWool;
+        }
+        if (btn.name == "Wolf")
+        {
+            gallerySelection.sprite = wolf;
+        }
+        if (btn.name == "Time Baahmb")
+        {
+            gallerySelection.sprite = timeBaahmb;
+        }
+        if (btn.name == "Shepherds Dog")
+        {
+            gallerySelection.sprite = shepherdsDog;
+        }
+        if (btn.name == "Decoy Sheep")
+        {
+            gallerySelection.sprite = decoySheep;
+        }
+        if (btn.name == "Dollying")
+        {
+            gallerySelection.sprite = dollying;
+        }
+        if (btn.name == "Colour Change")
+        {
+            gallerySelection.sprite = colourChange;
         }
     }
 }
