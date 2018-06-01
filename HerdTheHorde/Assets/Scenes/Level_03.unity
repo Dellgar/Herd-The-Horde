@@ -252,7 +252,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
@@ -593,7 +593,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
@@ -2532,7 +2532,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
@@ -2624,10 +2624,10 @@ MonoBehaviour:
   spawnerActive: 0
   deadSheepList: []
   sheepAllowedArea:
-  - {x: 0.3, y: 0.75}
-  - {x: 0.75, y: 0.3}
-  - {x: 0.3, y: 0.3}
-  - {x: 0.75, y: 0.75}
+  - {x: 0.1, y: 0.8}
+  - {x: 0.9, y: 0.2}
+  - {x: 0.1, y: 0.2}
+  - {x: 0.9, y: 0.8}
   clickedSheep: {fileID: 0}
   hasWolfSpawned: 0
   guiPanel: {fileID: 452042283}

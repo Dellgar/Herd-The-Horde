@@ -35,23 +35,25 @@ public class MasterAudioManager : MonoBehaviour {
 	}
 	private void OnLevelWasLoaded(int scnIndex)
 	{
-		if (scnIndex == 0)//|| scnIndex == 1 || scnIndex == 2)
+		if (scnIndex >= 0 && scnIndex <= 4)
 		{
 			music.clip = titleAudio;
 			music.Play();
 		}
-		if (scnIndex == 3)
+
+        if (scnIndex >= 5 && scnIndex <= 7)
 		{
 			music.clip = overworldAudio;
 			music.Play();
 		}
-		if (scnIndex >= 4)
+
+		if (scnIndex >= 8)
 		{
 			music.clip = level1Audio;
 			music.Play();
 		}
 	}
-	private void Update()
+	private void FixedUpdate()
 	{
 		scnIndex = SceneManager.GetActiveScene().buildIndex;
 	}

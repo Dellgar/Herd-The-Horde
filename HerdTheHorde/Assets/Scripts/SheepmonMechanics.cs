@@ -27,7 +27,7 @@ public class SheepmonMechanics : MonoBehaviour {
 
             //if we collide with another sheep that is not of the same race
             //ie. if sheepmon is white then do this if collision happened with black, and vice versa
-            if (collidedwithtype != this.gameObject.GetComponent<Sheep>().race)
+            if (collidedwithtype != this.gameObject.GetComponent<Sheep>().type)
             {
 
                 //if sheepmon is black, then we spawn black
@@ -53,6 +53,11 @@ public class SheepmonMechanics : MonoBehaviour {
                     {
                         prefabToSpawn = blackSheepTypes[4];
                     }
+                    if (collidedwithtype == "confuse")
+                    {
+                        prefabToSpawn = blackSheepTypes[5];
+                    }
+
                 }
                 //if sheepmon is white, then we spawn white
                 if (this.gameObject.GetComponent<Sheep>().race == "white")
@@ -76,6 +81,10 @@ public class SheepmonMechanics : MonoBehaviour {
                     if (collidedwithtype == "rebaahl")
                     {
                         prefabToSpawn = whiteSheepTypes[4];
+                    }
+                    if (collidedwithtype == "confuse")
+                    {
+                        prefabToSpawn = blackSheepTypes[5];
                     }
                 }
             }

@@ -414,12 +414,14 @@ MonoBehaviour:
   - {fileID: 1546853498293720, guid: 1536aa8234fa65a4ead3f4cc8c2762d5, type: 2}
   - {fileID: 1695110225927632, guid: 2e9112a0ba1f17f449a45d83e8780e6b, type: 2}
   - {fileID: 1583040980417800, guid: a3507f839dc7dc74b9e980bddbae8432, type: 2}
+  - {fileID: 1636798965602284, guid: ba822dd122ac590499d4e04e62c31f15, type: 2}
   blackSheepTypes:
   - {fileID: 1068912713223160, guid: f92b010a3d5d3db4586eba16ec193a4e, type: 2}
   - {fileID: 1248238371711894, guid: 2750f8d92e768b94c98145549cd279c6, type: 2}
   - {fileID: 1046910449624512, guid: b4c3fddf6a8cd0e46bc2825ecbacd835, type: 2}
   - {fileID: 1182105183814320, guid: de42388284b0a1f4b9eba29e4fb411e7, type: 2}
   - {fileID: 1583040980417800, guid: a3507f839dc7dc74b9e980bddbae8432, type: 2}
+  - {fileID: 1347226860920460, guid: 4d2b0f2d180d75047943cea59fbb7e11, type: 2}
 --- !u!114 &114862143392143542
 MonoBehaviour:
   m_ObjectHideFlags: 1

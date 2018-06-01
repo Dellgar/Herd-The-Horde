@@ -1628,7 +1628,7 @@ Prefab:
     - target: {fileID: 114144001126191920, guid: d36f25e9d87fedc4789f47439b2b42f1,
         type: 2}
       propertyPath: spawningInterval
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d36f25e9d87fedc4789f47439b2b42f1, type: 2}
@@ -2172,10 +2172,10 @@ MonoBehaviour:
   spawnerActive: 0
   deadSheepList: []
   sheepAllowedArea:
-  - {x: 0.3, y: 0.75}
-  - {x: 0.75, y: 0.3}
-  - {x: 0.3, y: 0.3}
-  - {x: 0.75, y: 0.75}
+  - {x: 0.15, y: 0.95}
+  - {x: 0.75, y: 0.15}
+  - {x: 0.15, y: 0.15}
+  - {x: 0.75, y: 0.95}
   clickedSheep: {fileID: 0}
   hasWolfSpawned: 0
   guiPanel: {fileID: 1949926346}

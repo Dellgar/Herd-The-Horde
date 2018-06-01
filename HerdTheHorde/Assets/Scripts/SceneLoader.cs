@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
 	{
-		Scene scene = SceneManager.GetActiveScene();
+		//Scene scene = SceneManager.GetActiveScene();
 
 		if(GameObject.Find("_player") != null)
 		{

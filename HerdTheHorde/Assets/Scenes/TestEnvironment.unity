@@ -2206,10 +2206,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1567768621673730, guid: 320e9e6c94fbce64c80be5ea3b6e892b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 320e9e6c94fbce64c80be5ea3b6e892b, type: 2}
   m_IsPrefabParent: 0
@@ -2734,10 +2730,10 @@ MonoBehaviour:
   spawnerActive: 0
   deadSheepList: []
   sheepAllowedArea:
-  - {x: 0.3, y: 0.75}
-  - {x: 0.75, y: 0.3}
-  - {x: 0.3, y: 0.3}
-  - {x: 0.75, y: 0.75}
+  - {x: 0.1, y: 0.8}
+  - {x: 0.85, y: 0.2}
+  - {x: 0.1, y: 0.2}
+  - {x: 0.85, y: 0.8}
   clickedSheep: {fileID: 0}
   hasWolfSpawned: 0
   guiPanel: {fileID: 1021698680}
@@ -2845,10 +2841,6 @@ Prefab:
     - target: {fileID: 4717642304012306, guid: 899b94ff67fd30b429a3563a7fe191ef, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1655267997277964, guid: 899b94ff67fd30b429a3563a7fe191ef, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 899b94ff67fd30b429a3563a7fe191ef, type: 2}
@@ -3253,10 +3245,6 @@ Prefab:
     - target: {fileID: 4243861464269102, guid: 365387fd00afb6047a95a5762154516c, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157463481034048, guid: 365387fd00afb6047a95a5762154516c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365387fd00afb6047a95a5762154516c, type: 2}
