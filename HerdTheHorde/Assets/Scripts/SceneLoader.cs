@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
 		pprogScript.levelProgress = 1;
 		if (GameObject.Find("_player") != null) Destroy(GameObject.Find("_player"));
 
-		SceneManager.LoadScene("Title", LoadSceneMode.Single);
+		SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
     }
 
     public void ExitGame()

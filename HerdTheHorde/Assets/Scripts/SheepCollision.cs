@@ -45,7 +45,9 @@ public class SheepCollision : MonoBehaviour {
         {
             if (isCollidingEnter) return;
 
-            if (sheepScript.race == colGameObject.tag)// || sheepScript.race == "all")
+            //this is a duct tape solution; if collision happens with another sheep and is not pen-restricted only
+            //it causes a functionality bug for rainbaah "race: all" - and this temp bandage only makes the bug occur more rarely
+            if (sheepScript.race == colGameObject.tag || sheepScript.race == "all" && colGameObject.tag != "sheep")
 			{
                 Debug.Log("Right Pen");
                 
