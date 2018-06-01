@@ -85,6 +85,7 @@ public class Draggable : MonoBehaviour {
 			dragSens = sheepScript.dragSensitivity;
 
 			isMouseUp = false;
+            canDrag = true;
 			sheepScript.SheepBulge();
 			followingCursor = true;
 

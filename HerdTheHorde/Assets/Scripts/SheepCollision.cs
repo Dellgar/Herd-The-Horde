@@ -45,7 +45,7 @@ public class SheepCollision : MonoBehaviour {
         {
             if (isCollidingEnter) return;
 
-			if(sheepScript.race == colGameObject.tag || sheepScript.race == "all")
+            if (sheepScript.race == colGameObject.tag)// || sheepScript.race == "all")
 			{
                 Debug.Log("Right Pen");
                 
