@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &39160148
 Light:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!124 &288931026
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1147,9 +1147,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1734723094}
   - component: {fileID: 1734723093}
-  - component: {fileID: 1734723095}
   m_Layer: 0
-  m_Name: _empty
+  m_Name: _loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1179,21 +1178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1734723095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1734723092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b0bc592ff80e3428fa68d0c661c1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleAudio: {fileID: 0}
-  overworldAudio: {fileID: 0}
-  level1Audio: {fileID: 0}
-  scnIndex: 0
 --- !u!1 &1944447757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1255,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734723095}
+      - m_Target: {fileID: 0}
         m_MethodName: MuteAudio
         m_Mode: 1
         m_Arguments:
@@ -1338,7 +1322,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1361,7 +1345,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1734723093}
-        m_MethodName: TitleMenu
+        m_MethodName: UnloadOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

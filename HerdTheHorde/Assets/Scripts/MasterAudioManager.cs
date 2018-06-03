@@ -14,6 +14,11 @@ public class MasterAudioManager : MonoBehaviour {
 	public AudioClip titleAudio;
 	public AudioClip overworldAudio;
 	public AudioClip level1Audio;
+	public AudioClip level2Audio;
+	public AudioClip level3Audio;
+	public AudioClip levelEndlessAudio;
+
+
 
 	public int scnIndex;
 
@@ -47,9 +52,27 @@ public class MasterAudioManager : MonoBehaviour {
 			music.Play();
 		}
 
-		if (scnIndex >= 8)
+		if (scnIndex == 8)
+		{
+			music.clip = levelEndlessAudio;
+			music.Play();
+		}
+
+		if (scnIndex == 9 || scnIndex == 12)
 		{
 			music.clip = level1Audio;
+			music.Play();
+		}
+
+		if (scnIndex == 10)
+		{
+			music.clip = level2Audio;
+			music.Play();
+		}
+
+		if (scnIndex == 11 || scnIndex == 13)
+		{
+			music.clip = level3Audio;
 			music.Play();
 		}
 	}

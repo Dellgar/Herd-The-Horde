@@ -15,6 +15,7 @@ TagManager:
   - sheepmon
   - sheep
   - pink
+  - intro
   layers:
   - Default
   - TransparentFX

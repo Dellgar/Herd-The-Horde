@@ -59,7 +59,13 @@ public class IntroScreen : MonoBehaviour {
         yield return new WaitForSeconds(fadeDuration / 7);
 
         SceneLoader sceneLoader = GetComponent<SceneLoader>();
-        sceneLoader.LoadOverworld();
+		GameObject[] introObjects = GameObject.FindGameObjectsWithTag("intro");
+		for (int i = 0; i < introObjects.Length; i++)
+		{
+			introObjects[i].SetActive(false);
+		}
+
+		sceneLoader.LoadOverworld_AfterIntro();
         yield return null;
     }
 

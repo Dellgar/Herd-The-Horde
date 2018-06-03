@@ -48,6 +48,8 @@ public class Wolf : MonoBehaviour {
 	
 	void CheckTargetLists()
 	{
+		gmScript.CleanRiplist();
+
 		Debug.Log("Getting lunch-waypoints from riplist");
 
 		foreach (var obj in gmScript.deadSheepList)

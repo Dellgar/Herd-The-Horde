@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -152,17 +152,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4803633411276618, guid: f36163c62f7c99442bc49ac4db35d0fb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803633411276618, guid: f36163c62f7c99442bc49ac4db35d0fb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252725554314416, guid: f36163c62f7c99442bc49ac4db35d0fb, type: 2}
+    - target: {fileID: 1421070641844416, guid: f36163c62f7c99442bc49ac4db35d0fb, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f36163c62f7c99442bc49ac4db35d0fb, type: 2}
@@ -1196,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &751016689
 Light:
   m_ObjectHideFlags: 0
@@ -1612,16 +1604,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1791779595}
-    - target: {fileID: 114551319328304192, guid: 616ac0271ef3c5141b1452c4e91800e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1791779598}
-    - target: {fileID: 114436312864271932, guid: 616ac0271ef3c5141b1452c4e91800e8,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1791779598}
     - target: {fileID: 114336551698501162, guid: 616ac0271ef3c5141b1452c4e91800e8,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1652,6 +1634,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1791779597}
+    - target: {fileID: 114436312864271932, guid: 616ac0271ef3c5141b1452c4e91800e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1791779598}
+    - target: {fileID: 114551319328304192, guid: 616ac0271ef3c5141b1452c4e91800e8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1791779598}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 616ac0271ef3c5141b1452c4e91800e8, type: 2}
   m_IsPrefabParent: 0
@@ -2167,6 +2159,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3507f839dc7dc74b9e980bddbae8432, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1334696931 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1189539889867052, guid: f36163c62f7c99442bc49ac4db35d0fb,
+    type: 2}
+  m_PrefabInternal: {fileID: 34727515}
+--- !u!114 &1334696932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334696931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8168abb26d4a24984b31ac84f1c5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefabs:
+  - {fileID: 1655267997277964, guid: 899b94ff67fd30b429a3563a7fe191ef, type: 2}
+  spawnPoint:
+  - {x: 0, y: 0, z: 0}
+  spawnerReady: 0
+  spawningInterval: 5
 --- !u!1001 &1339471190
 Prefab:
   m_ObjectHideFlags: 0
@@ -2265,7 +2279,6 @@ GameObject:
   - component: {fileID: 1418074665}
   - component: {fileID: 1418074664}
   - component: {fileID: 1418074663}
-  - component: {fileID: 1418074662}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2273,13 +2286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1418074662
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1418074661}
-  m_Enabled: 1
 --- !u!124 &1418074663
 Behaviour:
   m_ObjectHideFlags: 0

@@ -130,6 +130,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+	public void CleanRiplist()
+	{
+		if (deadSheepList.Contains(null))
+		{
+			deadSheepList.RemoveAll(GameObject => GameObject == null);
+		}
+	}
+
+
     public void SheepOnCursor(GameObject cursorSheep)
     {
         clickedSheep = cursorSheep;

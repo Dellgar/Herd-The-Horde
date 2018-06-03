@@ -46,7 +46,22 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene(myScene.name);
     }
 
-    public void LoadIntro()
+	public void UnloadOptions()
+	{
+		SceneManager.UnloadSceneAsync("Options");
+	}
+
+	public void UnloadGallery()
+	{
+		SceneManager.UnloadSceneAsync("Gallery");
+	}
+
+	public void UnloadCredits()
+	{
+		SceneManager.UnloadSceneAsync("Credits");
+	}
+
+	public void LoadIntro()
     {
 		StartCoroutine("LoadIntroScene");
     }
@@ -56,6 +71,14 @@ public class SceneLoader : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene("Intro", LoadSceneMode.Single);
 		yield return null;
+	}
+
+	public void LoadOverworld_AfterIntro()
+	{
+		SceneManager.LoadScene("Overworld", LoadSceneMode.Additive);
+		SceneManager.UnloadSceneAsync("Intro");
+
+
 	}
 
 	public void LoadOverworld()
@@ -81,7 +104,7 @@ public class SceneLoader : MonoBehaviour
 
 	public void Credits()
 	{
-		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+		SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
 	}
 
     public void Options()
