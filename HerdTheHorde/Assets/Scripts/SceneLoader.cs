@@ -63,13 +63,16 @@ public class SceneLoader : MonoBehaviour
 
 	public void LoadIntro()
     {
-		StartCoroutine("LoadIntroScene");
+		Invoke("LoadIntroScene", 1f);
     }
 
 	IEnumerator LoadIntroScene()
 	{
-		yield return new WaitForSeconds(1f);
+		//yield return new WaitForSeconds(1f);
+		Debug.Log("fuu");
 		SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+		Debug.Log("faa");
+
 		yield return null;
 	}
 

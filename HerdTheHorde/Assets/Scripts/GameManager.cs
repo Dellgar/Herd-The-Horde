@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
                 gameState = result;
                 Time.timeScale = 0;
 
-                guiPanel.gameObject.SetActive(false);
+				guiPanel.gameObject.SetActive(false);
                 successPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(true);
 
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
                 gameState = result;
                 Time.timeScale = 0;
 
-                guiPanel.gameObject.SetActive(false);
+				guiPanel.gameObject.SetActive(false);
                 gameoverPanel.gameObject.SetActive(true);
                 statisticsPanel.gameObject.SetActive(true);
 

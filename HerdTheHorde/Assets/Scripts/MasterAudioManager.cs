@@ -37,47 +37,51 @@ public class MasterAudioManager : MonoBehaviour {
 
 		DontDestroyOnLoad(this.gameObject);
 
+		if (!music.isPlaying) music.Play();
+
 	}
+
 	private void OnLevelWasLoaded(int scnIndex)
 	{
 		if (music == null ) music = GetComponent<AudioSource>();
 
-		if (scnIndex >= 0 && scnIndex <= 4)
+		if (scnIndex >= 0 && scnIndex <= 3)
 		{
+			AudioListener.pause = false;
 			music.clip = titleAudio;
             music.volume = 0.4f;
             music.Play();
 		}
 
-        if (scnIndex >= 5 && scnIndex <= 7)
+        if (scnIndex >= 4 && scnIndex <= 6)
 		{
 			music.clip = overworldAudio;
             music.volume = 0.3f;
             music.Play();
 		}
 
-		if (scnIndex == 8)
+		if (scnIndex == 7)
 		{
 			music.clip = levelEndlessAudio;
             music.volume = 0.5f;
             music.Play();
 		}
 
-		if (scnIndex == 9 || scnIndex == 12)
+		if (scnIndex == 8 || scnIndex == 11)
 		{
 			music.clip = level1Audio;
             music.volume = 0.3f;
             music.Play();
 		}
 
-		if (scnIndex == 10)
+		if (scnIndex == 9)
 		{
 			music.clip = level2Audio;
             music.volume = 0.35f;
             music.Play();
 		}
 
-		if (scnIndex == 11 || scnIndex == 13)
+		if (scnIndex == 10 || scnIndex == 12)
 		{
 			music.clip = level3Audio;
             music.volume = 0.5f;
