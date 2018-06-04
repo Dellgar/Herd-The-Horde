@@ -40,6 +40,8 @@ public class MasterAudioManager : MonoBehaviour {
 	}
 	private void OnLevelWasLoaded(int scnIndex)
 	{
+		if (music == null ) music = GetComponent<AudioSource>();
+
 		if (scnIndex >= 0 && scnIndex <= 4)
 		{
 			music.clip = titleAudio;
@@ -79,6 +81,7 @@ public class MasterAudioManager : MonoBehaviour {
 	private void FixedUpdate()
 	{
 		scnIndex = SceneManager.GetActiveScene().buildIndex;
+		if (!music.isPlaying) music.Play();
 	}
 
 	public void MuteAudio()
