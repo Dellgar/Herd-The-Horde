@@ -107,6 +107,11 @@ public class SceneLoader : MonoBehaviour
 		SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
 	}
 
+    public void CreditsSingle()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
+
     public void Options()
     {
         SceneManager.LoadScene("Options", LoadSceneMode.Additive);
