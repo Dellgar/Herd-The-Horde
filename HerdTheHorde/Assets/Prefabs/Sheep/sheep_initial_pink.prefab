@@ -416,8 +416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolfTimer: 0
-  wolfTimerMin: 9
-  wolfTimerMax: 12
+  wolfTimerMin: 8
+  wolfTimerMax: 8
   timeSinceInit: 0
   isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}

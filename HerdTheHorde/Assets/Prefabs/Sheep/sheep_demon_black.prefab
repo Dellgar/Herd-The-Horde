@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolfTimer: 0
-  wolfTimerMin: 7
+  wolfTimerMin: 8
   wolfTimerMax: 11
   timeSinceInit: 0
   isDeathTimerRunning: 0
@@ -432,10 +432,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   race: black
   type: sheepmon
-  speed: 5
+  speed: 4
   movingTime: 1
-  idleTime: 0.5
-  dragSensitivity: 0.5
+  idleTime: 0.9
+  dragSensitivity: 0.6
   scoreValue: 10
 --- !u!114 &114870566877418762
 MonoBehaviour:

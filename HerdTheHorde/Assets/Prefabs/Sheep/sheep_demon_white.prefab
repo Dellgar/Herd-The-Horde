@@ -374,10 +374,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   race: white
   type: sheepmon
-  speed: 5
+  speed: 4
   movingTime: 1
-  idleTime: 0.5
-  dragSensitivity: 0.5
+  idleTime: 0.9
+  dragSensitivity: 0.6
   scoreValue: 10
 --- !u!114 &114609145638290464
 MonoBehaviour:
@@ -458,8 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolfTimer: 0
-  wolfTimerMin: 99
-  wolfTimerMax: 999
+  wolfTimerMin: 8
+  wolfTimerMax: 11
   timeSinceInit: 0
   isDeathTimerRunning: 0
   wolfPrefab: {fileID: 1773877326271794, guid: c77a3e6788fc1d9498677fa71dcd334e, type: 2}
