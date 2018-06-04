@@ -45,37 +45,43 @@ public class MasterAudioManager : MonoBehaviour {
 		if (scnIndex >= 0 && scnIndex <= 4)
 		{
 			music.clip = titleAudio;
-			music.Play();
+            music.volume = 0.4f;
+            music.Play();
 		}
 
         if (scnIndex >= 5 && scnIndex <= 7)
 		{
 			music.clip = overworldAudio;
-			music.Play();
+            music.volume = 0.3f;
+            music.Play();
 		}
 
 		if (scnIndex == 8)
 		{
 			music.clip = levelEndlessAudio;
-			music.Play();
+            music.volume = 0.5f;
+            music.Play();
 		}
 
 		if (scnIndex == 9 || scnIndex == 12)
 		{
 			music.clip = level1Audio;
-			music.Play();
+            music.volume = 0.3f;
+            music.Play();
 		}
 
 		if (scnIndex == 10)
 		{
 			music.clip = level2Audio;
-			music.Play();
+            music.volume = 0.35f;
+            music.Play();
 		}
 
 		if (scnIndex == 11 || scnIndex == 13)
 		{
 			music.clip = level3Audio;
-			music.Play();
+            music.volume = 0.5f;
+            music.Play();
 		}
 	}
 	private void FixedUpdate()
