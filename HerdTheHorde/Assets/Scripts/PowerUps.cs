@@ -17,11 +17,14 @@ public class PowerUps : MonoBehaviour {
     public float timeBaahmbValue;
     public float timeBaahmbDuration;
 	public GameObject TimeActiveIcon;
+    public GameObject HourglassSpin;
 
-	[Header("Dog")]
+
+    [Header("Dog")]
 	public bool isActiveDoggy;
 	public float DogDuration;
 	public GameObject DogActiveIcon;
+    public GameObject DogWoofing;
 
 
 
@@ -46,16 +49,20 @@ public class PowerUps : MonoBehaviour {
 		isActiveTimeBaahmb = true;
 
 		Time.timeScale = timeBaahmbValue;
-		TimeActiveIcon.SetActive(true);
-		powerUpBtns[0].interactable = false;
 
+        HourglassSpin.SetActive(true);
+        TimeActiveIcon.SetActive(true);
+
+		powerUpBtns[0].interactable = false;
 
 		yield return new WaitForSeconds(timeBaahmbDuration);
 
 		Time.timeScale = 1f;
-		TimeActiveIcon.SetActive(false);
-		powerUpBtns[0].interactable = true;
 
+		TimeActiveIcon.SetActive(false);
+
+        HourglassSpin.SetActive(false);
+        powerUpBtns[0].interactable = true;
 
 		yield return null;
 	}
@@ -65,15 +72,20 @@ public class PowerUps : MonoBehaviour {
 		isActiveDoggy = true;
 
 		gmScript.hasWolfSpawned = true;
+
+        DogWoofing.SetActive(true);
 		DogActiveIcon.SetActive(true);
-		powerUpBtns[1].interactable = false;
+
+        powerUpBtns[1].interactable = false;
 
 		yield return new WaitForSeconds(DogDuration);
 
 		gmScript.hasWolfSpawned = false;
-		DogActiveIcon.SetActive(false);
-		powerUpBtns[1].interactable = true;
 
+        DogWoofing.SetActive(false);
+        DogActiveIcon.SetActive(false);
+
+        powerUpBtns[1].interactable = true;
 
 		yield return null;
 	}

@@ -1982,6 +1982,16 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1099405867}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1099405884 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1146463589366166, guid: 616ac0271ef3c5141b1452c4e91800e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1099405867}
+--- !u!1 &1099405885 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1868779674643392, guid: 616ac0271ef3c5141b1452c4e91800e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1099405867}
 --- !u!1001 &1125346557
 Prefab:
   m_ObjectHideFlags: 0
@@ -2899,11 +2909,13 @@ MonoBehaviour:
   - {fileID: 1099405882}
   isActiveTimeBaahmb: 0
   timeBaahmbValue: 0.364
-  timeBaahmbDuration: 1.5
+  timeBaahmbDuration: 4
   TimeActiveIcon: {fileID: 1099405881}
+  HourglassSpin: {fileID: 1099405885}
   isActiveDoggy: 0
-  DogDuration: 1
+  DogDuration: 5
   DogActiveIcon: {fileID: 1099405880}
+  DogWoofing: {fileID: 1099405884}
 --- !u!1001 &1802882278
 Prefab:
   m_ObjectHideFlags: 0
