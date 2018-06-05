@@ -7,16 +7,6 @@ public class TitleFunc : MonoBehaviour {
 	public GameObject titlePanel;
 	public GameObject titleLogo;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void ShowTitlePanel()
 	{
 		titleLogo.SetActive(false);

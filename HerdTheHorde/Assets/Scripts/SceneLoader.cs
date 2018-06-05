@@ -32,7 +32,9 @@ public class SceneLoader : MonoBehaviour
 		pprogScript.levelProgress = 1;
 		if (GameObject.Find("_player") != null) Destroy(GameObject.Find("_player"));
 
-		SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
+        AudioListener.pause = false;
+
+        SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
     }
 
     public void ExitGame()
@@ -63,25 +65,14 @@ public class SceneLoader : MonoBehaviour
 
 	public void LoadIntro()
     {
-		Invoke("LoadIntroScene", 1f);
+        SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+
     }
-
-	IEnumerator LoadIntroScene()
-	{
-		//yield return new WaitForSeconds(1f);
-		Debug.Log("fuu");
-		SceneManager.LoadScene("Intro", LoadSceneMode.Single);
-		Debug.Log("faa");
-
-		yield return null;
-	}
 
 	public void LoadOverworld_AfterIntro()
 	{
 		SceneManager.LoadScene("Overworld", LoadSceneMode.Additive);
 		SceneManager.UnloadSceneAsync("Intro");
-
-
 	}
 
 	public void LoadOverworld()
@@ -126,6 +117,8 @@ public class SceneLoader : MonoBehaviour
     }
     public void TitleMenu()
     {
+        AudioListener.pause = false;
+
         SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
     }
 
@@ -149,13 +142,5 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Level_05", LoadSceneMode.Single);
     }
-
-
-
-
-
-
-
-
 
 }
