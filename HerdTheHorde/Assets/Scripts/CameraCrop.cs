@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraCrop : MonoBehaviour
 {
-
+	/*
 	// Set this to your target aspect ratio, eg. (16, 9) or (4, 3).
 	private Vector2 targetAspect = new Vector2(4, 3);
 	Camera _camera;
@@ -43,4 +43,7 @@ public class CameraCrop : MonoBehaviour
 			_camera.rect = new Rect(0, barThickness, 1, normalizedHeight);
 		}
 	}
+	*/
+
+
 }
